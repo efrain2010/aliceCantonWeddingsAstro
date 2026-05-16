@@ -51,9 +51,10 @@ describe('translations structural parity', () => {
     }
   });
 
-  it('home service items, testimonials arrays are the same length', () => {
+  it('home service items, testimonials, categories arrays are the same length', () => {
     expect(en.pages.home.services.items.length).toBe(es.pages.home.services.items.length);
     expect(en.pages.home.testimonials.items.length).toBe(es.pages.home.testimonials.items.length);
+    expect(en.pages.home.categories.length).toBe(es.pages.home.categories.length);
   });
 
   it('about values items, process steps arrays are the same length', () => {
