@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../Hero.astro';
+import VenueCard from '../VenueCard.astro';
+import SectionCTA from '../SectionCTA.astro';
+import { getLang, useTranslations } from '../../i18n/index';
+
+const lang = getLang(Astro.url.pathname);
+const t = useTranslations(lang);
+const p = t.pages.venues;
+---
+
+<Layout title={p.meta.title} description={p.meta.description}>
+
+  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="medium" />
+
+  <!-- Intro -->
+  <section class="py-16 bg-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-gold text-xs uppercase tracking-widest mb-4">{p.intro.label}</p>
+      <h2 class="font-serif text-4xl text-charcoal mb-6">{p.intro.title}</h2>
+      <p class="text-gray-600 leading-relaxed">{p.intro.body}</p>
+    </div>
+  </section>
+
+  <!-- Venues -->
+  <section class="bg-cream">
+    {p.items.map(v => <VenueCard {...v} />)}
+  </section>
+
+  <SectionCTA />
+</Layout>

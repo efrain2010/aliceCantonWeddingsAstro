@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../Hero.astro';
+import SectionCTA from '../SectionCTA.astro';
+import { getLang, useTranslations } from '../../i18n/index';
+
+const lang = getLang(Astro.url.pathname);
+const t = useTranslations(lang);
+const p = t.pages.services;
+---
+
+<Layout title={p.meta.title} description={p.meta.description}>
+
+  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="small" />
+
+  <!-- Services detail -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 space-y-16">
+      {p.items.map((s, i) => (
+        <div class={`flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-0 bg-white shadow-sm overflow-hidden`}>
+          <div class="md:w-2/5 flex-shrink-0 flex items-center justify-center p-12 min-h-[280px]"
+            style="background: linear-gradient(135deg, #2C2C2C 0%, #3d2e22 100%);">
+            <div class="text-center">
+              <div class="text-gold text-5xl mb-4">{s.icon}</div>
+              <h2 class="font-serif text-2xl text-white">{s.title}</h2>
+            </div>
+          </div>
+          <div class="md:w-3/5 p-10 md:p-12">
+            <p class="text-gray-600 leading-relaxed mb-8">{s.description}</p>
+            <ul class="space-y-2">
+              {s.details.map(d => (
+                <li class="flex items-start gap-3 text-sm text-gray-600">
+                  <span class="text-gold mt-0.5 flex-shrink-0">✦</span>
+                  {d}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.values.label}</p>
+        <h2 class="font-serif text-4xl text-charcoal">{p.values.title}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {p.values.items.map(v => (
+          <div class="text-center p-8 bg-cream">
+            <div class="text-gold text-3xl mb-4">{v.icon}</div>
+            <h3 class="font-serif text-lg text-charcoal mb-3">{v.label}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SectionCTA />
+</Layout>

@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../Hero.astro';
+import ServiceCard from '../ServiceCard.astro';
+import TestimonialCard from '../TestimonialCard.astro';
+import SectionCTA from '../SectionCTA.astro';
+import { getLang, routes, useTranslations } from '../../i18n/index';
+
+const lang = getLang(Astro.url.pathname);
+const t = useTranslations(lang);
+const p = t.pages.home;
+const r = routes[lang];
+---
+
+<Layout title={p.meta.title} description={p.meta.description}>
+
+  <Hero
+    title={p.hero.title}
+    subtitle={p.hero.subtitle}
+    cta={{ label: p.hero.cta, href: r.contact }}
+    height="full"
+  />
+
+  <!-- Services -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.services.label}</p>
+        <h2 class="font-serif text-4xl text-charcoal">{p.services.title}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {p.services.items.map(s => <ServiceCard {...s} href={r.services} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.history.label}</p>
+      <h2 class="font-serif text-4xl text-charcoal mb-8">{p.history.title}</h2>
+      <p class="text-gray-600 leading-relaxed text-lg mb-6">
+        {p.history.body1} <em class="text-charcoal">{p.history.quote}</em>
+      </p>
+      <p class="text-gray-600 leading-relaxed">{p.history.body2}</p>
+      <a href={r.about} class="inline-block mt-8 text-xs uppercase tracking-widest text-gold border-b border-gold pb-0.5 hover:text-charcoal hover:border-charcoal transition-colors">
+        {p.history.link}
+      </a>
+    </div>
+  </section>
+
+  <!-- Gallery preview -->
+  <section class="py-20 bg-charcoal">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.portfolio.label}</p>
+        <h2 class="font-serif text-4xl text-white">{p.portfolio.title}</h2>
+        <p class="text-gray-400 mt-4">{p.portfolio.subtitle}</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[1,2,3,4,5,6].map(i => (
+          <a href={r.gallery} class="block overflow-hidden group">
+            <div
+              class="h-48 md:h-64 transition-transform duration-500 group-hover:scale-105"
+              style={`background: linear-gradient(${135 + i * 20}deg, #3d2e22, #C9A96E${Math.floor(50 + i * 15).toString(16)});`}
+            />
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href={r.gallery} class="inline-block px-10 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300 uppercase tracking-widest text-xs">
+          {p.portfolio.cta}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-rose/30">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.testimonials.label}</p>
+        <h2 class="font-serif text-4xl text-charcoal">{p.testimonials.title}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {p.testimonials.items.map(item => <TestimonialCard {...item} />)}
+      </div>
+    </div>
+  </section>
+
+  <SectionCTA />
+</Layout>

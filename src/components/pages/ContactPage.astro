@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../Hero.astro';
+import ContactForm from '../ContactForm.astro';
+import { getLang, useTranslations } from '../../i18n/index';
+
+const lang = getLang(Astro.url.pathname);
+const t = useTranslations(lang);
+const p = t.pages.contact;
+---
+
+<Layout title={p.meta.title} description={p.meta.description}>
+
+  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="small" />
+
+  <!-- Contact info + form -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+
+        <!-- Info -->
+        <div class="md:col-span-2 space-y-8">
+          <div>
+            <p class="text-gold text-xs uppercase tracking-widest mb-6">{p.labels.findUs}</p>
+            <div class="space-y-5">
+              <div class="flex gap-4 items-start">
+                <div class="text-gold text-xl flex-shrink-0 mt-0.5">📞</div>
+                <div>
+                  <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">{p.labels.phone}</p>
+                  <a href="tel:9992928921" class="text-charcoal font-medium hover:text-gold transition-colors">999 292 8921</a>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="text-gold text-xl flex-shrink-0 mt-0.5">✉️</div>
+                <div>
+                  <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">{p.labels.email}</p>
+                  <a href="mailto:alicecantonweddings@gmail.com" class="text-charcoal font-medium hover:text-gold transition-colors break-all">
+                    alicecantonweddings@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="text-gold text-xl flex-shrink-0 mt-0.5">📍</div>
+                <div>
+                  <p class="text-xs uppercase tracking-widest text-gray-400 mb-1">{p.labels.address}</p>
+                  <p class="text-charcoal font-medium leading-relaxed">
+                    Calle 59D #253 x 122 y 124c,<br />
+                    Yucalpetén, Mérida, Yucatán
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <p class="text-xs uppercase tracking-widest text-gray-400 mb-4">{p.labels.social}</p>
+            <div class="flex gap-4">
+              <a href="https://facebook.com/Alice-Canton-Weddings-Events" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 text-charcoal hover:text-gold transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                </svg>
+                Facebook
+              </a>
+              <a href="https://instagram.com/alicecantonweddings" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 text-charcoal hover:text-gold transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="md:col-span-3">
+          <p class="text-gold text-xs uppercase tracking-widest mb-6">{p.labels.writeUs}</p>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.faq.label}</p>
+        <h2 class="font-serif text-4xl text-charcoal">{p.faq.title}</h2>
+      </div>
+      <div class="space-y-6">
+        {p.faq.items.map(faq => (
+          <details class="group bg-cream p-6 cursor-pointer">
+            <summary class="list-none flex justify-between items-center font-medium text-charcoal hover:text-gold transition-colors">
+              {faq.q}
+              <span class="text-gold text-xl group-open:rotate-45 transition-transform duration-300 flex-shrink-0 ml-4">+</span>
+            </summary>
+            <p class="text-gray-600 text-sm leading-relaxed mt-4 pt-4 border-t border-rose">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../Hero.astro';
+import SectionCTA from '../SectionCTA.astro';
+import { getLang, routes, useTranslations } from '../../i18n/index';
+
+const lang = getLang(Astro.url.pathname);
+const t = useTranslations(lang);
+const p = t.pages.about;
+const r = routes[lang];
+---
+
+<Layout title={p.meta.title} description={p.meta.description}>
+
+  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="small" />
+
+  <!-- Alice bio -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-2/5 flex-shrink-0">
+          <div class="w-full h-80 md:h-96" style="background: linear-gradient(135deg, #E8D5C4 0%, #C9A96E55 100%);">
+            <div class="w-full h-full flex items-center justify-center">
+              <span class="font-serif text-3xl text-charcoal/30">Alice Cantón</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-3/5">
+          <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.founder.role}</p>
+          <h2 class="font-serif text-4xl text-charcoal mb-6">Alice Cantón</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">{p.founder.bio}</p>
+          <blockquote class="border-l-4 border-gold pl-6 my-6 italic text-charcoal text-lg leading-relaxed">
+            {p.founder.quote}
+          </blockquote>
+          <p class="text-gray-600 leading-relaxed">{p.founder.note}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="font-serif text-4xl text-charcoal">{p.values.title}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {p.values.items.map(item => (
+          <div class="bg-white p-8 shadow-sm border-t-2 border-gold">
+            <h3 class="font-serif text-xl text-charcoal mb-4">{item.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.process.label}</p>
+        <h2 class="font-serif text-4xl text-charcoal">{p.process.title}</h2>
+      </div>
+      <div class="space-y-8">
+        {p.process.steps.map(step => (
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-14 h-14 border-2 border-gold flex items-center justify-center">
+              <span class="font-serif text-gold text-sm font-semibold">{step.num}</span>
+            </div>
+            <div class="pt-2">
+              <h3 class="font-serif text-xl text-charcoal mb-2">{step.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Venues teaser -->
+  <section class="py-20 bg-charcoal text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.venues.label}</p>
+      <h2 class="font-serif text-4xl text-white mb-6">{p.venues.title}</h2>
+      <p class="text-gray-400 leading-relaxed mb-10">{p.venues.body}</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {p.venues.buttons.map(loc => (
+          <a href={r.venues} class="px-6 py-2 border border-gold text-gold text-xs uppercase tracking-widest hover:bg-gold hover:text-white transition-all duration-300">
+            {loc}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SectionCTA />
+</Layout>
