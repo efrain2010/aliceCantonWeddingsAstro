@@ -7,204 +7,241 @@ const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.home;
 const r = routes[lang];
-
-const categoryBgs = [
-  'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=640&q=80',
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=640&q=80',
-  'https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=640&q=80',
-  'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?auto=format&fit=crop&w=640&q=80',
-];
-
-const portfolioGrads = [
-  'linear-gradient(135deg,#2c1810,#5a3828)',
-  'linear-gradient(135deg,#1a2818,#3d5233)',
-  'linear-gradient(135deg,#28201a,#4a3828)',
-  'linear-gradient(135deg,#1e1e2e,#3d3a50)',
-  'linear-gradient(135deg,#2a1a10,#6b3d28)',
-  'linear-gradient(135deg,#18201a,#385040)',
-  'linear-gradient(135deg,#281818,#503828)',
-  'linear-gradient(135deg,#1a1820,#3d3050)',
-  'linear-gradient(135deg,#201a18,#4a3830)',
-];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
 
-  <!-- ① HERO: full-screen photo + circular monogram badge -->
-  <section class="relative min-h-screen overflow-hidden -mt-[73px]">
-    <div
-      class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80'), linear-gradient(to bottom, #1a1008, #2a1e12);"
-    />
+  <!-- ① HERO: Full-width beach image with circular "A" logo overlay -->
+  <section class="relative min-h-screen w-full overflow-hidden -mt-[80px] pt-[80px] bg-cover bg-center bg-fixed"
+    style="background-image: url('/images/boda-ciudad.jpg');"
+  >
+    <!-- Dark overlay for readability -->
     <div class="absolute inset-0 bg-black/40" />
-    <div class="relative z-10 flex items-center justify-center min-h-screen">
+
+    <!-- Centered circular logo -->
+    <div class="relative z-10 h-full flex items-center justify-center">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" class="w-64 h-64 md:w-80 md:h-80" aria-label="Alice Cantón Weddings & Events">
         <defs>
-          <path id="ring-es" d="M150,15 A135,135 0 1,1 149.9,15" />
+          <path id="ring-es" d="M150,15 A135,135 0 1,1 149.9,15" fill="none" />
         </defs>
-        <circle cx="150" cy="150" r="140" stroke="rgba(201,169,110,0.45)" stroke-width="0.8" fill="none"/>
-        <circle cx="150" cy="150" r="126" stroke="rgba(201,169,110,0.25)" stroke-width="0.5" fill="none"/>
-        <text fill="rgba(201,169,110,0.85)" font-size="11" font-family="Lato, sans-serif" letter-spacing="11" font-weight="300">
-          <textPath href="#ring-es" startOffset="1%">WEDDINGS &amp; EVENTS · WEDDINGS &amp; EVENTS ·</textPath>
+        <!-- Concentric circles -->
+        <circle cx="150" cy="150" r="140" stroke="rgba(229, 170, 69, 0.5)" stroke-width="1" fill="none"/>
+        <circle cx="150" cy="150" r="120" stroke="rgba(229, 170, 69, 0.3)" stroke-width="0.5" fill="none"/>
+        <!-- Curved text around circumference -->
+        <text fill="rgba(229, 170, 69, 0.8)" font-size="12" font-family="'Playfair Display', serif" letter-spacing="6" font-weight="400">
+          <textPath href="#ring-es" startOffset="0%" text-anchor="start">WEDDINGS &amp; EVENTS · WEDDINGS &amp; EVENTS ·</textPath>
         </text>
-        <text x="150" y="180" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="92" fill="rgba(201,169,110,0.92)" font-style="italic" font-weight="400">AC</text>
+        <!-- Center monogram -->
+        <text x="150" y="175" text-anchor="middle" font-family="'Playfair Display', serif" font-size="88" fill="rgba(229, 170, 69, 0.95)" font-weight="400" font-style="italic">AC</text>
       </svg>
     </div>
   </section>
 
-  <!-- ② INTRO: image left + text right -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      <div
-        class="h-80 md:h-[420px] bg-cover bg-center"
-        style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80'), linear-gradient(135deg,#e8d5c4,#faf7f2);"
-      />
-      <div>
-        <h2 class="font-serif text-4xl text-charcoal mb-6" style="font-variant: small-caps;">{p.intro.title}</h2>
-        <p class="text-gray-600 leading-relaxed" set:html={p.intro.body.replace('Wedding Planner', '<strong>Wedding Planner</strong>')} />
+  <!-- ② INTRO: Value proposition text + 4 category cards -->
+  <section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Intro heading and text -->
+      <div class="mb-16 text-center md:text-left">
+        <h1 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
+          {p.intro.title}
+        </h1>
+        <p class="text-body-gray text-lg leading-relaxed max-w-3xl mx-auto md:mx-0">
+          {p.intro.body}
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ③ CATEGORIES: 4-photo strip -->
-  <div class="grid grid-cols-2 md:grid-cols-4">
-    {p.categories.map((cat, i) => (
-      <div class="relative h-56 overflow-hidden group">
-        <div
-          class="absolute inset-0 bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-700"
-          style={`background-image: url('${categoryBgs[i]}'), linear-gradient(135deg,#3d2e22,#5a4a3a);`}
-        />
-        <div class="absolute inset-0 bg-black/40" />
+  <!-- ③ CATEGORIES: 4-column grid of keyword cards -->
+  <div class="grid grid-cols-2 md:grid-cols-4 w-full">
+    {p.categories.map((cat) => (
+      <div class="relative h-56 overflow-hidden group bg-gradient-to-br from-gray-700 to-gray-900">
+        <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
         <div class="absolute inset-0 flex items-center justify-center">
-          <span class="font-serif text-2xl text-white" style="font-variant: small-caps; letter-spacing: 0.1em;">{cat.label}</span>
+          <span class="font-serif text-2xl text-white uppercase tracking-widest text-center px-4">
+            {cat.label}
+          </span>
         </div>
       </div>
     ))}
   </div>
 
-  <!-- ④ NUESTROS SERVICIOS: 3-col with icons -->
-  <section class="py-20 bg-white">
+  <!-- ④ SERVICES: Three service cards with descriptions -->
+  <section class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-serif text-4xl text-center text-charcoal mb-16" style="font-variant: small-caps;">{p.services.title}</h2>
+      <h2 class="font-serif text-4xl md:text-5xl text-heading-gray text-center mb-16 uppercase tracking-wide">
+        {p.services.title}
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {p.services.items.map((s) => (
+        {p.services.items.map((service) => (
           <div class="text-center">
-            <div class="text-gold text-3xl mb-5">{s.icon}</div>
-            <h3 class="font-serif text-xl text-charcoal mb-5" style="font-variant: small-caps;">{s.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{s.description}</p>
+            <h3 class="font-serif text-2xl text-heading-gray mb-6 uppercase tracking-wide">
+              {service.title}
+            </h3>
+            <p class="text-body-gray text-base leading-relaxed">
+              {service.description}
+            </p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ⑤ NUESTRA HISTORIA: text left + photo right -->
-  <section class="py-20 bg-white">
+  <!-- ⑤ STORY: "Nuestra Historia" with text and bouquet image -->
+  <section class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div class="text-center">
-          <h2 class="font-serif text-4xl text-charcoal" style="font-variant: small-caps;">{p.history.title}</h2>
-          <p class="text-charcoal text-sm tracking-[0.2em] uppercase mt-2">{p.history.subtitle}</p>
-          <div class="text-gold text-2xl my-5" aria-hidden="true">♛</div>
-          <p class="text-gray-500 text-sm leading-loose italic mb-6 max-w-sm mx-auto">{p.history.body1}</p>
-          <p class="text-gray-500 text-sm leading-loose mb-8 max-w-sm mx-auto">{p.history.body2}</p>
+        <!-- Text column (left) -->
+        <div>
+          <h2 class="font-serif text-4xl md:text-5xl text-heading-gray mb-4 uppercase tracking-wide">
+            {p.history.title}
+          </h2>
+          <p class="font-serif text-sm text-heading-gray uppercase tracking-widest mb-8">
+            {p.history.subtitle}
+          </p>
+          <div class="text-accent-gold text-3xl my-6" aria-hidden="true">◆</div>
+          <p class="text-body-gray text-base leading-relaxed mb-6">
+            {p.history.body1}
+          </p>
+          <p class="text-body-gray text-base leading-relaxed mb-8">
+            {p.history.body2}
+          </p>
           <a
             href={r.contact}
-            class="inline-block bg-forest text-white px-8 py-3 font-serif hover:brightness-90 transition"
-            style="font-variant: small-caps; letter-spacing: 0.05em;"
+            class="inline-block bg-button-dark text-white px-8 py-3 font-serif uppercase tracking-widest text-sm hover:opacity-90 transition-opacity"
           >
             {p.history.cta}
           </a>
         </div>
-        <div
-          class="hidden md:block h-[500px] bg-cover bg-center"
-          style="background-image: url('https://images.unsplash.com/photo-1494955870682-cf96b89e6d5c?auto=format&fit=crop&w=800&q=80'), linear-gradient(135deg,#e8d5c4,#faf7f2);"
-        />
+
+        <!-- Image column (right) -->
+        <div class="hidden md:block">
+          <img
+            src="/images/wedding-bouquet-pakbnhh.jpg"
+            alt="Wedding bouquet"
+            class="w-full h-auto object-cover"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ⑥ QUOTE: Harry met Sally -->
-  <section class="py-16 bg-white text-center">
+  <!-- ⑥ QUOTE SECTION: "Mi Trabajo" with large quote -->
+  <section class="bg-teal-bg py-20 text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <blockquote class="font-serif text-2xl md:text-3xl text-gold leading-snug" style="font-variant: small-caps; text-transform: uppercase;">
-        {p.quote.text}
+      <h2 class="font-serif text-4xl md:text-5xl text-white mb-12 uppercase tracking-wide">
+        {p.portfolio.title}
+      </h2>
+      <blockquote class="font-serif text-3xl md:text-4xl text-accent-gold mb-8 leading-relaxed uppercase">
+        "{p.quote.text}"
       </blockquote>
-      <p class="mt-6 text-charcoal font-serif" style="font-variant: small-caps;">{p.quote.attribution}</p>
+      <p class="font-serif text-lg text-white/90 uppercase tracking-widest">
+        {p.quote.attribution}
+      </p>
     </div>
   </section>
 
-  <!-- ⑦ MI TRABAJO: dark-green panel + photo grid -->
-  <section>
-    <div class="grid grid-cols-1 md:grid-cols-4">
-      <div class="bg-forest text-white flex flex-col justify-center items-center px-8 py-14 min-h-48">
-        <h2 class="font-serif text-2xl" style="font-variant: small-caps;">{p.portfolio.title}</h2>
-        <p class="font-serif mt-3 text-white/80" style="font-variant: small-caps;">{p.portfolio.subtitle}</p>
-        <div class="mt-4 text-white/50 text-xl" aria-hidden="true">🌹</div>
+  <!-- ⑦ PORTFOLIO GALLERY: Grid of wedding images -->
+  <section class="bg-gray-900 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-64 md:auto-rows-80">
+        <!-- Sample portfolio images from manifest -->
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/img-10.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/img-13.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/11866446-1055970124415858-485634197070961453-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/12042744-677267902410858-182616168831263564-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/21766380-1682893168411606-8935133582193004569-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/22045605-1682895238411399-7185113022696085452-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/26114160-10155866400061278-369103440261741743-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/26231465-10155865148386278-3104021065434766057-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-2 md:col-span-2 row-span-1 overflow-hidden group">
+          <img src="/images/hg1a5445-1024x683.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/48397507-1055284681317792-3700600962478505984-o-1024x648.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="col-span-1 row-span-1 overflow-hidden group">
+          <img src="/images/dsc00641-1024x674.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
       </div>
-      <div class="md:col-span-3 grid grid-cols-3 gap-px bg-gray-200">
-        {portfolioGrads.map((bg) => (
-          <a href={r.gallery} class="block overflow-hidden group">
-            <div
-              class="h-40 md:h-52 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-              style={`background: ${bg};`}
-            />
-          </a>
+    </div>
+  </section>
+
+  <!-- ⑧ TESTIMONIALS QUOTE BAND -->
+  <section class="bg-teal-bg py-16 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <blockquote class="font-serif text-3xl md:text-4xl text-white mb-6 leading-relaxed italic">
+        {p.quoteBand.text}
+      </blockquote>
+      <p class="font-serif text-lg text-white/90 uppercase tracking-widest">
+        {p.quoteBand.attribution}
+      </p>
+    </div>
+  </section>
+
+  <!-- ⑨ TESTIMONIALS: Review cards with client feedback -->
+  <section class="relative bg-cover bg-center bg-fixed py-24" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1487530811015-780bed7f6ee3?auto=format&fit=crop&w=1600&q=80');">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {p.testimonials.items.map((item) => (
+          <div class="bg-white/95 p-8">
+            <p class="text-body-gray text-base leading-relaxed mb-8 italic">
+              "{item.quote}"
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-accent-gold to-rose flex-shrink-0 overflow-hidden">
+                <div class="w-full h-full bg-accent-gold/20" />
+              </div>
+              <div>
+                <p class="text-heading-gray text-sm uppercase font-serif tracking-wide">
+                  {item.author}
+                </p>
+                <p class="text-body-gray text-xs">
+                  {item.year}
+                </p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ⑧ QUOTE BAND: dark green -->
-  <section class="bg-forest py-16 text-center">
+  <!-- ⑩ CTA BAND: Special day quote -->
+  <section class="bg-teal-bg py-16 text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="font-serif text-3xl md:text-4xl text-white leading-snug" style="font-variant: small-caps; text-transform: uppercase;">
-        {p.quoteBand.text}
-      </h2>
-      <p class="font-serif italic text-white/75 mt-6 text-lg">{p.quoteBand.attribution}</p>
-    </div>
-  </section>
-
-  <!-- ⑨ TESTIMONIALS: blurred floral background, 3 cards -->
-  <section class="relative py-24">
-    <div
-      class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('https://images.unsplash.com/photo-1487530811015-780bed7f6ee3?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg,#1a2a1a,#3d5a3d);"
-    />
-    <div class="absolute inset-0 bg-black/25" />
-    <div class="relative max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-      {p.testimonials.items.map(item => (
-        <div class="bg-white/90 p-6 flex flex-col relative">
-          <p class="text-gray-600 text-sm leading-relaxed flex-1">{item.quote}</p>
-          <div class="mt-6 flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-rose flex-shrink-0 overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-rose to-gold/30" />
-            </div>
-            <div>
-              <p class="text-xs uppercase tracking-widest text-charcoal font-bold">{item.author}</p>
-              <p class="text-xs text-gray-400 mt-0.5">{item.year}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ⑩ CTA BAND: dark green -->
-  <section class="bg-forest py-14 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="font-serif text-3xl md:text-4xl text-white leading-snug" style="font-variant: small-caps; text-transform: uppercase;">
+      <h2 class="font-serif text-3xl md:text-4xl text-white uppercase tracking-wide leading-relaxed">
         {p.ctaBand.text}
       </h2>
     </div>
   </section>
 
-  <!-- ⑪ PLATIQUEMOS: text + contact form -->
-  <section class="py-20 bg-white">
+  <!-- ⑪ CONTACT SECTION: "Platiquemos" with form -->
+  <section class="bg-cream py-20">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       <div>
-        <h2 class="font-serif text-4xl text-charcoal mb-4" style="font-variant: small-caps;">{p.homeContact.title}</h2>
-        <p class="text-gray-600 leading-relaxed">{p.homeContact.body}</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
+          {p.homeContact.title}
+        </h2>
+        <p class="text-body-gray text-lg leading-relaxed">
+          {p.homeContact.body}
+        </p>
       </div>
       <ContactForm />
     </div>
