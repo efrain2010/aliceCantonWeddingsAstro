@@ -1,31 +1,123 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../Hero.astro';
-import VenueCard from '../VenueCard.astro';
 import SectionCTA from '../SectionCTA.astro';
 import { getLang, useTranslations } from '../../i18n/index';
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.venues;
+const content = {
+  es: {
+    increiblasImage: '/images/boda-playa-1024x576.jpg',
+    celebracionesImage: '/images/guests-smartphones-bride-1024x584.jpg',
+    sectionTitleBg: 'charcoal',
+    venueCategories: [
+      {
+        title: 'Haciendas en Yucatán',
+        description: 'Viaja a través del tiempo y realiza tu boda en una de las majestuosas haciendas que se encuentran en Yucatán. Un lugar mágico y lleno de historia que convertirá tu gran día en un cuento de hadas.',
+      },
+      {
+        title: 'Playas Yucatecas',
+        description: '¿Amas la playa y sueñas con tu boda frente al mar?. La costa Yucateca cuenta con playas hermosas y diferentes opciones para realizar ahí tu enlace. Elige la que más te guste para ser la sede de tu gran día y manos a la obra.',
+      },
+      {
+        title: 'Cenotes en Yucatán',
+        description: 'Cenote (del maya dzonoot: \'hoyo con agua\'). Una maravilla de la naturaleza única en el mundo y tú podrías realizar tu boda en este mágico lugar. Los cenotes son lugares sagrados donde los mayas realizaban sus rituales y ceremonias. Una boda en este cenote espectacular haría tu gran día algo más que especial.',
+      },
+      {
+        title: 'Laguna de los 7 colores, Bacalar, QRoo',
+        description: 'El nombre de Bacalar viene del maya "Sian Ka\'an Bakhalal", la cual quiere decir "lugar donde nace el cielo". Imagina casarte en este paraíso. Bacalar es un pueblito con un encanto sin igual, la laguna de los 7 colores toma su nombre de las diferentes tonalidades que tiene debido a los 3 cenotes que se encuentran dentro de ella. Un regalo de la naturaleza que puede ser testigo de tu gran día.',
+      },
+    ],
+  },
+  en: {
+    increiblasImage: '/images/boda-playa-1024x576.jpg',
+    celebracionesImage: '/images/guests-smartphones-bride-1024x584.jpg',
+    sectionTitleBg: 'charcoal',
+    venueCategories: [
+      {
+        title: 'Haciendas in Yucatán',
+        description: 'Travel through time and celebrate your wedding at one of the majestic haciendas in Yucatán. A magical place full of history that will turn your special day into a fairy tale.',
+      },
+      {
+        title: 'Yucatecan Beaches',
+        description: 'Do you love the beach and dream of your wedding by the sea? The Yucatán coast has beautiful beaches and different options to celebrate your wedding there. Choose the one you like best to be the setting for your special day and let\'s make it happen.',
+      },
+      {
+        title: 'Cenotes in Yucatán',
+        description: 'Cenote (from Mayan dzonoot: "water hole"). A unique wonder of nature in the world and you could celebrate your wedding in this magical place. Cenotes are sacred places where the Maya performed rituals and ceremonies. A wedding at this spectacular cenote would make your special day something truly extraordinary.',
+      },
+      {
+        title: 'Laguna de los 7 Colores, Bacalar, QRoo',
+        description: 'The name Bacalar comes from the Maya "Sian Ka\'an Bakhalal", which means "place where the sky is born". Imagine getting married in this paradise. Bacalar is a charming little town with incomparable charm, and the Laguna de los 7 Colores takes its name from the different color variations it has due to the 3 cenotes within it. A gift from nature that can witness your special day.',
+      },
+    ],
+  },
+}[lang];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
 
-  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="medium" />
+  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="full" imageSrc="/images/foxglove-spires-path-PYQPXBU-1.jpg" />
 
-  <!-- Intro -->
-  <section class="py-16 bg-white text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-gold text-xs uppercase tracking-widest mb-4">{p.intro.label}</p>
-      <h2 class="font-serif text-4xl text-charcoal mb-6">{p.intro.title}</h2>
-      <p class="text-gray-600 leading-relaxed">{p.intro.body}</p>
+  <!-- Two-column intro section with images -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left column: image + text -->
+        <div>
+          <img src={content.increiblasImage} alt="Locaciones Increíbles" class="w-full h-auto mb-8 object-cover" />
+          <h2 class="font-serif text-4xl text-charcoal mb-6">
+            {lang === 'es' ? 'Locaciones Increíbles' : 'Amazing Venues'}
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            {lang === 'es'
+              ? 'Conoce las locaciones del estado de Yucatán, podemos organizar el mejor día de tu vida en haciendas, playas y lugares con los que solo has soñado. Agenda una cita y conoce salones de eventos impresionantes, haciendas antiguas y playas increíbles.'
+              : 'Get to know the venues in the state of Yucatán. We can organize the best day of your life in haciendas, beaches and places you\'ve only dreamed of. Schedule an appointment and discover impressive event halls, ancient haciendas and incredible beaches.'}
+          </p>
+        </div>
+
+        <!-- Right column: image + text -->
+        <div>
+          <img src={content.celebracionesImage} alt="Celebraciones Inolvidables" class="w-full h-auto mb-8 object-cover" />
+          <h2 class="font-serif text-4xl text-charcoal mb-6">
+            {lang === 'es' ? 'Celebraciones Inolvidables' : 'Unforgettable Celebrations'}
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            {lang === 'es'
+              ? 'Dejanos ayudarte con la planeación de tu evento, te asesoramos para tener la mejor experiencia aún si ya has elegido un lugar. Haciendas, playas, cenotes, el lugar que desees nosotros te ayudamos a volverlo increíble.'
+              : 'Let us help you plan your event. We advise you to have the best experience even if you\'ve already chosen a location. Haciendas, beaches, cenotes—whatever location you choose, we\'ll help you make it incredible.'}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Venues -->
-  <section class="bg-cream">
-    {p.items.map(v => <VenueCard {...v} />)}
+  <!-- Venue categories section -->
+  <section class="bg-white py-20">
+    <!-- Section title band -->
+    <div class="bg-charcoal text-white py-24 mb-20 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-serif text-6xl md:text-7xl">
+          {lang === 'es' ? 'Locaciones en Mérida Yucatán' : 'Venues in Mérida Yucatán'}
+        </h1>
+      </div>
+    </div>
+
+    <!-- Venue categories -->
+    <div class="max-w-6xl mx-auto px-6">
+      {content.venueCategories.map((category) => (
+        <div class="mb-24">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-5xl text-charcoal mb-8">{category.title}</h2>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              {category.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 
   <SectionCTA />

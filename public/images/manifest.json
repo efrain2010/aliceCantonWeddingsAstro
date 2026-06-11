@@ -71,6 +71,18 @@
     "description": "Urban wedding venue image - full resolution hero background",
     "section": "hero"
   },
+  "boda-playa-1024x576.jpg": {
+    "description": "Beach wedding venue image - responsive medium size for venues page",
+    "section": "venues"
+  },
+  "foxglove-spires-path-PYQPXBU-1.jpg": {
+    "description": "Floral pathway hero image for venues page",
+    "section": "venues"
+  },
+  "guests-smartphones-bride-1024x584.jpg": {
+    "description": "Guests with smartphones photographing bride - celebrations image",
+    "section": "venues"
+  },
   "dsc00641-1024x674.jpg": {
     "description": "Wedding gallery image - photographer credits - artistic venue shot",
     "section": "gallery"
