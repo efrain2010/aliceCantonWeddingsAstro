@@ -15,6 +15,7 @@
   --color-teal-bg: #6C7878;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Lato', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
 }
 
 @layer base {
