@@ -1,0 +1,150 @@
+{
+  "11866446-1055970124415858-485634197070961453-n.jpg": {
+    "description": "Wedding gallery image - couple portrait with floral arrangements",
+    "section": "gallery"
+  },
+  "12042744-677267902410858-182616168831263564-n.jpg": {
+    "description": "Wedding gallery image - bride and groom celebration photo",
+    "section": "gallery"
+  },
+  "21766380-1682893168411606-8935133582193004569-n.jpg": {
+    "description": "Wedding gallery image - romantic couple moment",
+    "section": "gallery"
+  },
+  "22045605-1682895238411399-7185113022696085452-n.jpg": {
+    "description": "Wedding gallery image - bride in white dress detail shot",
+    "section": "gallery"
+  },
+  "26114160-10155866400061278-369103440261741743-n.jpg": {
+    "description": "Wedding gallery image - ceremony or reception moment",
+    "section": "gallery"
+  },
+  "26231465-10155865148386278-3104021065434766057-n.jpg": {
+    "description": "Wedding gallery image - outdoor wedding scene",
+    "section": "gallery"
+  },
+  "48059233-1055284081317852-5632184094931550208-o-1-1024x597.jpg": {
+    "description": "Wedding venue or reception setup image",
+    "section": "venues"
+  },
+  "48194719-1055283917984535-516330673288511488-o-1024x660.jpg": {
+    "description": "Wedding gallery image - couple first dance or celebration",
+    "section": "gallery"
+  },
+  "48244230-1056587157856808-6144760103514931200-o-1024x682.jpg": {
+    "description": "Wedding gallery image - large group or reception moment",
+    "section": "gallery"
+  },
+  "48397507-1055284681317792-3700600962478505984-o-1024x648.jpg": {
+    "description": "Wedding gallery image - couple portrait or ceremony",
+    "section": "gallery"
+  },
+  "alice-canto-cc-81n-logotipo-02-blanco-300x87.png": {
+    "description": "Alice Cantón logo - responsive medium size variant",
+    "section": "header-footer"
+  },
+  "alice-canto-cc-81n-logotipo-02-blanco-768x223.png": {
+    "description": "Alice Cantón logo - responsive tablet size variant",
+    "section": "header-footer"
+  },
+  "alice-canto-cc-81n-logotipo-02-blanco.png": {
+    "description": "Alice Cantón logo - full size white version",
+    "section": "header-footer"
+  },
+  "avatar-3.jpg": {
+    "description": "Testimonial avatar image - generic profile picture",
+    "section": "testimonials"
+  },
+  "boda-ciudad-1024x576.jpg": {
+    "description": "Urban wedding venue image - responsive medium size",
+    "section": "hero"
+  },
+  "boda-ciudad-300x169.jpg": {
+    "description": "Urban wedding venue image - responsive small size thumbnail",
+    "section": "hero"
+  },
+  "boda-ciudad-768x432.jpg": {
+    "description": "Urban wedding venue image - responsive tablet size",
+    "section": "hero"
+  },
+  "boda-ciudad.jpg": {
+    "description": "Urban wedding venue image - full resolution hero background",
+    "section": "hero"
+  },
+  "dsc00641-1024x674.jpg": {
+    "description": "Wedding gallery image - photographer credits - artistic venue shot",
+    "section": "gallery"
+  },
+  "dummy.png": {
+    "description": "Placeholder/fallback image file (substituted broken file)",
+    "section": "misc"
+  },
+  "hg1a5445-1024x683.jpg": {
+    "description": "Wedding gallery image - bride getting ready or detail shot",
+    "section": "gallery"
+  },
+  "icon-1.png": {
+    "description": "Service icon - wedding planning or consultation icon",
+    "section": "services"
+  },
+  "icon-11.png": {
+    "description": "Service or feature icon - small decorative icon",
+    "section": "services"
+  },
+  "icon-12.png": {
+    "description": "Event type icon - weddings icon for service listing",
+    "section": "services"
+  },
+  "icon-4.png": {
+    "description": "Service icon - venue or location related icon",
+    "section": "services"
+  },
+  "icon-5.png": {
+    "description": "Service icon - guest accommodation or logistics icon",
+    "section": "services"
+  },
+  "icon-close-white.svg": {
+    "description": "UI icon - close/exit button white vector icon",
+    "section": "navigation"
+  },
+  "icon-menu-white.png": {
+    "description": "UI icon - hamburger menu white icon for mobile navigation",
+    "section": "navigation"
+  },
+  "img-10.jpg": {
+    "description": "Wedding gallery image - pre-existing image file",
+    "section": "gallery"
+  },
+  "img-13.jpg": {
+    "description": "Wedding gallery image - pre-existing image file",
+    "section": "gallery"
+  },
+  "img-20181028-115340-999-623x1024.jpg": {
+    "description": "Wedding gallery image - bride portrait or dress detail",
+    "section": "gallery"
+  },
+  "martha-sergio-1-150x150.jpg": {
+    "description": "Testimonial avatar image - client portrait thumbnail",
+    "section": "testimonials"
+  },
+  "parallax-2.jpg": {
+    "description": "Wedding gallery image - pre-existing image file for parallax effect",
+    "section": "gallery"
+  },
+  "wedding-bouquet-pakbnhh-220x300.jpg": {
+    "description": "Wedding bouquet image - responsive small size",
+    "section": "gallery"
+  },
+  "wedding-bouquet-pakbnhh.jpg": {
+    "description": "Wedding bouquet detail image - full resolution artistic shot",
+    "section": "gallery"
+  },
+  "wedding-planner-alice-canton-logotipo.png": {
+    "description": "Wedding planner branding logo image",
+    "section": "header-footer"
+  },
+  "yarene-sergio-150x150.jpg": {
+    "description": "Testimonial avatar image - client portrait thumbnail",
+    "section": "testimonials"
+  }
+}
