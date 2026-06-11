@@ -7,6 +7,12 @@
   --color-charcoal: #2C2C2C;
   --color-rose: #E8D5C4;
   --color-forest: #4B6858;
+  --color-heading-gray: #6C6975;
+  --color-body-gray: #A4A4A4;
+  --color-accent-gold: #E5AA45;
+  --color-nav-gray: #A3A3A3;
+  --color-button-dark: #333333;
+  --color-teal-bg: #6C7878;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Lato', system-ui, sans-serif;
 }
