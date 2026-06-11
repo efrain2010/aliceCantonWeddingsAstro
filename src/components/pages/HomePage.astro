@@ -9,31 +9,22 @@ const p = t.pages.home;
 const r = routes[lang];
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout title={p.meta.title} description={p.meta.description} heroOverlay={true}>
 
-  <!-- ① HERO: Full-width beach image with circular "A" logo overlay -->
+  <!-- ① HERO: Full-width beach image with circular badge logo overlay -->
   <section class="relative min-h-screen w-full overflow-hidden -mt-[80px] pt-[80px] bg-cover bg-center bg-fixed"
-    style="background-image: url('/images/boda-ciudad.jpg');"
+    style="background-image: url('/images/hero-beach.png');"
   >
     <!-- Dark overlay for readability -->
     <div class="absolute inset-0 bg-black/40" />
 
-    <!-- Centered circular logo -->
-    <div class="relative z-10 h-full flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" class="w-64 h-64 md:w-80 md:h-80" aria-label="Alice Cantón Weddings & Events">
-        <defs>
-          <path id="ring-es" d="M150,15 A135,135 0 1,1 149.9,15" fill="none" />
-        </defs>
-        <!-- Concentric circles -->
-        <circle cx="150" cy="150" r="140" stroke="rgba(229, 170, 69, 0.5)" stroke-width="1" fill="none"/>
-        <circle cx="150" cy="150" r="120" stroke="rgba(229, 170, 69, 0.3)" stroke-width="0.5" fill="none"/>
-        <!-- Curved text around circumference -->
-        <text fill="rgba(229, 170, 69, 0.8)" font-size="12" font-family="'Playfair Display', serif" letter-spacing="6" font-weight="400">
-          <textPath href="#ring-es" startOffset="0%" text-anchor="start">WEDDINGS &amp; EVENTS · WEDDINGS &amp; EVENTS ·</textPath>
-        </text>
-        <!-- Center monogram -->
-        <text x="150" y="175" text-anchor="middle" font-family="'Playfair Display', serif" font-size="88" fill="rgba(229, 170, 69, 0.95)" font-weight="400" font-style="italic">AC</text>
-      </svg>
+    <!-- Centered circular badge logo (real asset from brand) -->
+    <div class="absolute inset-0 z-10 flex items-center justify-center">
+      <img
+        src="/images/logo-badge.png"
+        alt="Alice Cantón Weddings & Events"
+        class="w-72 h-72 md:w-96 md:h-96 object-contain"
+      />
     </div>
   </section>
 
@@ -196,7 +187,7 @@ const r = routes[lang];
   </section>
 
   <!-- ⑨ TESTIMONIALS: Review cards with client feedback -->
-  <section class="relative bg-cover bg-center bg-fixed py-24" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1487530811015-780bed7f6ee3?auto=format&fit=crop&w=1600&q=80');">
+  <section class="relative bg-cover bg-center bg-fixed py-24" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {p.testimonials.items.map((item) => (

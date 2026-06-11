@@ -26,13 +26,12 @@ const navItems = [
 
 <header class={heroOverlay ? 'absolute top-0 inset-x-0 z-50 bg-gradient-to-b from-black/45 to-transparent' : 'bg-white shadow-sm sticky top-0 z-50'}>
   <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href={r.home} class="flex flex-col items-start group leading-none">
-      <span class={`font-serif italic text-2xl tracking-wide group-hover:text-gold transition-colors ${heroOverlay ? 'text-white' : 'text-charcoal'}`}>
-        {t.header.logoText}
-      </span>
-      <span class={`text-[9px] tracking-[0.28em] uppercase font-light mt-0.5 ${heroOverlay ? 'text-white/70' : 'text-gray-400'}`}>
-        Weddings &amp; Events
-      </span>
+    <a href={r.home} class="flex items-center group">
+      <img
+        src="/images/wedding-planner-alice-canton-logotipo.png"
+        alt={`${t.header.logoText} — Weddings & Events`}
+        class="h-12 w-auto object-contain"
+      />
     </a>
 
     <!-- Desktop nav -->
