@@ -1,6 +1,11 @@
 ---
 import { translations, routes, getLang, getPageKey, type Lang, type PageKey } from '../i18n/index';
 
+interface Props {
+  heroOverlay?: boolean;
+}
+const { heroOverlay = false } = Astro.props;
+
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const lang: Lang = getLang(Astro.url.pathname);
 const pageKey: PageKey = getPageKey(Astro.url.pathname);
@@ -19,13 +24,13 @@ const navItems = [
 ];
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
+<header class={heroOverlay ? 'absolute top-0 inset-x-0 z-50 bg-gradient-to-b from-black/45 to-transparent' : 'bg-white shadow-sm sticky top-0 z-50'}>
   <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href={r.home} class="flex flex-col items-start group leading-none">
-      <span class="font-serif italic text-2xl text-charcoal tracking-wide group-hover:text-gold transition-colors">
+      <span class={`font-serif italic text-2xl tracking-wide group-hover:text-gold transition-colors ${heroOverlay ? 'text-white' : 'text-charcoal'}`}>
         {t.header.logoText}
       </span>
-      <span class="text-[9px] tracking-[0.28em] text-gray-400 uppercase font-light mt-0.5">
+      <span class={`text-[9px] tracking-[0.28em] uppercase font-light mt-0.5 ${heroOverlay ? 'text-white/70' : 'text-gray-400'}`}>
         Weddings &amp; Events
       </span>
     </a>
@@ -37,11 +42,11 @@ const navItems = [
           const isActive = pageKey === link.key;
           return (
             <li class="flex items-center">
-              {i > 0 && <span class="text-gray-300 mx-3 select-none" aria-hidden="true">|</span>}
+              {i > 0 && <span class={`mx-3 select-none ${heroOverlay ? 'text-white/40' : 'text-gray-300'}`} aria-hidden="true">|</span>}
               <a
                 href={link.href}
                 class={`text-xs uppercase tracking-widest transition-colors hover:text-gold ${
-                  isActive ? 'text-gold border-b border-gold pb-0.5' : 'text-charcoal'
+                  isActive ? 'text-gold border-b border-gold pb-0.5' : heroOverlay ? 'text-white' : 'text-charcoal'
                 }`}
               >
                 {link.label}
@@ -61,7 +66,7 @@ const navItems = [
     </div>
 
     <!-- Mobile hamburger -->
-    <button id="menu-toggle" class="md:hidden p-2 text-charcoal" aria-label={t.header.mobileMenuLabel}>
+    <button id="menu-toggle" class={`md:hidden p-2 ${heroOverlay ? 'text-white' : 'text-charcoal'}`} aria-label={t.header.mobileMenuLabel}>
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>

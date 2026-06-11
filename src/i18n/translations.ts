@@ -164,6 +164,13 @@ export const translations = {
             { num: '5', title: 'Disfruta tu día especial', desc: 'El día de la boda, nosotros nos encargamos de todo para que ustedes solo vivan el momento.' },
           ],
         },
+        contactBar: {
+          items: [
+            { label: 'Ciudad', value: 'Mérida' },
+            { label: 'Teléfono', value: '999 292 8921' },
+            { label: 'Correo Electrónico', value: 'planner@alicecantonweddings.com' },
+          ],
+        },
         venues: {
           label: 'Donde trabajamos',
           title: 'Locaciones Increíbles',
@@ -453,6 +460,13 @@ export const translations = {
             { num: '3', title: 'Choose your style', desc: 'We choose the color palette, ambiance, and details that will make your wedding unique.' },
             { num: '4', title: 'Wedding organization', desc: 'We coordinate vendors, timelines, venues, and every element of your event.' },
             { num: '5', title: 'Enjoy your special day', desc: 'On your wedding day, we handle everything so you can simply live the moment.' },
+          ],
+        },
+        contactBar: {
+          items: [
+            { label: 'City', value: 'Mérida' },
+            { label: 'Phone', value: '999 292 8921' },
+            { label: 'Email', value: 'planner@alicecantonweddings.com' },
           ],
         },
         venues: {

@@ -7,11 +7,13 @@ import { getLang } from '../i18n/index';
 interface Props {
   title: string;
   description?: string;
+  heroOverlay?: boolean;
 }
 
 const {
   title,
   description = 'Alice Cantón Wedding Planner en Mérida Yucatán — organización de bodas y eventos desde 2014.',
+  heroOverlay = false,
 } = Astro.props;
 
 const lang = getLang(Astro.url.pathname);
@@ -27,7 +29,7 @@ const lang = getLang(Astro.url.pathname);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
-    <Header />
+    <Header heroOverlay={heroOverlay} />
     <main>
       <slot />
     </main>

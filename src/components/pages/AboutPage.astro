@@ -8,20 +8,20 @@ const t = useTranslations(lang);
 const p = t.pages.about;
 const r = routes[lang];
 
-const stationeryImg = 'http://alicecantonweddings.com/wp-content/uploads/2016/10/img-10.jpg';
-const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/10/img-13.jpg';
+const img10 = '/images/img-10.jpg';
+const img13 = '/images/img-13.jpg';
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout title={p.meta.title} description={p.meta.description} heroOverlay={true}>
 
   <!-- ① HERO: full-height B&W photo + Great Vibes script title -->
-  <section class="relative min-h-screen overflow-hidden -mt-[73px]">
+  <section class="relative min-h-screen overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('https://alicecantonweddings.com/wp-content/uploads/2019/09/parallax-2.jpg'); filter: grayscale(100%);"
+      style="background-image: url('/images/parallax-2.jpg'); filter: grayscale(100%);"
     />
     <div class="absolute inset-0 bg-black/20" />
-    <div class="relative z-10 flex items-end min-h-screen px-16 md:px-24 pb-20">
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
       <h1
         class="text-white leading-none"
         style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
@@ -44,29 +44,27 @@ const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/1
   </section>
 
   <!-- ③ ALICE CANTON FOUNDER -->
-  <section class="grid grid-cols-1 md:grid-cols-2">
-    <!-- Left: text block (white bg) -->
-    <div class="flex flex-col justify-center px-10 md:px-16 py-16 bg-white text-center order-2 md:order-1">
-      <h2 class="font-serif text-2xl text-charcoal leading-tight" style="font-variant: small-caps;">Alice Cantón</h2>
-      <p class="font-serif text-base text-charcoal/70 mt-1" style="font-variant: small-caps;">Wedding Planner en Mérida Yucatán</p>
-      <p class="font-serif text-lg text-charcoal/70 mt-1" style="font-variant: small-caps;">{p.founder.role}</p>
-      <div class="text-gold text-2xl my-4" aria-hidden="true">♛</div>
-      <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.bio}</p>
-      <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.quote}</p>
-      <p class="text-gray-500 text-sm leading-relaxed">{p.founder.note}</p>
+  <section class="relative py-20 md:py-28">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${img13}');`} />
+    <div class="absolute inset-0 bg-black/10" />
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <div class="bg-white border border-gold/40 max-w-md px-8 md:px-10 py-12 text-center shadow-lg">
+        <h2 class="font-serif text-2xl text-charcoal leading-tight" style="font-variant: small-caps;">Alice Cantón</h2>
+        <p class="font-serif text-base text-charcoal/70 mt-1" style="font-variant: small-caps;">Wedding Planner en Mérida Yucatán</p>
+        <p class="font-serif text-lg text-charcoal/70 mt-1" style="font-variant: small-caps;">{p.founder.role}</p>
+        <div class="text-gold text-2xl my-4" aria-hidden="true">♛</div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.bio}</p>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.quote}</p>
+        <p class="text-gray-500 text-sm leading-relaxed">{p.founder.note}</p>
+      </div>
     </div>
-    <!-- Right: floral background photo -->
-    <div
-      class="min-h-[480px] md:min-h-[600px] bg-cover bg-center order-1 md:order-2"
-      style="background-image: url('http://alicecantonweddings.com/wp-content/uploads/2016/10/parallax-7.jpg');"
-    />
   </section>
 
   <!-- ④ MISIÓN: stationery image left, forest-green text right -->
   <section class="grid grid-cols-1 md:grid-cols-2">
     <div
       class="min-h-[420px] bg-cover bg-center"
-      style={`background-image: url('${stationeryImg}');`}
+      style={`background-image: url('${img10}');`}
     />
     <div class="bg-forest flex flex-col justify-center px-10 md:px-14 py-16">
       <h2 class="font-serif text-3xl md:text-4xl text-white mb-3" style="font-variant: small-caps;">{p.values.items[1].title}</h2>
@@ -75,7 +73,7 @@ const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/1
     </div>
   </section>
 
-  <!-- ⑤ VISIÓN: forest-green text left, stationery image right -->
+  <!-- ⑤ VISIÓN: forest-green text left, image right -->
   <section class="grid grid-cols-1 md:grid-cols-2">
     <div class="bg-forest flex flex-col justify-center px-10 md:px-14 py-16">
       <h2 class="font-serif text-3xl md:text-4xl text-white mb-3" style="font-variant: small-caps;">{p.values.items[0].title}</h2>
@@ -84,7 +82,7 @@ const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/1
     </div>
     <div
       class="min-h-[420px] bg-cover bg-center"
-      style={`background-image: url('${stationeryImg}');`}
+      style={`background-image: url('${img13}');`}
     />
   </section>
 
@@ -110,7 +108,7 @@ const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/1
     <div class="grid grid-cols-1 md:grid-cols-2">
       <div
         class="min-h-[420px] bg-cover bg-center hidden md:block"
-        style={`background-image: url('${stationeryImg}');`}
+        style={`background-image: url('${img10}');`}
       />
       <div class="flex flex-col justify-center px-10 md:px-16 py-12 bg-white">
         <div class="flex flex-col gap-0 max-w-xs mx-auto w-full">
@@ -136,14 +134,26 @@ const stationeryImg2 = 'http://alicecantonweddings.com/wp-content/uploads/2016/1
   <section class="relative py-20">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('http://alicecantonweddings.com/wp-content/uploads/2016/10/parallax-1.jpg');"
+      style="background-image: url('/images/parallax-2.jpg');"
     />
     <div class="absolute inset-0 bg-black/30" />
-    <div class="relative z-10 max-w-2xl mx-auto px-6">
+    <div class="relative z-10 max-w-xl mx-auto px-6">
       <div class="bg-white px-8 py-10 md:px-12">
-        <h2 class="font-serif text-3xl text-charcoal mb-2 text-center" style="font-variant: small-caps;">{t.cta.title}</h2>
-        <ContactForm />
+        <h2 class="font-serif text-3xl text-charcoal mb-6 text-center" style="font-variant: small-caps;">{t.cta.title}</h2>
+        <ContactForm singleColumn={true} showDate={false} bare={true} submitLabel={lang === 'es' ? 'Enviar' : 'Send'} />
       </div>
+    </div>
+  </section>
+
+  <!-- ⑨ GOLD CONTACT BAR -->
+  <section class="bg-gold text-white">
+    <div class="max-w-5xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-white/30">
+      {p.contactBar.items.map(item => (
+        <div class="py-4 md:py-0 px-6">
+          <h3 class="font-serif text-lg mb-1" style="font-variant: small-caps;">{item.label}</h3>
+          <p class="text-white/90 text-sm">{item.value}</p>
+        </div>
+      ))}
     </div>
   </section>
 
