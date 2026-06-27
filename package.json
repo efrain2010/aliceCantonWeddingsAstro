@@ -10,7 +10,9 @@
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "eslint": "eslint src/**/*.{js,astro}",
+    "eslint:fix": "eslint src/**/*.{js,astro} --fix"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -19,8 +21,12 @@
     ]
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.9",
     "@tailwindcss/vite": "^4.1.6",
+    "@typescript-eslint/parser": "^8.62.0",
     "astro": "^5.7.10",
+    "eslint": "^10.6.0",
+    "eslint-plugin-astro": "^2.1.1",
     "prettier": "3.9.0",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",

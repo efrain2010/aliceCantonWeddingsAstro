@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 const p = t.pages.gallery;
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage
     heroImage="/images/guests-smartphones-bride-1024x584.jpg"
     title={p.hero.title}
@@ -36,10 +36,10 @@ const p = t.pages.gallery;
         p.photos.map((photo) => (
           <div class="group break-inside-avoid overflow-hidden">
             <img
-              src={photo.src}
               alt={photo.alt}
-              loading="lazy"
               class="block w-full transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              src={photo.src}
             />
           </div>
         ))
@@ -60,15 +60,15 @@ const p = t.pages.gallery;
     >
       <span
         >{p.cta.phoneLabel}: <a
-          href={`tel:${p.cta.phone.replace(/\s/g, "")}`}
-          class="hover:underline">{p.cta.phone}</a
+          class="hover:underline"
+          href={`tel:${p.cta.phone.replace(/\s/g, "")}`}>{p.cta.phone}</a
         ></span
       >
-      <span class="hidden text-white/40 md:inline" aria-hidden="true">|</span>
+      <span aria-hidden="true" class="hidden text-white/40 md:inline">|</span>
       <span
         >{p.cta.emailLabel}: <a
-          href={`mailto:${p.cta.email}`}
-          class="hover:underline">{p.cta.email}</a
+          class="hover:underline"
+          href={`mailto:${p.cta.email}`}>{p.cta.email}</a
         ></span
       >
     </div>

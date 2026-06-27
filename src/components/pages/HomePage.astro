@@ -41,16 +41,16 @@ const testimonialAvatars = [
 ];
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
-  <HeroImage heroImage="/images/hero-beach.png" fixImage disableGreyscale>
+<Layout description={p.meta.description} title={p.meta.title}>
+  <HeroImage disableGreyscale fixImage heroImage="/images/hero-beach.png">
     <div class="absolute inset-0 bg-black/40"></div>
 
     <!-- Centered circular badge logo (real asset from brand) -->
     <div class="absolute inset-0 z-10 flex items-center justify-center">
       <img
-        src="/images/logo-badge.png"
         alt="Alice Cantón Weddings & Events"
         class="h-72 w-72 object-contain md:h-96 md:w-96"
+        src="/images/logo-badge.png"
       />
     </div>
   </HeroImage>
@@ -62,9 +62,9 @@ const testimonialAvatars = [
         <!-- Image (left) -->
         <div>
           <img
-            src="/images/boda-ciudad-1024x576.jpg"
             alt="Boda en Mérida Yucatán"
             class="h-auto w-full object-cover"
+            src="/images/boda-ciudad-1024x576.jpg"
           />
         </div>
         <!-- Intro heading and text (right) -->
@@ -143,8 +143,8 @@ const testimonialAvatars = [
             {p.history.subtitle}
           </p>
           <div
-            class="text-accent-gold my-6 text-center text-3xl"
             aria-hidden="true"
+            class="text-accent-gold my-6 text-center text-3xl"
           >
             ◆
           </div>
@@ -155,8 +155,8 @@ const testimonialAvatars = [
             {p.history.body2}
           </p>
           <a
-            href={r.contact}
             class="bg-button-dark inline-block px-8 py-3 font-serif text-sm tracking-widest text-white uppercase transition-opacity hover:opacity-90"
+            href={r.contact}
           >
             {p.history.cta}
           </a>
@@ -165,9 +165,9 @@ const testimonialAvatars = [
         <!-- Image column (right) -->
         <div class="hidden md:block">
           <img
-            src="/images/wedding-bouquet-pakbnhh.jpg"
             alt="Wedding bouquet"
             class="h-auto w-full object-cover"
+            src="/images/wedding-bouquet-pakbnhh.jpg"
           />
         </div>
       </div>
@@ -197,10 +197,10 @@ const testimonialAvatars = [
         portfolioImages.map((src) => (
           <div class="group break-inside-avoid overflow-hidden">
             <img
-              src={src}
               alt="Wedding portfolio"
-              loading="lazy"
               class="block w-full transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              src={src}
             />
           </div>
         ))
@@ -238,9 +238,9 @@ const testimonialAvatars = [
               <div class="flex items-center gap-4">
                 <div class="h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
                   <img
-                    src={testimonialAvatars[i]}
                     alt={item.author}
                     class="h-full w-full object-cover"
+                    src={testimonialAvatars[i]}
                   />
                 </div>
                 <div>

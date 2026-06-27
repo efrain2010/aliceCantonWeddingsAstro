@@ -88,7 +88,7 @@ const content = {
 }[lang];
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage
     heroImage="/images/foxglove-spires-path-PYQPXBU-1.jpg"
     title={heroTitle}
@@ -100,9 +100,9 @@ const content = {
       <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
         <div>
           <img
-            src={content.increiblasImage}
             alt={content.increiblasTitle}
             class="mb-7 h-auto w-full object-cover"
+            src={content.increiblasImage}
           />
           <h2
             class="text-charcoal mb-5 font-serif text-3xl md:text-4xl"
@@ -114,9 +114,9 @@ const content = {
         </div>
         <div>
           <img
-            src={content.celebracionesImage}
             alt={content.celebracionesTitle}
             class="mb-7 h-auto w-full object-cover"
+            src={content.celebracionesImage}
           />
           <h2
             class="text-charcoal mb-5 font-serif text-3xl md:text-4xl"
@@ -164,10 +164,10 @@ const content = {
             {categoryImages[ci].map((src) => (
               <div class="group aspect-square overflow-hidden">
                 <img
-                  src={src}
                   alt={category.title}
-                  loading="lazy"
                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  src={src}
                 />
               </div>
             ))}

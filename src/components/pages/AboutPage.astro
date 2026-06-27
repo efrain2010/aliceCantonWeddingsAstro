@@ -13,11 +13,11 @@ const img10 = "/images/img-10.jpg";
 const img13 = "/images/img-13.jpg";
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage
+    className="bg-position-[100%_top]"
     heroImage="/images/parallax-2.jpg"
     title={p.hero.title}
-    className="bg-position-[100%_top]"
   />
 
   <!-- ② QUERIDOS NOVIOS -->
@@ -73,7 +73,7 @@ const img13 = "/images/img-13.jpg";
           >
             {p.founder.role}
           </p>
-          <div class="text-gold my-4 text-2xl" aria-hidden="true">♛</div>
+          <div aria-hidden="true" class="text-gold my-4 text-2xl">♛</div>
           <p class="mb-4 text-sm leading-relaxed text-gray-500">
             {p.founder.bio}
           </p>
@@ -87,13 +87,14 @@ const img13 = "/images/img-13.jpg";
         <div class="flex justify-center md:justify-start">
           <div class="group relative w-full max-w-lg">
             <span
+              aria-hidden="true"
               class="border-gold/60 absolute -top-4 -left-4 hidden h-full w-full border sm:block"
-              aria-hidden="true"></span>
+            ></span>
             <img
-              src="/images/alice-canton-helping-bride.png"
               alt="Alice Cantón ayudando a una novia"
-              loading="lazy"
               class="relative aspect-[4/3] w-full object-cover object-center shadow-xl transition-transform duration-700 group-hover:scale-[1.02]"
+              loading="lazy"
+              src="/images/alice-canton-helping-bride.png"
             />
           </div>
         </div>
@@ -230,9 +231,9 @@ const img13 = "/images/img-13.jpg";
           {t.cta.title}
         </h2>
         <ContactForm
-          singleColumn={true}
-          showDate={false}
           bare={true}
+          showDate={false}
+          singleColumn={true}
           submitLabel={lang === "es" ? "Enviar" : "Send"}
         />
       </div>
@@ -255,10 +256,10 @@ const img13 = "/images/img-13.jpg";
           const external = i === 0;
           return (
             <a
-              href={href}
-              target={external ? "_blank" : undefined}
-              rel={external ? "noopener noreferrer" : undefined}
               class="group block px-6 py-4 transition-colors hover:bg-white/10 md:py-2"
+              href={href}
+              rel={external ? "noopener noreferrer" : undefined}
+              target={external ? "_blank" : undefined}
             >
               <h3
                 class="mb-1 font-serif text-lg"

@@ -1,3 +1,12 @@
 {
-  "extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/base",
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  }
 }

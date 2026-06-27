@@ -14,7 +14,7 @@ const mapSrc =
   "https://maps.google.com/maps?q=Alice%20Cant%C3%B3n%20Weddings%20Events%20Calle%2059D%20Yucalpet%C3%A9n%20M%C3%A9rida&t=&z=14&ie=UTF8&iwloc=&output=embed";
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage heroImage="/images/contacto-hero.jpg" title={p.hero.title} />
 
   <!-- ② FORM + CONTACT INFO -->
@@ -31,9 +31,9 @@ const mapSrc =
           </h2>
           <p class="mb-6 text-sm text-gray-500">{l.formNote}</p>
           <ContactForm
-            singleColumn={true}
-            showDate={false}
             bare={true}
+            showDate={false}
+            singleColumn={true}
             submitLabel={lang === "es" ? "Enviar" : "Send"}
           />
         </div>
@@ -56,8 +56,8 @@ const mapSrc =
                 " "
               }
               <a
-                href={`tel:${l.phone.replace(/\s/g, "")}`}
-                class="text-gold hover:underline">{l.phone}</a
+                class="text-gold hover:underline"
+                href={`tel:${l.phone.replace(/\s/g, "")}`}>{l.phone}</a
               >
             </p>
             <p>
@@ -65,20 +65,20 @@ const mapSrc =
                 " "
               }
               <a
-                href={`mailto:${l.email}`}
-                class="text-gold break-all hover:underline">{l.email}</a
+                class="text-gold break-all hover:underline"
+                href={`mailto:${l.email}`}>{l.email}</a
               >
             </p>
           </div>
           <div class="overflow-hidden border border-gray-200">
             <iframe
-              src={mapSrc}
-              title="Alice Cantón Weddings & Events"
-              width="100%"
               height="300"
-              style="border:0;"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+              referrerpolicy="no-referrer-when-downgrade"
+              src={mapSrc}
+              style="border:0;"
+              title="Alice Cantón Weddings & Events"
+              width="100%"></iframe>
           </div>
         </div>
       </div>
