@@ -7,6 +7,14 @@ const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.home;
 const r = routes[lang];
+
+// Background photos for the 4 category cards (Planeación, Banquete, Música, Duración)
+const categoryImages = [
+  '/images/img-1.jpg',
+  '/images/img-3.jpg',
+  '/images/gallery-2.jpg',
+  '/images/img-vert-3.jpg',
+];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
@@ -55,9 +63,12 @@ const r = routes[lang];
 
   <!-- ③ CATEGORIES: 4-column grid of keyword cards -->
   <div class="grid grid-cols-2 md:grid-cols-4 w-full">
-    {p.categories.map((cat) => (
-      <div class="relative h-56 overflow-hidden group bg-gradient-to-br from-gray-700 to-gray-900">
-        <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+    {p.categories.map((cat, i) => (
+      <div
+        class="relative h-56 overflow-hidden group bg-cover bg-center"
+        style={`background-image: url('${categoryImages[i]}');`}
+      >
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300" />
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="font-serif text-2xl text-white uppercase tracking-widest text-center px-4">
             {cat.label}
