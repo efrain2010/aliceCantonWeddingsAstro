@@ -31,6 +31,13 @@ const portfolioImages = [
   '/images/gallery/g16.jpg',
   '/images/gallery/g22.jpg',
 ];
+
+// Client avatars, in the same order as the testimonials
+const testimonialAvatars = [
+  '/images/avatar-3.jpg',
+  '/images/yarene-sergio-150x150.jpg',
+  '/images/martha-sergio-1-150x150.jpg',
+];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
@@ -198,14 +205,18 @@ const portfolioImages = [
   <section class="relative bg-cover bg-center bg-fixed py-24" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {p.testimonials.items.map((item) => (
+        {p.testimonials.items.map((item, i) => (
           <div class="bg-white/95 p-8">
             <p class="text-body-gray text-base leading-relaxed mb-8 italic">
               "{item.quote}"
             </p>
             <div class="flex items-center gap-4">
-              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-accent-gold to-rose flex-shrink-0 overflow-hidden">
-                <div class="w-full h-full bg-accent-gold/20" />
+              <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                <img
+                  src={testimonialAvatars[i]}
+                  alt={item.author}
+                  class="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p class="text-heading-gray text-sm uppercase font-serif tracking-wide">
