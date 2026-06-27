@@ -1,3 +1,5 @@
+import { CONTACT } from '../config/site';
+
 export const translations = {
   es: {
     nav: {
@@ -167,8 +169,8 @@ export const translations = {
         contactBar: {
           items: [
             { label: 'Ciudad', value: 'Mérida' },
-            { label: 'Teléfono', value: '999 292 8921' },
-            { label: 'Correo Electrónico', value: 'planner@alicecantonweddings.com' },
+            { label: 'Teléfono', value: CONTACT.phone },
+            { label: 'Correo Electrónico', value: CONTACT.email },
           ],
         },
         venues: {
@@ -255,9 +257,9 @@ export const translations = {
         cta: {
           title: 'Su Especialista en Bodas',
           phoneLabel: 'Teléfono',
-          phone: '999 292 8921',
+          phone: CONTACT.phone,
           emailLabel: 'Correo',
-          email: 'hola@alicecantonweddings.com',
+          email: CONTACT.email,
         },
         photos: [
           { src: '/images/gallery/g01.jpg', alt: 'Boda en hacienda' },
@@ -313,9 +315,9 @@ export const translations = {
           addressLabel: 'Dirección',
           address: 'Calle 59D #253 x 122 y 124c, Yucalpetén Mérida, Yuc.',
           phoneLabel: 'Teléfono',
-          phone: '999 292 8921',
+          phone: CONTACT.phone,
           emailLabel: 'Correo Electrónico',
-          email: 'planner@alicecantonweddings.com',
+          email: CONTACT.email,
         },
         quote: '“ Gracias por confiar en mí y permitirme ser parte de su historia de amor ”',
         faq: {
@@ -326,7 +328,7 @@ export const translations = {
             { q: '¿Trabajas sola el día del evento?', a: 'No, tengo un equipo que trabaja conmigo en el evento. Según el tamaño de la boda son las personas que me apoyan.' },
             { q: '¿Que hace un Wedding Planner?', a: 'Un Wedding Planner te va a guiar a través de todo el proceso de tu boda. Hay infinidad de detalles que contemplar al momento de planear tu boda que muchas veces las parejas no tiene idea. Tu Wedding Planner va encargarse de cada detalle. Te presentará una propuesta de acuerdo a tu presupuesto, se encargará de la contratación, citas y pagos a proveedores, te va a asesorar en el estilo, lugar, fecha y proveedores. Para el día de tu evento creará un cronograma minuto a minuto, estará presente los días de montaje y en el evento coordinará la logística, asignación de mesas y a los proveedores. Los novios no tendrán que preocuparse por nada más que disfrutar su gran día.' },
             { q: '¿Dónde me Puedo Casar?', a: 'Hay muchas locaciones en Mérida Yucatán, puedes casarte en una hacienda, en la playa, en un cenote, en salones de eventos increíbles. Donde sueñes con casarte yo me encargo de todo y de ayudarte a encontrar el lugar ideal para ti.' },
-            { q: '¿Cuál es el Precio de la Coordinación?', a: 'El precio de la coordinación varía según el paquete que elijas, el número de invitados y el lugar del evento ya sea dentro o fuera de la ciudad de Mérida. Agenda una cita al 999 292 8921 y platiquemos del evento que deseas para entregarte un presupuesto a la medida.' },
+            { q: '¿Cuál es el Precio de la Coordinación?', a: `El precio de la coordinación varía según el paquete que elijas, el número de invitados y el lugar del evento ya sea dentro o fuera de la ciudad de Mérida. Agenda una cita al ${CONTACT.phone} y platiquemos del evento que deseas para entregarte un presupuesto a la medida.` },
             { q: '¿Cómo te Contrato?', a: 'Agendamos una cita para conocernos sin ningún compromiso. La pareja me platica que es lo que desea y yo les platico mi forma de trabajar y como es el proceso de la planeación. Para apartar la fecha firmamos un contrato por ambas partes pagando un anticipo y ¡manos a la obra!' },
           ],
         },
@@ -501,8 +503,8 @@ export const translations = {
         contactBar: {
           items: [
             { label: 'City', value: 'Mérida' },
-            { label: 'Phone', value: '999 292 8921' },
-            { label: 'Email', value: 'planner@alicecantonweddings.com' },
+            { label: 'Phone', value: CONTACT.phone },
+            { label: 'Email', value: CONTACT.email },
           ],
         },
         venues: {
@@ -589,9 +591,9 @@ export const translations = {
         cta: {
           title: 'Your Wedding Specialist',
           phoneLabel: 'Phone',
-          phone: '999 292 8921',
+          phone: CONTACT.phone,
           emailLabel: 'Email',
-          email: 'hola@alicecantonweddings.com',
+          email: CONTACT.email,
         },
         photos: [
           { src: '/images/gallery/g01.jpg', alt: 'Hacienda wedding' },
@@ -647,9 +649,9 @@ export const translations = {
           addressLabel: 'Address',
           address: 'Calle 59D #253 x 122 y 124c, Yucalpetén Mérida, Yuc.',
           phoneLabel: 'Phone',
-          phone: '999 292 8921',
+          phone: CONTACT.phone,
           emailLabel: 'Email',
-          email: 'planner@alicecantonweddings.com',
+          email: CONTACT.email,
         },
         quote: '“ Thank you for trusting me and letting me be part of your love story ”',
         faq: {
@@ -660,7 +662,7 @@ export const translations = {
             { q: 'Do you work alone on the event day?', a: 'No, I have a team that works with me at the event. The number of people supporting me depends on the size of the wedding.' },
             { q: 'What does a Wedding Planner do?', a: "A Wedding Planner will guide you through the entire process of your wedding. There are countless details to consider when planning your wedding that couples often have no idea about. Your Wedding Planner will handle every detail. They will present a proposal according to your budget, handle hiring, appointments, and payments to vendors, and advise you on style, venue, date, and vendors. For your event day they will create a minute-by-minute timeline, be present on setup days, and coordinate the logistics, table assignments, and vendors at the event. The couple won't have to worry about anything but enjoying their big day." },
             { q: 'Where Can I Get Married?', a: 'There are many venues in Mérida Yucatán — you can get married at a hacienda, on the beach, in a cenote, or in incredible event halls. Wherever you dream of getting married, I take care of everything and help you find the ideal place for you.' },
-            { q: 'What is the Price of Coordination?', a: "The price of coordination varies depending on the package you choose, the number of guests, and the event location, whether inside or outside the city of Mérida. Schedule an appointment at 999 292 8921 and let's talk about the event you want so we can give you a tailored quote." },
+            { q: 'What is the Price of Coordination?', a: `The price of coordination varies depending on the package you choose, the number of guests, and the event location, whether inside or outside the city of Mérida. Schedule an appointment at ${CONTACT.phone} and let's talk about the event you want so we can give you a tailored quote.` },
             { q: 'How Do I Hire You?', a: "We schedule an appointment to meet with no obligation. The couple tells me what they want and I explain how I work and what the planning process is like. To reserve the date we sign a contract on both sides with a deposit, and let's get to work!" },
           ],
         },

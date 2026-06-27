@@ -1,5 +1,6 @@
 ---
 import { translations, routes, getLang, type Lang } from '../i18n/index';
+import { CONTACT, phoneHref, emailHref } from '../config/site';
 
 const year = new Date().getFullYear();
 const lang: Lang = getLang(Astro.url.pathname);
@@ -37,10 +38,10 @@ const tf = t.footer;
       <h4 class="font-serif text-base mb-4 text-gold">{tf.contactHeading}</h4>
       <ul class="text-gray-400 text-sm space-y-2">
         <li>
-          <a href="tel:9992928921" class="hover:text-gold transition-colors">999 292 8921</a>
+          <a href={phoneHref} class="hover:text-gold transition-colors">{CONTACT.phone}</a>
         </li>
         <li>
-          <a href="mailto:alicecantonweddings@gmail.com" class="hover:text-gold transition-colors">alicecantonweddings@gmail.com</a>
+          <a href={emailHref} class="hover:text-gold transition-colors">{CONTACT.email}</a>
         </li>
         <li class="leading-relaxed">Calle 59D #253 x 122 y 124c,<br />Yucalpetén, Mérida, Yuc.</li>
       </ul>

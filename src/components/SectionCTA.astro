@@ -1,5 +1,6 @@
 ---
 import { translations, routes, getLang, type Lang } from '../i18n/index';
+import { CONTACT, phoneHref, emailHref } from '../config/site';
 
 const lang: Lang = getLang(Astro.url.pathname);
 const t = translations[lang];
@@ -13,12 +14,12 @@ const contactUrl = routes[lang].contact;
       {t.cta.subtitle}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
-      <a href="tel:9992928921" class="text-white font-medium hover:underline">
-        999 292 8921
+      <a href={phoneHref} class="text-white font-medium hover:underline">
+        {CONTACT.phone}
       </a>
       <span class="text-white/50 hidden sm:block">|</span>
-      <a href="mailto:alicecantonweddings@gmail.com" class="text-white font-medium hover:underline">
-        alicecantonweddings@gmail.com
+      <a href={emailHref} class="text-white font-medium hover:underline">
+        {CONTACT.email}
       </a>
       <span class="text-white/50 hidden sm:block">|</span>
       <a
