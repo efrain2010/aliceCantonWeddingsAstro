@@ -16,20 +16,20 @@ const categoryImages = [
   '/images/img-vert-3.jpg',
 ];
 
-// Portfolio teaser gallery
+// Portfolio teaser gallery — masonry mix of portrait + landscape photos
 const portfolioImages = [
-  '/images/img-10.jpg',
-  '/images/img-13.jpg',
-  '/images/11866446-1055970124415858-485634197070961453-n.jpg',
-  '/images/12042744-677267902410858-182616168831263564-n.jpg',
-  '/images/21766380-1682893168411606-8935133582193004569-n.jpg',
-  '/images/22045605-1682895238411399-7185113022696085452-n.jpg',
-  '/images/26114160-10155866400061278-369103440261741743-n.jpg',
-  '/images/26231465-10155865148386278-3104021065434766057-n.jpg',
-  '/images/hg1a5445-1024x683.jpg',
-  '/images/48397507-1055284681317792-3700600962478505984-o-1024x648.jpg',
-  '/images/dsc00641-1024x674.jpg',
-  '/images/48244230-1056587157856808-6144760103514931200-o-1024x682.jpg',
+  '/images/gallery/g01.jpg',
+  '/images/gallery/g02.jpg',
+  '/images/gallery/g03.jpg',
+  '/images/gallery/g04.jpg',
+  '/images/gallery/g05.jpg',
+  '/images/gallery/g09.jpg',
+  '/images/gallery/g08.jpg',
+  '/images/gallery/g11.jpg',
+  '/images/gallery/g13.jpg',
+  '/images/gallery/g17.jpg',
+  '/images/gallery/g16.jpg',
+  '/images/gallery/g22.jpg',
 ];
 ---
 
@@ -166,21 +166,19 @@ const portfolioImages = [
     </div>
   </section>
 
-  <!-- ⑦ PORTFOLIO GALLERY: uniform grid of wedding images -->
-  <section class="bg-gray-900 py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-2">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-        {portfolioImages.map((src) => (
-          <div class="aspect-square overflow-hidden group">
-            <img
-              src={src}
-              alt="Wedding portfolio"
-              loading="lazy"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
+  <!-- ⑦ PORTFOLIO GALLERY: masonry of wedding images -->
+  <section class="bg-white">
+    <div class="columns-2 md:columns-4 gap-1 [&>*]:mb-1">
+      {portfolioImages.map((src) => (
+        <div class="overflow-hidden group break-inside-avoid">
+          <img
+            src={src}
+            alt="Wedding portfolio"
+            loading="lazy"
+            class="w-full block transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      ))}
     </div>
   </section>
 
