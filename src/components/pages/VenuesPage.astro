@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionCTA from '../SectionCTA.astro';
 import { getLang, useTranslations } from '../../i18n/index';
+import HeroImage from '../HeroImage.astro';
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -80,23 +81,7 @@ const content = {
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
-
-  <!-- ① HERO: full-height B&W photo + Great Vibes script title -->
-  <section class="relative min-h-screen overflow-hidden">
-    <div
-      class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/images/foxglove-spires-path-PYQPXBU-1.jpg'); filter: grayscale(100%);"
-    />
-    <div class="absolute inset-0 bg-black/30" />
-    <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
-      <h1
-        class="text-white leading-none"
-        style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
-      >
-        {heroTitle}
-      </h1>
-    </div>
-  </section>
+  <HeroImage heroImage="/images/foxglove-spires-path-PYQPXBU-1.jpg" title={heroTitle} />
 
   <!-- ② TWO-COLUMN INTRO -->
   <section class="py-16 md:py-20 bg-white">

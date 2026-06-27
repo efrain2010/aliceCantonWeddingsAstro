@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getLang } from '../../i18n/index';
 import ContactForm from '../ContactForm.astro';
+import HeroImage from '../HeroImage.astro';
 
 const lang = getLang(Astro.url.pathname);
 
@@ -147,18 +148,7 @@ const content = {
 ---
 
 <Layout title={content.meta.title} description={content.meta.description}>
-
-  <!-- ① HERO: full-screen B&W tablescape with script title -->
-  <section class="relative min-h-screen w-full -mt-[80px] pt-[80px] overflow-hidden">
-    <div
-      class="absolute inset-0 bg-cover bg-center grayscale"
-      style="background-image: url('/images/servicios-hero-tablescape.jpg');"
-    />
-    <div class="absolute inset-0 bg-black/20" />
-    <div class="absolute inset-0 flex items-center justify-center">
-      <h1 class="font-script text-7xl md:text-9xl text-white font-normal">{content.hero.title}</h1>
-    </div>
-  </section>
+  <HeroImage heroImage="/images/servicios-hero-tablescape.jpg" title={content.hero.title} />
 
   <!-- ② STRENGTHS: 4 left-aligned columns on white, no cards -->
   <section class="bg-white py-20">

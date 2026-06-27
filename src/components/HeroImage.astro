@@ -1,0 +1,37 @@
+---
+
+interface Props {
+  heroImage: string;
+  title?: string;
+  fixImage?: boolean
+  disableGreyscale?: boolean
+  className?: string
+}
+
+const { heroImage, title, fixImage, disableGreyscale, className = '' } = Astro.props;
+
+const classNames = [
+  'relative min-h-screen overflow-hidden bg-cover bg-center',
+  fixImage ? 'w-full pt-[80px] bg-cover bg-center bg-fixed' : '',
+  className
+].join(' ')
+
+---
+
+<!-- ① HERO: full-height B&W photo + Great Vibes script title -->
+  <section 
+    class={classNames} 
+    style={disableGreyscale ? `background-image: url('${heroImage}');` :`background-image: url('${heroImage}'); filter: grayscale(100%);`}>
+    
+    <div class="absolute inset-0 bg-black/20" />
+    {title && <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
+      <h1
+        class="text-white leading-none"
+        style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
+      >
+        {title}
+      </h1>
+    </div>
+    }
+    <slot />
+  </section>

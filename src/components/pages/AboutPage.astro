@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import ContactForm from '../ContactForm.astro';
 import { getLang, routes, useTranslations } from '../../i18n/index';
+import HeroImage from '../HeroImage.astro';
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -13,23 +14,7 @@ const img13 = '/images/img-13.jpg';
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
-
-  <!-- ① HERO: full-height B&W photo + Great Vibes script title -->
-  <section class="relative min-h-screen overflow-hidden">
-    <div
-      class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/images/parallax-2.jpg'); filter: grayscale(100%);"
-    />
-    <div class="absolute inset-0 bg-black/20" />
-    <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
-      <h1
-        class="text-white leading-none"
-        style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
-      >
-        {p.hero.title}
-      </h1>
-    </div>
-  </section>
+  <HeroImage heroImage="/images/parallax-2.jpg" title={p.hero.title} className="bg-position-[100%_top]" />
 
   <!-- ② QUERIDOS NOVIOS -->
   <section class="py-20 bg-white text-center">
