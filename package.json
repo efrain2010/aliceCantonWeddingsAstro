@@ -23,6 +23,7 @@
     "astro": "^5.7.10",
     "prettier": "3.9.0",
     "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.1.6",
     "vitest": "^4.1.6"
   }

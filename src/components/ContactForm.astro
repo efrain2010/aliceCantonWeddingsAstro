@@ -30,7 +30,7 @@ const f = translations[lang].form;
     <div>
       <label
         for="nombre"
-        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
         >{f.nameLabel}</label
       >
       <input
@@ -39,14 +39,14 @@ const f = translations[lang].form;
         name="nombre"
         required
         autocomplete="name"
-        class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
+        class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
         placeholder={f.namePlaceholder}
       />
     </div>
     <div>
       <label
         for="correo"
-        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
         >{f.emailLabel}</label
       >
       <input
@@ -55,14 +55,14 @@ const f = translations[lang].form;
         name="correo"
         required
         autocomplete="email"
-        class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
+        class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
         placeholder={f.emailPlaceholder}
       />
     </div>
     <div>
       <label
         for="telefono"
-        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
         >{f.phoneLabel}</label
       >
       <input
@@ -70,7 +70,7 @@ const f = translations[lang].form;
         id="telefono"
         name="telefono"
         autocomplete="tel"
-        class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
+        class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
         placeholder={f.phonePlaceholder}
       />
     </div>
@@ -79,7 +79,7 @@ const f = translations[lang].form;
         <div>
           <label
             for="fecha"
-            class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+            class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
           >
             {f.dateLabel}
           </label>
@@ -87,7 +87,7 @@ const f = translations[lang].form;
             type="date"
             id="fecha"
             name="fecha"
-            class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors"
+            class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 transition-colors outline-none"
           />
         </div>
       )
@@ -97,7 +97,7 @@ const f = translations[lang].form;
   <div class="mb-8">
     <label
       for="mensaje"
-      class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+      class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
       >{f.messageLabel}</label
     >
     <textarea
@@ -105,13 +105,13 @@ const f = translations[lang].form;
       name="mensaje"
       rows="5"
       required
-      class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal resize-none transition-colors placeholder-gray-300"
+      class="focus:border-gold text-charcoal w-full resize-none border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
       placeholder={f.messagePlaceholder}></textarea>
   </div>
 
   <button
     type="submit"
-    class="px-10 py-3 bg-gold text-white uppercase tracking-widest text-xs font-medium hover:bg-charcoal transition-colors duration-300 cursor-pointer"
+    class="bg-gold hover:bg-charcoal cursor-pointer px-10 py-3 text-xs font-medium tracking-widest text-white uppercase transition-colors duration-300"
   >
     {submitLabel ?? f.submitLabel}
   </button>

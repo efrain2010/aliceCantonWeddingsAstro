@@ -18,18 +18,18 @@ const mapSrc =
   <HeroImage heroImage="/images/contacto-hero.jpg" title={p.hero.title} />
 
   <!-- ② FORM + CONTACT INFO -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
         <!-- Left: Agenda una Cita + form -->
         <div>
           <h2
-            class="font-serif text-4xl text-charcoal mb-6"
+            class="text-charcoal mb-6 font-serif text-4xl"
             style="font-variant: small-caps;"
           >
             {l.scheduleTitle}
           </h2>
-          <p class="text-gray-500 text-sm mb-6">{l.formNote}</p>
+          <p class="mb-6 text-sm text-gray-500">{l.formNote}</p>
           <ContactForm
             singleColumn={true}
             showDate={false}
@@ -41,18 +41,18 @@ const mapSrc =
         <!-- Right: Contacto info + map -->
         <div>
           <h2
-            class="font-serif text-4xl text-charcoal mb-6"
+            class="text-charcoal mb-6 font-serif text-4xl"
             style="font-variant: small-caps;"
           >
             {l.contactTitle}
           </h2>
-          <div class="space-y-3 text-gray-600 mb-8">
+          <div class="mb-8 space-y-3 text-gray-600">
             <p>
-              <span class="font-semibold text-charcoal">{l.addressLabel}:</span>
+              <span class="text-charcoal font-semibold">{l.addressLabel}:</span>
               {l.address}
             </p>
             <p>
-              <span class="font-semibold text-charcoal">{l.phoneLabel}:</span>{
+              <span class="text-charcoal font-semibold">{l.phoneLabel}:</span>{
                 " "
               }
               <a
@@ -61,12 +61,12 @@ const mapSrc =
               >
             </p>
             <p>
-              <span class="font-semibold text-charcoal">{l.emailLabel}:</span>{
+              <span class="text-charcoal font-semibold">{l.emailLabel}:</span>{
                 " "
               }
               <a
                 href={`mailto:${l.email}`}
-                class="text-gold hover:underline break-all">{l.email}</a
+                class="text-gold break-all hover:underline">{l.email}</a
               >
             </p>
           </div>
@@ -86,30 +86,30 @@ const mapSrc =
   </section>
 
   <!-- ③ FAQ: two-column open Q&A -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-12">
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-12 text-center">
         <h2
-          class="font-serif text-4xl md:text-5xl text-charcoal"
+          class="text-charcoal font-serif text-4xl md:text-5xl"
           style="font-variant: small-caps;"
         >
           {p.faq.title}
         </h2>
-        <div class="w-16 h-0.5 bg-gold mx-auto mt-5"></div>
+        <div class="bg-gold mx-auto mt-5 h-0.5 w-16"></div>
       </div>
       <div
-        class="columns-1 md:columns-2 gap-12 [&>*]:break-inside-avoid [&>*]:mb-10"
+        class="columns-1 gap-12 md:columns-2 [&>*]:mb-10 [&>*]:break-inside-avoid"
       >
         {
           p.faq.items.map((faq) => (
             <div>
               <h3
-                class="font-serif text-xl md:text-2xl text-charcoal mb-3"
+                class="text-charcoal mb-3 font-serif text-xl md:text-2xl"
                 style="font-variant: small-caps;"
               >
                 {faq.q}
               </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+              <p class="text-sm leading-relaxed text-gray-600">{faq.a}</p>
             </div>
           ))
         }
@@ -118,10 +118,10 @@ const mapSrc =
   </section>
 
   <!-- ④ QUOTE BAND -->
-  <section class="bg-forest text-white py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="bg-forest px-6 py-16 text-white">
+    <div class="mx-auto max-w-4xl text-center">
       <h2
-        class="font-serif text-2xl md:text-3xl leading-relaxed"
+        class="font-serif text-2xl leading-relaxed md:text-3xl"
         style="font-variant: small-caps;"
       >
         {p.quote}

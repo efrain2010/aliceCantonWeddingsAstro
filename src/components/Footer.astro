@@ -11,12 +11,12 @@ const tf = t.footer;
 
 <footer class="bg-charcoal text-white">
   <div
-    class="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10"
+    class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-14 md:grid-cols-4"
   >
     <!-- Brand -->
     <div>
-      <p class="font-serif text-xl text-gold mb-2">Alice Cantón</p>
-      <p class="text-gray-400 text-sm leading-relaxed mb-5">
+      <p class="text-gold mb-2 font-serif text-xl">Alice Cantón</p>
+      <p class="mb-5 text-sm leading-relaxed text-gray-400">
         {tf.tagline1}<br />{tf.tagline2}
       </p>
       <div class="flex gap-4">
@@ -25,10 +25,10 @@ const tf = t.footer;
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
-          class="text-gray-400 hover:text-gold transition-colors"
+          class="hover:text-gold text-gray-400 transition-colors"
         >
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -43,10 +43,10 @@ const tf = t.footer;
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          class="text-gray-400 hover:text-gold transition-colors"
+          class="hover:text-gold text-gray-400 transition-colors"
         >
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -64,8 +64,8 @@ const tf = t.footer;
 
     <!-- Contact -->
     <div>
-      <h4 class="font-serif text-base mb-4 text-gold">{tf.contactHeading}</h4>
-      <ul class="text-gray-400 text-sm space-y-2">
+      <h4 class="text-gold mb-4 font-serif text-base">{tf.contactHeading}</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
         <li>
           <a href={phoneHref} class="hover:text-gold transition-colors"
             >{CONTACT.phone}</a
@@ -84,8 +84,8 @@ const tf = t.footer;
 
     <!-- Quick links -->
     <div>
-      <h4 class="font-serif text-base mb-4 text-gold">{tf.linksHeading}</h4>
-      <ul class="text-gray-400 text-sm space-y-2">
+      <h4 class="text-gold mb-4 font-serif text-base">{tf.linksHeading}</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
         {
           tf.links.map((link) => (
             <li>
@@ -103,10 +103,10 @@ const tf = t.footer;
 
     <!-- Specialties -->
     <div>
-      <h4 class="font-serif text-base mb-4 text-gold">
+      <h4 class="text-gold mb-4 font-serif text-base">
         {tf.specialtiesHeading}
       </h4>
-      <ul class="text-gray-400 text-sm space-y-2">
+      <ul class="space-y-2 text-sm text-gray-400">
         {
           tf.specialties.map((s) => (
             <li>
@@ -120,7 +120,7 @@ const tf = t.footer;
     </div>
   </div>
 
-  <div class="border-t border-gray-700 py-4 text-center text-gray-500 text-xs">
+  <div class="border-t border-gray-700 py-4 text-center text-xs text-gray-500">
     © {year}
     {tf.copyrightSuffix}
   </div>

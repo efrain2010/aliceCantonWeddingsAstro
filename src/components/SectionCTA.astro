@@ -8,25 +8,25 @@ const contactUrl = routes[lang].contact;
 ---
 
 <section class="bg-gold py-16 text-center">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="font-serif text-4xl text-white mb-4">{t.cta.title}</h2>
-    <p class="text-white/90 text-lg mb-10 leading-relaxed">
+  <div class="mx-auto max-w-3xl px-6">
+    <h2 class="mb-4 font-serif text-4xl text-white">{t.cta.title}</h2>
+    <p class="mb-10 text-lg leading-relaxed text-white/90">
       {t.cta.subtitle}
     </p>
     <div
-      class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap"
+      class="flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row"
     >
-      <a href={phoneHref} class="text-white font-medium hover:underline">
+      <a href={phoneHref} class="font-medium text-white hover:underline">
         {CONTACT.phone}
       </a>
-      <span class="text-white/50 hidden sm:block">|</span>
-      <a href={emailHref} class="text-white font-medium hover:underline">
+      <span class="hidden text-white/50 sm:block">|</span>
+      <a href={emailHref} class="font-medium text-white hover:underline">
         {CONTACT.email}
       </a>
-      <span class="text-white/50 hidden sm:block">|</span>
+      <span class="hidden text-white/50 sm:block">|</span>
       <a
         href={contactUrl}
-        class="border-2 border-white text-white px-8 py-2.5 hover:bg-white hover:text-gold transition-all duration-300 uppercase tracking-widest text-xs font-medium"
+        class="hover:text-gold border-2 border-white px-8 py-2.5 text-xs font-medium tracking-widest text-white uppercase transition-all duration-300 hover:bg-white"
       >
         {t.cta.button}
       </a>

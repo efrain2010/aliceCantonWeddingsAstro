@@ -167,13 +167,13 @@ const content = {
 
   <!-- ② STRENGTHS: 4 left-aligned columns on white, no cards -->
   <section class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 md:grid-cols-4">
       {
         content.values.map((v) => (
           <div>
-            <img src={`/images/${v.icon}`} alt="" class="h-12 w-auto mb-6" />
+            <img src={`/images/${v.icon}`} alt="" class="mb-6 h-12 w-auto" />
             <h2
-              class="font-serif text-2xl text-heading-gray mb-4"
+              class="text-heading-gray mb-4 font-serif text-2xl"
               style="font-variant: small-caps;"
             >
               {v.title}
@@ -188,21 +188,21 @@ const content = {
   <!-- ③ PACKAGES INTRO: split photo / teal block -->
   <section class="grid grid-cols-1 md:grid-cols-2">
     <div
-      class="min-h-[320px] md:min-h-[400px] bg-cover bg-center"
+      class="min-h-[320px] bg-cover bg-center md:min-h-[400px]"
       style="background-image: url('/images/boda-yarene-sergio-2.jpg');"
       role="img"
       aria-label={content.packagesIntro.title}
     >
     </div>
-    <div class="bg-teal-bg flex flex-col justify-center px-10 md:px-14 py-16">
+    <div class="bg-teal-bg flex flex-col justify-center px-10 py-16 md:px-14">
       <h2
-        class="font-serif text-3xl md:text-4xl text-white mb-4"
+        class="mb-4 font-serif text-3xl text-white md:text-4xl"
         style="font-variant: small-caps;"
       >
         {content.packagesIntro.title}
       </h2>
-      <div class="w-40 border-b border-white/60 mb-8"></div>
-      <p class="text-white text-base leading-loose">
+      <div class="mb-8 w-40 border-b border-white/60"></div>
+      <p class="text-base leading-loose text-white">
         {content.packagesIntro.text}
       </p>
     </div>
@@ -210,34 +210,34 @@ const content = {
 
   <!-- ④ PACKAGES: title + 3 centered columns on white -->
   <section class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="mx-auto max-w-6xl px-6">
       <h2
-        class="font-serif text-5xl md:text-6xl text-heading-gray text-center mb-20"
+        class="text-heading-gray mb-20 text-center font-serif text-5xl md:text-6xl"
         style="font-variant: small-caps;"
       >
         {content.packagesTitle}
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
         {
           content.packages.map((pkg) => (
             <div class="flex flex-col items-center text-center">
               <img
                 src={`/images/${pkg.icon}`}
                 alt=""
-                class="h-10 w-auto mb-6"
+                class="mb-6 h-10 w-auto"
               />
               <h3
-                class="font-serif text-4xl text-heading-gray mb-8 leading-tight"
+                class="text-heading-gray mb-8 font-serif text-4xl leading-tight"
                 style="font-variant: small-caps;"
               >
                 {pkg.title}
               </h3>
-              <p class="text-body-gray text-base leading-loose mb-10 flex-1">
+              <p class="text-body-gray mb-10 flex-1 text-base leading-loose">
                 {pkg.text}
               </p>
               <a
                 href="#form"
-                class="inline-block bg-teal-bg text-white px-7 py-4 text-sm hover:opacity-90 transition-opacity"
+                class="bg-teal-bg inline-block px-7 py-4 text-sm text-white transition-opacity hover:opacity-90"
               >
                 {pkg.cta}
               </a>
@@ -249,16 +249,16 @@ const content = {
   </section>
 
   <!-- ⑤ SOCIAL: follow us icons -->
-  <section class="bg-white pb-20 pt-6 text-center">
-    <div class="max-w-4xl mx-auto px-6">
+  <section class="bg-white pt-6 pb-20 text-center">
+    <div class="mx-auto max-w-4xl px-6">
       <h2
-        class="font-serif text-3xl text-heading-gray mb-2"
+        class="text-heading-gray mb-2 font-serif text-3xl"
         style="font-variant: small-caps;"
       >
         {content.social.title}
       </h2>
       <h3
-        class="font-serif text-3xl text-heading-gray mb-10"
+        class="text-heading-gray mb-10 font-serif text-3xl"
         style="font-variant: small-caps;"
       >
         {content.social.subtitle}
@@ -268,26 +268,26 @@ const content = {
           href="https://www.facebook.com/Alice-Canton-Weddings-Events-545462678924715/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center w-14 h-14 border border-gray-200 hover:border-gray-400 transition-colors"
+          class="inline-flex h-14 w-14 items-center justify-center border border-gray-200 transition-colors hover:border-gray-400"
           aria-label="Facebook"
         >
           <img
             src="/images/social-icon-2.png"
             alt=""
-            class="w-7 h-7 opacity-60"
+            class="h-7 w-7 opacity-60"
           />
         </a>
         <a
           href="https://www.instagram.com/alicecantonweddings/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center w-14 h-14 border border-gray-200 hover:border-gray-400 transition-colors"
+          class="inline-flex h-14 w-14 items-center justify-center border border-gray-200 transition-colors hover:border-gray-400"
           aria-label="Instagram"
         >
           <img
             src="/images/instagram-logo.png"
             alt=""
-            class="w-7 h-7 opacity-60"
+            class="h-7 w-7 opacity-60"
           />
         </a>
       </div>
@@ -296,18 +296,18 @@ const content = {
 
   <!-- ⑥ CONTACT: light parallax background with inset white card -->
   <section
-    class="relative py-24 bg-cover bg-center bg-fixed"
+    class="relative bg-cover bg-fixed bg-center py-24"
     id="form"
     style="background-image: url('/images/parallax-1.jpg');"
   >
-    <div class="relative max-w-5xl mx-auto px-6">
+    <div class="relative mx-auto max-w-5xl px-6">
       <div
-        class="bg-white px-10 md:px-16 py-16 grid grid-cols-1 md:grid-cols-5 gap-12"
+        class="grid grid-cols-1 gap-12 bg-white px-10 py-16 md:grid-cols-5 md:px-16"
       >
         <!-- Left: heading + text -->
         <div class="md:col-span-2">
           <h2
-            class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 leading-tight"
+            class="text-heading-gray mb-8 font-serif text-4xl leading-tight md:text-5xl"
             style="font-variant: small-caps;"
           >
             {content.contact.title}

@@ -9,16 +9,16 @@ const { title, description, icon = "✦", href } = Astro.props;
 ---
 
 <div
-  class="bg-white p-8 shadow-sm hover:shadow-md transition-shadow border-t-2 border-gold flex flex-col"
+  class="border-gold flex flex-col border-t-2 bg-white p-8 shadow-sm transition-shadow hover:shadow-md"
 >
-  <div class="text-gold text-2xl mb-4">{icon}</div>
-  <h3 class="font-serif text-xl mb-3 text-charcoal">{title}</h3>
-  <p class="text-gray-600 text-sm leading-relaxed flex-1">{description}</p>
+  <div class="text-gold mb-4 text-2xl">{icon}</div>
+  <h3 class="text-charcoal mb-3 font-serif text-xl">{title}</h3>
+  <p class="flex-1 text-sm leading-relaxed text-gray-600">{description}</p>
   {
     href && (
       <a
         href={href}
-        class="mt-6 text-xs uppercase tracking-widest text-gold hover:text-charcoal transition-colors border-b border-gold pb-0.5 self-start"
+        class="text-gold hover:text-charcoal border-gold mt-6 self-start border-b pb-0.5 text-xs tracking-widest uppercase transition-colors"
       >
         Saber más
       </a>

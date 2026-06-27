@@ -50,27 +50,27 @@ const testimonialAvatars = [
       <img
         src="/images/logo-badge.png"
         alt="Alice Cantón Weddings & Events"
-        class="w-72 h-72 md:w-96 md:h-96 object-contain"
+        class="h-72 w-72 object-contain md:h-96 md:w-96"
       />
     </div>
   </HeroImage>
 
   <!-- ② INTRO: image left + value proposition text right -->
   <section class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <!-- Image (left) -->
         <div>
           <img
             src="/images/boda-ciudad-1024x576.jpg"
             alt="Boda en Mérida Yucatán"
-            class="w-full h-auto object-cover"
+            class="h-auto w-full object-cover"
           />
         </div>
         <!-- Intro heading and text (right) -->
         <div class="text-center md:text-left">
           <h1
-            class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide"
+            class="text-heading-gray mb-8 font-serif text-4xl tracking-wide uppercase md:text-5xl"
           >
             {p.intro.title}
           </h1>
@@ -83,16 +83,16 @@ const testimonialAvatars = [
   </section>
 
   <!-- ③ CATEGORIES: 4-column grid of keyword cards -->
-  <div class="grid grid-cols-2 md:grid-cols-4 w-full">
+  <div class="grid w-full grid-cols-2 md:grid-cols-4">
     {
       p.categories.map((cat, i) => (
         <div
-          class="relative h-56 overflow-hidden group bg-cover bg-center"
+          class="group relative h-56 overflow-hidden bg-cover bg-center"
           style={`background-image: url('${categoryImages[i]}');`}
         >
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300" />
+          <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/25" />
           <div class="absolute inset-0 flex items-center justify-center">
-            <span class="font-serif text-2xl text-white uppercase tracking-widest text-center px-4">
+            <span class="px-4 text-center font-serif text-2xl tracking-widest text-white uppercase">
               {cat.label}
             </span>
           </div>
@@ -103,17 +103,17 @@ const testimonialAvatars = [
 
   <!-- ④ SERVICES: Three service cards with descriptions -->
   <section class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="mx-auto max-w-6xl px-6">
       <h2
-        class="font-serif text-4xl md:text-5xl text-heading-gray text-center mb-16 uppercase tracking-wide"
+        class="text-heading-gray mb-16 text-center font-serif text-4xl tracking-wide uppercase md:text-5xl"
       >
         {p.services.title}
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
         {
           p.services.items.map((service) => (
             <div class="text-center">
-              <h3 class="font-serif text-2xl text-heading-gray mb-6 uppercase tracking-wide">
+              <h3 class="text-heading-gray mb-6 font-serif text-2xl tracking-wide uppercase">
                 {service.title}
               </h3>
               <p class="text-body-gray text-base leading-relaxed">
@@ -128,35 +128,35 @@ const testimonialAvatars = [
 
   <!-- ⑤ STORY: "Nuestra Historia" with text and bouquet image -->
   <section class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid grid-cols-1 items-start gap-12 md:grid-cols-2">
         <!-- Text column (left) -->
         <div>
           <h2
-            class="font-serif text-4xl md:text-5xl text-heading-gray mb-4 uppercase tracking-wide text-center"
+            class="text-heading-gray mb-4 text-center font-serif text-4xl tracking-wide uppercase md:text-5xl"
           >
             {p.history.title}
           </h2>
           <p
-            class="font-serif text-sm text-heading-gray uppercase tracking-widest mb-8 text-center"
+            class="text-heading-gray mb-8 text-center font-serif text-sm tracking-widest uppercase"
           >
             {p.history.subtitle}
           </p>
           <div
-            class="text-accent-gold text-3xl my-6 text-center"
+            class="text-accent-gold my-6 text-center text-3xl"
             aria-hidden="true"
           >
             ◆
           </div>
-          <p class="text-body-gray text-base leading-relaxed mb-6">
+          <p class="text-body-gray mb-6 text-base leading-relaxed">
             {p.history.body1}
           </p>
-          <p class="text-body-gray text-base leading-relaxed mb-8">
+          <p class="text-body-gray mb-8 text-base leading-relaxed">
             {p.history.body2}
           </p>
           <a
             href={r.contact}
-            class="inline-block bg-button-dark text-white px-8 py-3 font-serif uppercase tracking-widest text-sm hover:opacity-90 transition-opacity"
+            class="bg-button-dark inline-block px-8 py-3 font-serif text-sm tracking-widest text-white uppercase transition-opacity hover:opacity-90"
           >
             {p.history.cta}
           </a>
@@ -167,7 +167,7 @@ const testimonialAvatars = [
           <img
             src="/images/wedding-bouquet-pakbnhh.jpg"
             alt="Wedding bouquet"
-            class="w-full h-auto object-cover"
+            class="h-auto w-full object-cover"
           />
         </div>
       </div>
@@ -176,14 +176,14 @@ const testimonialAvatars = [
 
   <!-- ⑥ QUOTE BAND: standalone romantic pull-quote -->
   <section class="bg-teal-bg py-24 text-center">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="mx-auto max-w-4xl px-6">
       <blockquote
-        class="font-serif italic text-2xl md:text-4xl text-white mb-8 leading-relaxed"
+        class="mb-8 font-serif text-2xl leading-relaxed text-white italic md:text-4xl"
       >
         “{p.quote.text}”
       </blockquote>
       <p
-        class="font-serif text-sm text-accent-gold uppercase tracking-[0.25em]"
+        class="text-accent-gold font-serif text-sm tracking-[0.25em] uppercase"
       >
         {p.quote.attribution}
       </p>
@@ -192,15 +192,15 @@ const testimonialAvatars = [
 
   <!-- ⑦ PORTFOLIO GALLERY: masonry of wedding images -->
   <section class="bg-white">
-    <div class="columns-2 md:columns-4 gap-1 [&>*]:mb-1">
+    <div class="columns-2 gap-1 md:columns-4 [&>*]:mb-1">
       {
         portfolioImages.map((src) => (
-          <div class="overflow-hidden group break-inside-avoid">
+          <div class="group break-inside-avoid overflow-hidden">
             <img
               src={src}
               alt="Wedding portfolio"
               loading="lazy"
-              class="w-full block transition-transform duration-500 group-hover:scale-105"
+              class="block w-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         ))
@@ -210,13 +210,13 @@ const testimonialAvatars = [
 
   <!-- ⑧ TESTIMONIALS QUOTE BAND -->
   <section class="bg-teal-bg py-16 text-center">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="mx-auto max-w-4xl px-6">
       <blockquote
-        class="font-serif text-3xl md:text-4xl text-white mb-6 leading-relaxed italic"
+        class="mb-6 font-serif text-3xl leading-relaxed text-white italic md:text-4xl"
       >
         {p.quoteBand.text}
       </blockquote>
-      <p class="font-serif text-lg text-white/90 uppercase tracking-widest">
+      <p class="font-serif text-lg tracking-widest text-white/90 uppercase">
         {p.quoteBand.attribution}
       </p>
     </div>
@@ -224,27 +224,27 @@ const testimonialAvatars = [
 
   <!-- ⑨ TESTIMONIALS: Review cards with client feedback -->
   <section
-    class="relative bg-cover bg-center bg-fixed py-24"
+    class="relative bg-cover bg-fixed bg-center py-24"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');"
   >
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         {
           p.testimonials.items.map((item, i) => (
             <div class="bg-white/95 p-8">
-              <p class="text-body-gray text-base leading-relaxed mb-8 italic">
+              <p class="text-body-gray mb-8 text-base leading-relaxed italic">
                 "{item.quote}"
               </p>
               <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                <div class="h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
                   <img
                     src={testimonialAvatars[i]}
                     alt={item.author}
-                    class="w-full h-full object-cover"
+                    class="h-full w-full object-cover"
                   />
                 </div>
                 <div>
-                  <p class="text-heading-gray text-sm uppercase font-serif tracking-wide">
+                  <p class="text-heading-gray font-serif text-sm tracking-wide uppercase">
                     {item.author}
                   </p>
                   <p class="text-body-gray text-xs">{item.year}</p>
@@ -259,9 +259,9 @@ const testimonialAvatars = [
 
   <!-- ⑩ CTA BAND: Special day quote -->
   <section class="bg-teal-bg py-16 text-center">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="mx-auto max-w-4xl px-6">
       <h2
-        class="font-serif text-3xl md:text-4xl text-white uppercase tracking-wide leading-relaxed"
+        class="font-serif text-3xl leading-relaxed tracking-wide text-white uppercase md:text-4xl"
       >
         {p.ctaBand.text}
       </h2>
@@ -271,11 +271,11 @@ const testimonialAvatars = [
   <!-- ⑪ CONTACT SECTION: "Platiquemos" with form -->
   <section class="bg-cream py-20">
     <div
-      class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+      class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 px-6 md:grid-cols-2"
     >
       <div>
         <h2
-          class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide"
+          class="text-heading-gray mb-8 font-serif text-4xl tracking-wide uppercase md:text-5xl"
         >
           {p.homeContact.title}
         </h2>
