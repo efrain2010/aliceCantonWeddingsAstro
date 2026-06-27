@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
 import SectionCTA from "../SectionCTA.astro";
 import { getLang, useTranslations } from "../../i18n/index";
+import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 
 const lang = getLang(Astro.url.pathname);
@@ -55,9 +56,8 @@ const mapSrc =
               <span class="text-charcoal font-semibold">{l.phoneLabel}:</span>{
                 " "
               }
-              <a
-                class="text-gold hover:underline"
-                href={`tel:${l.phone.replace(/\s/g, "")}`}>{l.phone}</a
+              <a class="text-gold hover:underline" href={phoneHref}
+                >{l.phone}</a
               >
             </p>
             <p>

@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { getLang, getPageKey, routes } from "../i18n/index";
+import { ADDRESS, CONTACT, SOCIAL, phoneInternational } from "../config/site";
 
 interface Props {
   title: string;
@@ -28,6 +29,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 const esURL = new URL(withTrailingSlash(routes.es[pageKey]), Astro.site);
 const enURL = new URL(withTrailingSlash(routes.en[pageKey]), Astro.site);
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Alice Cantón Wedding Planner",
+  image: imageURL.toString(),
+  url: new URL("/", Astro.site).toString(),
+  telephone: phoneInternational,
+  email: CONTACT.email,
+  description:
+    "Wedding and event planning for destination weddings in Mérida and across the Yucatán Peninsula, Mexico.",
+  address: {
+    "@type": "PostalAddress",
+    ...ADDRESS,
+  },
+  areaServed: {
+    "@type": "Place",
+    name: "Yucatán Peninsula, Mexico",
+  },
+  sameAs: [SOCIAL.facebook, SOCIAL.instagram],
+};
 ---
 
 <!doctype html>
@@ -36,6 +58,7 @@ const enURL = new URL(withTrailingSlash(routes.en[pageKey]), Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#C9A96E" />
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
     <link
@@ -69,6 +92,12 @@ const enURL = new URL(withTrailingSlash(routes.en[pageKey]), Astro.site);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(businessSchema)}
+    />
   </head>
   <body>
     <Header />

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alicecantonweddings.com/sitemap-index.xml
+Sitemap: https://alice-canton-weddings.efrain-villanueva3.workers.dev/sitemap-index.xml

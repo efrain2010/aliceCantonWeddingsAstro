@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getLang, useTranslations } from "../../i18n/index";
+import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 
 const lang = getLang(Astro.url.pathname);
@@ -59,9 +60,8 @@ const p = t.pages.gallery;
       class="flex flex-col items-center justify-center gap-3 text-sm tracking-wide md:flex-row md:gap-10"
     >
       <span
-        >{p.cta.phoneLabel}: <a
-          class="hover:underline"
-          href={`tel:${p.cta.phone.replace(/\s/g, "")}`}>{p.cta.phone}</a
+        >{p.cta.phoneLabel}: <a class="hover:underline" href={phoneHref}
+          >{p.cta.phone}</a
         ></span
       >
       <span aria-hidden="true" class="hidden text-white/40 md:inline">|</span>
