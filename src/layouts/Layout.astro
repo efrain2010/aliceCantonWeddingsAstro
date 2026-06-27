@@ -9,12 +9,16 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const {
   title,
   description = "Alice Cantón Wedding Planner en Mérida Yucatán — organización de bodas y eventos desde 2014.",
-  image = "/images/hero-beach.png",
+  image = "/images/wedding-ceremony-merida-og.jpg",
+  imageWidth = 1920,
+  imageHeight = 1009,
 } = Astro.props;
 
 const lang = getLang(Astro.url.pathname);
@@ -87,6 +91,8 @@ const businessSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content={imageWidth.toString()} />
+    <meta property="og:image:height" content={imageHeight.toString()} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
