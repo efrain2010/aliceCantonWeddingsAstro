@@ -21,6 +21,7 @@ The following sections of the homepage were captured and analyzed:
 Detailed implementation spec available at: `../../docs/home-reference-spec.md`
 
 The spec includes:
+
 - Section-by-section breakdown
 - All text content verbatim in Spanish
 - Computed CSS colors and typography values
@@ -31,11 +32,13 @@ The spec includes:
 ## Key Findings
 
 ### Typography
+
 - **Headings**: Cinzel (serif), all-caps, `rgb(108, 105, 117)` (muted purple-gray)
 - **Body**: Halant (sans-serif), 16px, 30px line-height, `rgb(164, 164, 164)` (gray)
 - **Quotes/Accents**: Gold `rgb(229, 170, 69)` (warmer than project token #C9A96E)
 
 ### Color Palette
+
 - **Primary BG**: White (#FFFFFF)
 - **Accent**: Warm gold (#E5AA45)
 - **Headings**: Muted purple-gray (#6C6975) — NOT charcoal #2C2C2C
@@ -43,6 +46,7 @@ The spec includes:
 - **Forms**: Light gray inputs (#F0F0F0)
 
 ### Layout
+
 - Full-width hero with 900px+ height
 - Sticky navigation header
 - 2-3 column content sections with generous whitespace
@@ -50,9 +54,9 @@ The spec includes:
 - Form section with cream background
 
 ### Design Notes
+
 - Site is WordPress (not Astro) — form handling will differ
 - All images are high-quality wedding photography
 - Circular "A" logo overlay is custom design element
 - Testimonial section uses blurred garden background with semi-transparent text cards
 - Parallax effects likely on hero section
-

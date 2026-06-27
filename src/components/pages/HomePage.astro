@@ -1,8 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import HeroImage from '../HeroImage.astro';
-import ContactForm from '../ContactForm.astro';
-import { getLang, routes, useTranslations } from '../../i18n/index';
+import Layout from "../../layouts/Layout.astro";
+import HeroImage from "../HeroImage.astro";
+import ContactForm from "../ContactForm.astro";
+import { getLang, routes, useTranslations } from "../../i18n/index";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -11,39 +11,39 @@ const r = routes[lang];
 
 // Background photos for the 4 category cards (Planeación, Banquete, Música, Duración)
 const categoryImages = [
-  '/images/img-1.jpg',
-  '/images/img-3.jpg',
-  '/images/gallery-2.jpg',
-  '/images/img-vert-3.jpg',
+  "/images/img-1.jpg",
+  "/images/img-3.jpg",
+  "/images/gallery-2.jpg",
+  "/images/img-vert-3.jpg",
 ];
 
 // Portfolio teaser gallery — masonry mix of portrait + landscape photos
 const portfolioImages = [
-  '/images/gallery/g01.jpg',
-  '/images/gallery/g02.jpg',
-  '/images/gallery/g03.jpg',
-  '/images/gallery/g04.jpg',
-  '/images/gallery/g05.jpg',
-  '/images/gallery/g09.jpg',
-  '/images/gallery/g08.jpg',
-  '/images/gallery/g11.jpg',
-  '/images/gallery/g13.jpg',
-  '/images/gallery/g17.jpg',
-  '/images/gallery/g16.jpg',
-  '/images/gallery/g22.jpg',
+  "/images/gallery/g01.jpg",
+  "/images/gallery/g02.jpg",
+  "/images/gallery/g03.jpg",
+  "/images/gallery/g04.jpg",
+  "/images/gallery/g05.jpg",
+  "/images/gallery/g09.jpg",
+  "/images/gallery/g08.jpg",
+  "/images/gallery/g11.jpg",
+  "/images/gallery/g13.jpg",
+  "/images/gallery/g17.jpg",
+  "/images/gallery/g16.jpg",
+  "/images/gallery/g22.jpg",
 ];
 
 // Client avatars, in the same order as the testimonials
 const testimonialAvatars = [
-  '/images/avatar-3.jpg',
-  '/images/yarene-sergio-150x150.jpg',
-  '/images/martha-sergio-1-150x150.jpg',
+  "/images/avatar-3.jpg",
+  "/images/yarene-sergio-150x150.jpg",
+  "/images/martha-sergio-1-150x150.jpg",
 ];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
   <HeroImage heroImage="/images/hero-beach.png" fixImage disableGreyscale>
-    <div class="absolute inset-0 bg-black/40" />
+    <div class="absolute inset-0 bg-black/40"></div>
 
     <!-- Centered circular badge logo (real asset from brand) -->
     <div class="absolute inset-0 z-10 flex items-center justify-center">
@@ -69,7 +69,9 @@ const testimonialAvatars = [
         </div>
         <!-- Intro heading and text (right) -->
         <div class="text-center md:text-left">
-          <h1 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
+          <h1
+            class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide"
+          >
             {p.intro.title}
           </h1>
           <p class="text-body-gray text-lg leading-relaxed">
@@ -82,38 +84,44 @@ const testimonialAvatars = [
 
   <!-- ③ CATEGORIES: 4-column grid of keyword cards -->
   <div class="grid grid-cols-2 md:grid-cols-4 w-full">
-    {p.categories.map((cat, i) => (
-      <div
-        class="relative h-56 overflow-hidden group bg-cover bg-center"
-        style={`background-image: url('${categoryImages[i]}');`}
-      >
-        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300" />
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="font-serif text-2xl text-white uppercase tracking-widest text-center px-4">
-            {cat.label}
-          </span>
+    {
+      p.categories.map((cat, i) => (
+        <div
+          class="relative h-56 overflow-hidden group bg-cover bg-center"
+          style={`background-image: url('${categoryImages[i]}');`}
+        >
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-serif text-2xl text-white uppercase tracking-widest text-center px-4">
+              {cat.label}
+            </span>
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 
   <!-- ④ SERVICES: Three service cards with descriptions -->
   <section class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-serif text-4xl md:text-5xl text-heading-gray text-center mb-16 uppercase tracking-wide">
+      <h2
+        class="font-serif text-4xl md:text-5xl text-heading-gray text-center mb-16 uppercase tracking-wide"
+      >
         {p.services.title}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {p.services.items.map((service) => (
-          <div class="text-center">
-            <h3 class="font-serif text-2xl text-heading-gray mb-6 uppercase tracking-wide">
-              {service.title}
-            </h3>
-            <p class="text-body-gray text-base leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-        ))}
+        {
+          p.services.items.map((service) => (
+            <div class="text-center">
+              <h3 class="font-serif text-2xl text-heading-gray mb-6 uppercase tracking-wide">
+                {service.title}
+              </h3>
+              <p class="text-body-gray text-base leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -124,13 +132,22 @@ const testimonialAvatars = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <!-- Text column (left) -->
         <div>
-          <h2 class="font-serif text-4xl md:text-5xl text-heading-gray mb-4 uppercase tracking-wide text-center">
+          <h2
+            class="font-serif text-4xl md:text-5xl text-heading-gray mb-4 uppercase tracking-wide text-center"
+          >
             {p.history.title}
           </h2>
-          <p class="font-serif text-sm text-heading-gray uppercase tracking-widest mb-8 text-center">
+          <p
+            class="font-serif text-sm text-heading-gray uppercase tracking-widest mb-8 text-center"
+          >
             {p.history.subtitle}
           </p>
-          <div class="text-accent-gold text-3xl my-6 text-center" aria-hidden="true">◆</div>
+          <div
+            class="text-accent-gold text-3xl my-6 text-center"
+            aria-hidden="true"
+          >
+            ◆
+          </div>
           <p class="text-body-gray text-base leading-relaxed mb-6">
             {p.history.body1}
           </p>
@@ -160,10 +177,14 @@ const testimonialAvatars = [
   <!-- ⑥ QUOTE BAND: standalone romantic pull-quote -->
   <section class="bg-teal-bg py-24 text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <blockquote class="font-serif italic text-2xl md:text-4xl text-white mb-8 leading-relaxed">
+      <blockquote
+        class="font-serif italic text-2xl md:text-4xl text-white mb-8 leading-relaxed"
+      >
         “{p.quote.text}”
       </blockquote>
-      <p class="font-serif text-sm text-accent-gold uppercase tracking-[0.25em]">
+      <p
+        class="font-serif text-sm text-accent-gold uppercase tracking-[0.25em]"
+      >
         {p.quote.attribution}
       </p>
     </div>
@@ -172,23 +193,27 @@ const testimonialAvatars = [
   <!-- ⑦ PORTFOLIO GALLERY: masonry of wedding images -->
   <section class="bg-white">
     <div class="columns-2 md:columns-4 gap-1 [&>*]:mb-1">
-      {portfolioImages.map((src) => (
-        <div class="overflow-hidden group break-inside-avoid">
-          <img
-            src={src}
-            alt="Wedding portfolio"
-            loading="lazy"
-            class="w-full block transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      ))}
+      {
+        portfolioImages.map((src) => (
+          <div class="overflow-hidden group break-inside-avoid">
+            <img
+              src={src}
+              alt="Wedding portfolio"
+              loading="lazy"
+              class="w-full block transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        ))
+      }
     </div>
   </section>
 
   <!-- ⑧ TESTIMONIALS QUOTE BAND -->
   <section class="bg-teal-bg py-16 text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <blockquote class="font-serif text-3xl md:text-4xl text-white mb-6 leading-relaxed italic">
+      <blockquote
+        class="font-serif text-3xl md:text-4xl text-white mb-6 leading-relaxed italic"
+      >
         {p.quoteBand.text}
       </blockquote>
       <p class="font-serif text-lg text-white/90 uppercase tracking-widest">
@@ -198,33 +223,36 @@ const testimonialAvatars = [
   </section>
 
   <!-- ⑨ TESTIMONIALS: Review cards with client feedback -->
-  <section class="relative bg-cover bg-center bg-fixed py-24" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');">
+  <section
+    class="relative bg-cover bg-center bg-fixed py-24"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');"
+  >
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {p.testimonials.items.map((item, i) => (
-          <div class="bg-white/95 p-8">
-            <p class="text-body-gray text-base leading-relaxed mb-8 italic">
-              "{item.quote}"
-            </p>
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
-                <img
-                  src={testimonialAvatars[i]}
-                  alt={item.author}
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p class="text-heading-gray text-sm uppercase font-serif tracking-wide">
-                  {item.author}
-                </p>
-                <p class="text-body-gray text-xs">
-                  {item.year}
-                </p>
+        {
+          p.testimonials.items.map((item, i) => (
+            <div class="bg-white/95 p-8">
+              <p class="text-body-gray text-base leading-relaxed mb-8 italic">
+                "{item.quote}"
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full flex-shrink-0 overflow-hidden">
+                  <img
+                    src={testimonialAvatars[i]}
+                    alt={item.author}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p class="text-heading-gray text-sm uppercase font-serif tracking-wide">
+                    {item.author}
+                  </p>
+                  <p class="text-body-gray text-xs">{item.year}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -232,7 +260,9 @@ const testimonialAvatars = [
   <!-- ⑩ CTA BAND: Special day quote -->
   <section class="bg-teal-bg py-16 text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="font-serif text-3xl md:text-4xl text-white uppercase tracking-wide leading-relaxed">
+      <h2
+        class="font-serif text-3xl md:text-4xl text-white uppercase tracking-wide leading-relaxed"
+      >
         {p.ctaBand.text}
       </h2>
     </div>
@@ -240,9 +270,13 @@ const testimonialAvatars = [
 
   <!-- ⑪ CONTACT SECTION: "Platiquemos" with form -->
   <section class="bg-cream py-20">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <div
+      class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+    >
       <div>
-        <h2 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
+        <h2
+          class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide"
+        >
           {p.homeContact.title}
         </h2>
         <p class="text-body-gray text-lg leading-relaxed">
@@ -252,5 +286,4 @@ const testimonialAvatars = [
       <ContactForm />
     </div>
   </section>
-
 </Layout>

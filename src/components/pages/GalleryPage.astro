@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getLang, useTranslations } from '../../i18n/index';
-import HeroImage from '../HeroImage.astro';
+import Layout from "../../layouts/Layout.astro";
+import { getLang, useTranslations } from "../../i18n/index";
+import HeroImage from "../HeroImage.astro";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -9,40 +9,68 @@ const p = t.pages.gallery;
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
-  <HeroImage heroImage="/images/guests-smartphones-bride-1024x584.jpg" title={p.hero.title} />
+  <HeroImage
+    heroImage="/images/guests-smartphones-bride-1024x584.jpg"
+    title={p.hero.title}
+  />
 
   <!-- ② PORTAFOLIO INTRO -->
   <section class="py-16 md:py-20 bg-white text-center">
     <div class="max-w-3xl mx-auto px-6">
-      <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-6" style="font-variant: small-caps;">{p.intro.title}</h2>
+      <h2
+        class="font-serif text-4xl md:text-5xl text-charcoal mb-6"
+        style="font-variant: small-caps;"
+      >
+        {p.intro.title}
+      </h2>
       <p class="text-gray-600 leading-relaxed" set:html={p.intro.body} />
     </div>
   </section>
 
   <!-- ③ MASONRY GRID -->
   <section class="bg-white pb-2">
-    <div class="columns-2 md:columns-3 lg:columns-4 gap-1.5 px-1.5 [&>*]:mb-1.5">
-      {p.photos.map(photo => (
-        <div class="overflow-hidden group break-inside-avoid">
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            loading="lazy"
-            class="w-full block transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-      ))}
+    <div
+      class="columns-2 md:columns-3 lg:columns-4 gap-1.5 px-1.5 [&>*]:mb-1.5"
+    >
+      {
+        p.photos.map((photo) => (
+          <div class="overflow-hidden group break-inside-avoid">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              class="w-full block transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        ))
+      }
     </div>
   </section>
 
   <!-- ④ GOLD CTA: Su Especialista en Bodas -->
   <section class="bg-gold text-white text-center py-16 px-6">
-    <h2 class="font-serif text-3xl md:text-4xl mb-6" style="font-variant: small-caps;">{p.cta.title}</h2>
-    <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-10 text-sm tracking-wide">
-      <span>{p.cta.phoneLabel}: <a href={`tel:${p.cta.phone.replace(/\s/g, '')}`} class="hover:underline">{p.cta.phone}</a></span>
+    <h2
+      class="font-serif text-3xl md:text-4xl mb-6"
+      style="font-variant: small-caps;"
+    >
+      {p.cta.title}
+    </h2>
+    <div
+      class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-10 text-sm tracking-wide"
+    >
+      <span
+        >{p.cta.phoneLabel}: <a
+          href={`tel:${p.cta.phone.replace(/\s/g, "")}`}
+          class="hover:underline">{p.cta.phone}</a
+        ></span
+      >
       <span class="hidden md:inline text-white/40" aria-hidden="true">|</span>
-      <span>{p.cta.emailLabel}: <a href={`mailto:${p.cta.email}`} class="hover:underline">{p.cta.email}</a></span>
+      <span
+        >{p.cta.emailLabel}: <a
+          href={`mailto:${p.cta.email}`}
+          class="hover:underline">{p.cta.email}</a
+        ></span
+      >
     </div>
   </section>
-
 </Layout>

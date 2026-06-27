@@ -1,36 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FAF7F2;
-  --color-gold: #C9A96E;
-  --color-charcoal: #2C2C2C;
-  --color-rose: #E8D5C4;
-  --color-forest: #4B6858;
-  --color-heading-gray: #6C6975;
-  --color-body-gray: #A4A4A4;
-  --color-accent-gold: #E5AA45;
-  --color-nav-gray: #A3A3A3;
+  --color-cream: #faf7f2;
+  --color-gold: #c9a96e;
+  --color-charcoal: #2c2c2c;
+  --color-rose: #e8d5c4;
+  --color-forest: #4b6858;
+  --color-heading-gray: #6c6975;
+  --color-body-gray: #a4a4a4;
+  --color-accent-gold: #e5aa45;
+  --color-nav-gray: #a3a3a3;
   --color-button-dark: #333333;
-  --color-teal-bg: #6C7878;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Lato', system-ui, sans-serif;
-  --font-script: 'Great Vibes', cursive;
+  --color-teal-bg: #6c7878;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Lato", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
 }
 
 @layer base {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
   body {
-    background-color: #FAF7F2;
-    color: #2C2C2C;
-    font-family: 'Lato', system-ui, sans-serif;
+    background-color: #faf7f2;
+    color: #2c2c2c;
+    font-family: "Lato", system-ui, sans-serif;
     margin: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", Georgia, serif;
   }
 }

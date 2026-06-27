@@ -4,15 +4,15 @@ interface Props {
   subtitle?: string;
   cta?: { label: string; href: string };
   imageSrc?: string;
-  height?: 'full' | 'medium' | 'small';
+  height?: "full" | "medium" | "small";
 }
 
-const { title, subtitle, cta, imageSrc, height = 'medium' } = Astro.props;
+const { title, subtitle, cta, imageSrc, height = "medium" } = Astro.props;
 
 const heightClass = {
-  full: 'min-h-screen',
-  medium: 'min-h-[65vh]',
-  small: 'min-h-[40vh]',
+  full: "min-h-screen",
+  medium: "min-h-[65vh]",
+  small: "min-h-[40vh]",
 }[height];
 ---
 
@@ -20,22 +20,29 @@ const heightClass = {
   class={`relative flex items-center justify-center text-center pt-[80px] ${heightClass}`}
   style={imageSrc
     ? `background-image: url('${imageSrc}'); background-size: cover; background-position: center; background-attachment: fixed;`
-    : 'background: linear-gradient(135deg, #2C2C2C 0%, #3d2e22 60%, #7a5c3a 100%);'
-  }
+    : "background: linear-gradient(135deg, #2C2C2C 0%, #3d2e22 60%, #7a5c3a 100%);"}
 >
-  <div class="absolute inset-0 bg-black/45" />
+  <div class="absolute inset-0 bg-black/45"></div>
   <div class="relative z-10 px-6 max-w-3xl mx-auto">
-    <h1 class="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">{title}</h1>
-    {subtitle && (
-      <p class="text-white/85 text-lg md:text-xl mb-10 leading-relaxed">{subtitle}</p>
-    )}
-    {cta && (
-      <a
-        href={cta.href}
-        class="inline-block px-10 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300 uppercase tracking-widest text-xs font-medium"
-      >
-        {cta.label}
-      </a>
-    )}
+    <h1 class="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">
+      {title}
+    </h1>
+    {
+      subtitle && (
+        <p class="text-white/85 text-lg md:text-xl mb-10 leading-relaxed">
+          {subtitle}
+        </p>
+      )
+    }
+    {
+      cta && (
+        <a
+          href={cta.href}
+          class="inline-block px-10 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300 uppercase tracking-widest text-xs font-medium"
+        >
+          {cta.label}
+        </a>
+      )
+    }
   </div>
 </section>

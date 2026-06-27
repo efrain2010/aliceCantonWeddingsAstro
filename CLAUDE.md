@@ -41,6 +41,7 @@ All shared components (`Header`, `Footer`, `SectionCTA`, `ContactForm`) call `ge
 Translation dictionary for shared UI strings (nav labels, footer, CTA, form fields) is in `src/i18n/translations.ts`. Page-specific content (service cards, testimonials, FAQ items, venue descriptions) is defined inline in each page component in `src/components/pages/`.
 
 Key i18n exports from `src/i18n/index.ts`:
+
 - `getLang(pathname)` — returns `'es'` or `'en'`
 - `getPageKey(pathname)` — maps URL to `PageKey` for active nav + language switcher
 - `routes` — canonical URL for each locale/page combination
@@ -50,12 +51,12 @@ Key i18n exports from `src/i18n/index.ts`:
 
 Tailwind v4 with CSS-based config in `src/styles/global.css`. Custom tokens are defined with `@theme`:
 
-| Token | Hex | Usage |
-|---|---|---|
-| `cream` | `#FAF7F2` | page backgrounds |
-| `gold` | `#C9A96E` | accents, borders, CTAs |
-| `charcoal` | `#2C2C2C` | body text, dark sections |
-| `rose` | `#E8D5C4` | light section backgrounds |
+| Token      | Hex       | Usage                     |
+| ---------- | --------- | ------------------------- |
+| `cream`    | `#FAF7F2` | page backgrounds          |
+| `gold`     | `#C9A96E` | accents, borders, CTAs    |
+| `charcoal` | `#2C2C2C` | body text, dark sections  |
+| `rose`     | `#E8D5C4` | light section backgrounds |
 
 Fonts: Playfair Display (headings, `font-serif`) + Lato (body, `font-sans`), loaded from Google Fonts.
 

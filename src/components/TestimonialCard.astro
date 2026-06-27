@@ -8,8 +8,14 @@ const { quote, author, year } = Astro.props;
 ---
 
 <div class="bg-white p-8 shadow-sm relative flex flex-col">
-  <div class="font-serif text-6xl text-gold/25 absolute top-3 left-6 leading-none select-none">"</div>
-  <p class="text-gray-600 italic text-sm leading-relaxed mt-8 mb-6 flex-1">{quote}</p>
+  <div
+    class="font-serif text-6xl text-gold/25 absolute top-3 left-6 leading-none select-none"
+  >
+    "
+  </div>
+  <p class="text-gray-600 italic text-sm leading-relaxed mt-8 mb-6 flex-1">
+    {quote}
+  </p>
   <div class="border-t border-rose pt-4">
     <p class="font-medium text-charcoal text-sm">{author}</p>
     <p class="text-gray-400 text-xs mt-0.5">{year}</p>

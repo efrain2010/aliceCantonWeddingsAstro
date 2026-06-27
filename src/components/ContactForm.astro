@@ -1,6 +1,6 @@
 ---
-import { translations, getLang, type Lang } from '../i18n/index';
-import { formEndpoint } from '../config/site';
+import { translations, getLang, type Lang } from "../i18n/index";
+import { formEndpoint } from "../config/site";
 
 interface Props {
   singleColumn?: boolean;
@@ -8,60 +8,105 @@ interface Props {
   bare?: boolean;
   submitLabel?: string;
 }
-const { singleColumn = false, showDate = true, bare = false, submitLabel } = Astro.props;
+const {
+  singleColumn = false,
+  showDate = true,
+  bare = false,
+  submitLabel,
+} = Astro.props;
 
 const lang: Lang = getLang(Astro.url.pathname);
 const f = translations[lang].form;
 ---
 
 <form
-  class={bare ? 'w-full' : 'bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto'}
+  class={bare ? "w-full" : "bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto"}
   method="POST"
   action={formEndpoint}
 >
-  <div class={`grid gap-6 mb-6 ${singleColumn ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+  <div
+    class={`grid gap-6 mb-6 ${singleColumn ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}
+  >
     <div>
-      <label for="nombre" class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">{f.nameLabel}</label>
+      <label
+        for="nombre"
+        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        >{f.nameLabel}</label
+      >
       <input
-        type="text" id="nombre" name="nombre" required autocomplete="name"
+        type="text"
+        id="nombre"
+        name="nombre"
+        required
+        autocomplete="name"
         class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
         placeholder={f.namePlaceholder}
       />
     </div>
     <div>
-      <label for="correo" class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">{f.emailLabel}</label>
+      <label
+        for="correo"
+        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        >{f.emailLabel}</label
+      >
       <input
-        type="email" id="correo" name="correo" required autocomplete="email"
+        type="email"
+        id="correo"
+        name="correo"
+        required
+        autocomplete="email"
         class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
         placeholder={f.emailPlaceholder}
       />
     </div>
     <div>
-      <label for="telefono" class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">{f.phoneLabel}</label>
+      <label
+        for="telefono"
+        class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+        >{f.phoneLabel}</label
+      >
       <input
-        type="tel" id="telefono" name="telefono" autocomplete="tel"
+        type="tel"
+        id="telefono"
+        name="telefono"
+        autocomplete="tel"
         class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors placeholder-gray-300"
         placeholder={f.phonePlaceholder}
       />
     </div>
-    {showDate && (
-      <div>
-        <label for="fecha" class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">{f.dateLabel}</label>
-        <input
-          type="date" id="fecha" name="fecha"
-          class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors"
-        />
-      </div>
-    )}
+    {
+      showDate && (
+        <div>
+          <label
+            for="fecha"
+            class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+          >
+            {f.dateLabel}
+          </label>
+          <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal transition-colors"
+          />
+        </div>
+      )
+    }
   </div>
 
   <div class="mb-8">
-    <label for="mensaje" class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">{f.messageLabel}</label>
+    <label
+      for="mensaje"
+      class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium"
+      >{f.messageLabel}</label
+    >
     <textarea
-      id="mensaje" name="mensaje" rows="5" required
+      id="mensaje"
+      name="mensaje"
+      rows="5"
+      required
       class="w-full border-b-2 border-gray-200 focus:border-gold outline-none py-2 bg-transparent text-charcoal resize-none transition-colors placeholder-gray-300"
-      placeholder={f.messagePlaceholder}
-    ></textarea>
+      placeholder={f.messagePlaceholder}></textarea>
   </div>
 
   <button

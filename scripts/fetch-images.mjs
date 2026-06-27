@@ -1,20 +1,20 @@
-import https from 'https';
-import http from 'http';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import https from "https";
+import http from "http";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '..');
-const IMAGES_DIR = path.join(PROJECT_ROOT, 'public', 'images');
+const PROJECT_ROOT = path.resolve(__dirname, "..");
+const IMAGES_DIR = path.join(PROJECT_ROOT, "public", "images");
 
 // Ensure images directory exists
 if (!fs.existsSync(IMAGES_DIR)) {
   fs.mkdirSync(IMAGES_DIR, { recursive: true });
 }
 
-const HOMEPAGE_URL = 'https://alicecantonweddings.com/';
+const HOMEPAGE_URL = "https://alicecantonweddings.com/";
 const downloadedFiles = new Map(); // filename -> { url, size, status }
 const skippedFiles = new Set();
 
@@ -24,10 +24,10 @@ const skippedFiles = new Set();
 function urlToFilename(urlStr) {
   try {
     const url = new URL(urlStr);
-    let pathname = url.pathname.split('/').pop() || 'image';
+    let pathname = url.pathname.split("/").pop() || "image";
 
     // Remove query params if present
-    pathname = pathname.split('?')[0];
+    pathname = pathname.split("?")[0];
 
     // If filename is just a number or ID, use a more descriptive approach
     if (/^\d+$/.test(pathname)) {
@@ -35,11 +35,19 @@ function urlToFilename(urlStr) {
     }
 
     // Convert to kebab-case and keep extension
-    const [name, ext] = pathname.split('.');
+    const [name, ext] = pathname.split(".");
     if (!ext) {
-      return name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+      return name
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "");
     }
-    return `${name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}.${ext.toLowerCase()}`;
+    return `${name
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "")}.${ext.toLowerCase()}`;
   } catch (e) {
     return null;
   }
@@ -50,21 +58,23 @@ function urlToFilename(urlStr) {
  */
 function fetchUrl(urlStr) {
   return new Promise((resolve) => {
-    const protocol = urlStr.startsWith('https') ? https : http;
+    const protocol = urlStr.startsWith("https") ? https : http;
 
-    protocol.get(urlStr, { timeout: 10000 }, (res) => {
-      let data = Buffer.alloc(0);
+    protocol
+      .get(urlStr, { timeout: 10000 }, (res) => {
+        let data = Buffer.alloc(0);
 
-      res.on('data', (chunk) => {
-        data = Buffer.concat([data, chunk]);
+        res.on("data", (chunk) => {
+          data = Buffer.concat([data, chunk]);
+        });
+
+        res.on("end", () => {
+          resolve({ status: res.statusCode, data, headers: res.headers });
+        });
+      })
+      .on("error", (err) => {
+        resolve({ status: 0, data: null, error: err.message });
       });
-
-      res.on('end', () => {
-        resolve({ status: res.statusCode, data, headers: res.headers });
-      });
-    }).on('error', (err) => {
-      resolve({ status: 0, data: null, error: err.message });
-    });
   });
 }
 
@@ -74,10 +84,10 @@ function fetchUrl(urlStr) {
 async function downloadImage(urlStr, sourceContext) {
   try {
     // Validate URL
-    if (!urlStr || typeof urlStr !== 'string') return null;
+    if (!urlStr || typeof urlStr !== "string") return null;
 
     // Skip data URLs and fragments
-    if (urlStr.startsWith('data:') || urlStr.startsWith('#')) return null;
+    if (urlStr.startsWith("data:") || urlStr.startsWith("#")) return null;
 
     // Make absolute URL
     const absoluteUrl = new URL(urlStr, HOMEPAGE_URL).href;
@@ -99,7 +109,7 @@ async function downloadImage(urlStr, sourceContext) {
     const { status, data, error } = await fetchUrl(absoluteUrl);
 
     if (error || !data) {
-      console.log(`  FAIL: ${filename} (${error || 'unknown error'})`);
+      console.log(`  FAIL: ${filename} (${error || "unknown error"})`);
       return null;
     }
 
@@ -131,23 +141,24 @@ function extractImageUrls(html) {
   const imgSrcRegex = /<img[^>]+src=["']([^"']+)["']/gi;
   let match;
   while ((match = imgSrcRegex.exec(html)) !== null) {
-    urls.push({ url: match[1], source: 'img-src' });
+    urls.push({ url: match[1], source: "img-src" });
   }
 
   // Extract <img srcset>
   const imgSrcsetRegex = /<img[^>]+srcset=["']([^"']+)["']/gi;
   while ((match = imgSrcsetRegex.exec(html)) !== null) {
     // srcset can have multiple URLs separated by commas
-    match[1].split(',').forEach(entry => {
+    match[1].split(",").forEach((entry) => {
       const url = entry.trim().split(/\s+/)[0];
-      if (url) urls.push({ url, source: 'img-srcset' });
+      if (url) urls.push({ url, source: "img-srcset" });
     });
   }
 
   // Extract og:image
-  const ogImageRegex = /<meta\s+property=["']og:image["'][^>]+content=["']([^"']+)["']/gi;
+  const ogImageRegex =
+    /<meta\s+property=["']og:image["'][^>]+content=["']([^"']+)["']/gi;
   while ((match = ogImageRegex.exec(html)) !== null) {
-    urls.push({ url: match[1], source: 'og:image' });
+    urls.push({ url: match[1], source: "og:image" });
   }
 
   // Extract CSS background-image from inline styles
@@ -157,14 +168,14 @@ function extractImageUrls(html) {
     const bgRegex = /background(?:-image)?\s*:\s*url\(["']?([^)'"]+)["']?\)/gi;
     let bgMatch;
     while ((bgMatch = bgRegex.exec(styleContent)) !== null) {
-      urls.push({ url: bgMatch[1], source: 'inline-style' });
+      urls.push({ url: bgMatch[1], source: "inline-style" });
     }
   }
 
   // Extract <link href> for stylesheets (we'll process these separately)
   const linkRegex = /<link[^>]+href=["']([^"']+\.css)["']/gi;
   while ((match = linkRegex.exec(html)) !== null) {
-    urls.push({ url: match[1], source: 'stylesheet', isStylesheet: true });
+    urls.push({ url: match[1], source: "stylesheet", isStylesheet: true });
   }
 
   return urls;
@@ -191,18 +202,22 @@ function isValidImage(filepath) {
     const stat = fs.statSync(filepath);
 
     // Check size (very small files are likely errors)
-    if (stat.size < 1024) { // < 1 KB
+    if (stat.size < 1024) {
+      // < 1 KB
       return false;
     }
 
     // Read first few bytes to check for HTML error pages
     const buffer = Buffer.alloc(Math.min(1024, stat.size));
-    const fd = fs.openSync(filepath, 'r');
+    const fd = fs.openSync(filepath, "r");
     fs.readSync(fd, buffer, 0, buffer.length);
     fs.closeSync(fd);
 
-    const content = buffer.toString('utf-8', 0, 512);
-    if (content.toLowerCase().includes('<!doctype') || content.toLowerCase().includes('<html')) {
+    const content = buffer.toString("utf-8", 0, 512);
+    if (
+      content.toLowerCase().includes("<!doctype") ||
+      content.toLowerCase().includes("<html")
+    ) {
       return false; // Likely HTML error page
     }
 
@@ -217,7 +232,7 @@ function isValidImage(filepath) {
  */
 function findReplacementImage(brokenFilename) {
   // Preference order: existing files, then downloaded working files
-  const existingFiles = ['parallax-2.jpg', 'img-10.jpg', 'img-13.jpg'];
+  const existingFiles = ["parallax-2.jpg", "img-10.jpg", "img-13.jpg"];
   const workingDownloaded = Array.from(downloadedFiles.keys());
 
   const candidates = [...workingDownloaded, ...existingFiles];
@@ -235,7 +250,7 @@ function findReplacementImage(brokenFilename) {
 }
 
 async function main() {
-  console.log('Fetching homepage HTML...');
+  console.log("Fetching homepage HTML...");
   const { data: htmlData, status } = await fetchUrl(HOMEPAGE_URL);
 
   if (!htmlData || status !== 200) {
@@ -243,14 +258,14 @@ async function main() {
     process.exit(1);
   }
 
-  const html = htmlData.toString('utf-8');
+  const html = htmlData.toString("utf-8");
   console.log(`Homepage fetched (${htmlData.length} bytes)\n`);
 
   // Extract image URLs
-  console.log('Extracting image URLs...');
+  console.log("Extracting image URLs...");
   const imageUrls = extractImageUrls(html);
-  const stylesheetUrls = imageUrls.filter(u => u.isStylesheet);
-  const regularUrls = imageUrls.filter(u => !u.isStylesheet);
+  const stylesheetUrls = imageUrls.filter((u) => u.isStylesheet);
+  const regularUrls = imageUrls.filter((u) => !u.isStylesheet);
 
   console.log(`Found ${regularUrls.length} image URLs in HTML\n`);
 
@@ -258,9 +273,11 @@ async function main() {
   const stylesheetImageUrls = [];
   for (const sheet of stylesheetUrls) {
     console.log(`Fetching stylesheet: ${sheet.url}`);
-    const { data: cssData } = await fetchUrl(new URL(sheet.url, HOMEPAGE_URL).href);
+    const { data: cssData } = await fetchUrl(
+      new URL(sheet.url, HOMEPAGE_URL).href,
+    );
     if (cssData) {
-      const cssText = cssData.toString('utf-8');
+      const cssText = cssData.toString("utf-8");
       const urls = extractUrlsFromCSS(cssText);
       stylesheetImageUrls.push(...urls);
       console.log(`  Found ${urls.length} image URLs in stylesheet\n`);
@@ -268,22 +285,22 @@ async function main() {
   }
 
   // Combine all URLs and deduplicate
-  const allUrls = [...regularUrls.map(u => u.url), ...stylesheetImageUrls];
+  const allUrls = [...regularUrls.map((u) => u.url), ...stylesheetImageUrls];
   const uniqueUrls = [...new Set(allUrls)];
 
   console.log(`Total unique image URLs: ${uniqueUrls.length}\n`);
-  console.log('Downloading images...');
+  console.log("Downloading images...");
 
   // Download each image
   for (const url of uniqueUrls) {
-    await downloadImage(url, 'extracted');
+    await downloadImage(url, "extracted");
   }
 
   console.log(`\n✓ Downloaded ${downloadedFiles.size} new images`);
   console.log(`✓ Skipped ${skippedFiles.size} existing images\n`);
 
   // Validate downloaded files
-  console.log('Validating downloaded files...');
+  console.log("Validating downloaded files...");
   const brokenFiles = [];
   const substitutions = new Map();
 
@@ -311,14 +328,14 @@ async function main() {
   }
 
   console.log(`\nFinal image count: ${fs.readdirSync(IMAGES_DIR).length}`);
-  console.log('Done!');
+  console.log("Done!");
 
   // Return stats for manifest creation
   return {
     downloadedCount: downloadedFiles.size,
     skippedCount: skippedFiles.size,
     brokenCount: brokenFiles.length,
-    substitutions
+    substitutions,
   };
 }
 

@@ -65,22 +65,22 @@ src/
 
 Locale is auto-detected from the URL — no props needed:
 
-| Spanish (default) | English |
-|---|---|
-| `/` | `/en` |
-| `/nosotros` | `/en/about` |
-| `/servicios` | `/en/services` |
-| `/locaciones` | `/en/venues` |
-| `/galeria` | `/en/gallery` |
-| `/contacto` | `/en/contact` |
+| Spanish (default) | English        |
+| ----------------- | -------------- |
+| `/`               | `/en`          |
+| `/nosotros`       | `/en/about`    |
+| `/servicios`      | `/en/services` |
+| `/locaciones`     | `/en/venues`   |
+| `/galeria`        | `/en/gallery`  |
+| `/contacto`       | `/en/contact`  |
 
 All translations live in `src/i18n/translations.ts`. Page components read them via `useTranslations(lang)`.
 
 ## Design tokens
 
-| Token | Hex |
-|---|---|
-| `cream` | `#FAF7F2` |
-| `gold` | `#C9A96E` |
+| Token      | Hex       |
+| ---------- | --------- |
+| `cream`    | `#FAF7F2` |
+| `gold`     | `#C9A96E` |
 | `charcoal` | `#2C2C2C` |
-| `rose` | `#E8D5C4` |
+| `rose`     | `#E8D5C4` |

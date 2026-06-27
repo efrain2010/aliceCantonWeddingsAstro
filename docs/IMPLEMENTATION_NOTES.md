@@ -7,18 +7,21 @@ This document summarizes the key implementation considerations when replicating 
 ## Critical Differences: Reference Site vs. Astro Target
 
 ### Technology
+
 - **Reference**: WordPress (server-rendered, form backend included)
 - **Target**: Astro 5 (static site generator, no server-side logic)
 
 **Impact**: Form submission will require external service (Formspree, Netlify Forms, etc.)
 
 ### Language Support
+
 - **Reference**: Spanish only
 - **Target**: Bilingual (ES + EN with `/en/` routes)
 
 **Impact**: All content must be duplicated in English; navigation must include language toggle.
 
 ### Typography
+
 - **Reference Uses**: Cinzel (headings), Halant (body)
 - **Target Available**: Playfair Display (headings), Lato (body)
 
@@ -27,6 +30,7 @@ This document summarizes the key implementation considerations when replicating 
 Recommendation: Use Cinzel/Halant if possible via Google Fonts (imported in `src/styles/global.css`), then fall back to Playfair Display + Lato.
 
 ### Color Tokens
+
 - **Reference Heading Color**: `rgb(108, 105, 117)` (#6C6975 — muted purple-gray)
 - **Target Project Charcoal**: `#2C2C2C` (darker, more saturated)
 
@@ -44,6 +48,7 @@ Recommendation: Use reference color (#6C6975) for authenticity; document that th
 ## Page Structure Summary
 
 ### Nine Major Sections
+
 1. **Header/Navigation** (sticky) — Logo, nav items (INICIO, NOSOTROS, SERVICIOS, etc.)
 2. **Hero** — Full-viewport beach photo with circular "A" logo overlay
 3. **Intro** — Value proposition text + 4 service keyword cards
@@ -71,11 +76,13 @@ Based on CLAUDE.md project structure:
 ### 1. Circular "A" Logo Overlay (Hero Section)
 
 The hero has a circular graphic with:
+
 - Outer ring: Text "WEDDINGS & EVENTS" around circumference (curved)
 - Center: Large gold script "A"
 - Rings: Multiple concentric circles (decorative)
 
 **Implementation Options**:
+
 - SVG graphic (recommended for scalability)
 - CSS circles with clip-path
 - PNG/JPEG image (less flexible)
@@ -87,6 +94,7 @@ The hero has a circular graphic with:
 Navigation should remain fixed at top during scroll.
 
 **CSS Implementation**:
+
 ```css
 header {
   position: sticky;
@@ -102,6 +110,7 @@ header {
 Background image appears to move slower than viewport scroll (parallax).
 
 **Implementation Options**:
+
 - CSS: `background-attachment: fixed` (simplest, good browser support)
 - JavaScript library: Rellax.js, Lenis, or similar
 - CSS `transform: translateZ()` with `perspective`
@@ -113,6 +122,7 @@ Background image appears to move slower than viewport scroll (parallax).
 Testimonials section shows grid of wedding photos in varied sizes (masonry effect).
 
 **Implementation**:
+
 - CSS Grid with variable row-span: `grid-auto-rows: masonry`
 - OR: CSS Columns with `column-count: 3+`
 - OR: JavaScript library (Masonry, Isotope)
@@ -124,6 +134,7 @@ Testimonials section shows grid of wedding photos in varied sizes (masonry effec
 Reference uses WordPress form handler; Astro version needs external service.
 
 **Options**:
+
 - Netlify Forms (recommended for Netlify hosting)
 - Formspree (standalone, works anywhere)
 - Basin, FreeForm.io, or other form service
@@ -135,14 +146,17 @@ Reference uses WordPress form handler; Astro version needs external service.
 ## Spacing & Layout Dimensions
 
 ### Section Padding
+
 - Top/Bottom: 60–80px per section
 - Left/Right: Responsive (max-width container ~1200px, then margin auto)
 
 ### Hero Height
+
 - Desktop: ~900px (full viewport or close)
 - Mobile: ~500-600px (reduced)
 
 ### Component Spacing
+
 - Gap between grid items: 30–40px
 - Button padding: 15–20px vertical, 40–50px horizontal
 
@@ -155,19 +169,20 @@ Update `src/styles/global.css` with reference colors:
 ```css
 @theme {
   /* Existing tokens */
-  colors.cream: #FAF7F2;
-  colors.rose: #E8D5C4;
-  
+  colors.cream: #faf7f2;
+  colors.rose: #e8d5c4;
+
   /* NEW tokens from reference */
-  colors.heading-gray: #6C6975;     /* NOT charcoal #2C2C2C */
-  colors.body-gray: #A4A4A4;
-  colors.accent-gold: #E5AA45;      /* warmer than project gold #C9A96E */
-  colors.nav-text: #A3A3A3;
+  colors.heading-gray: #6c6975; /* NOT charcoal #2C2C2C */
+  colors.body-gray: #a4a4a4;
+  colors.accent-gold: #e5aa45; /* warmer than project gold #C9A96E */
+  colors.nav-text: #a3a3a3;
   colors.button-bg: #333333;
 }
 ```
 
 Then use in components:
+
 ```html
 <h1 class="text-heading-gray">Wedding Planner en Mérida Yucatán</h1>
 <p class="text-body-gray">La organización...</p>
@@ -180,18 +195,20 @@ Then use in components:
 Add to `src/styles/global.css` (or update existing Google Fonts import):
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Halant:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Halant:wght@400;600&display=swap");
 ```
 
 Then in `@theme` or Tailwind config:
+
 ```css
 @theme {
-  fontFamily.heading: 'Cinzel', serif;
-  fontFamily.body: 'Halant', sans-serif;
+  fontfamily.heading: "Cinzel", serif;
+  fontfamily.body: "Halant", sans-serif;
 }
 ```
 
 Or via Tailwind utility classes:
+
 ```html
 <h1 class="font-heading">Wedding Planner en Mérida Yucatán</h1>
 <p class="font-body">La organización...</p>
@@ -218,19 +235,21 @@ All images in the reference site are high-quality wedding photography. For the A
 The target Astro site is bilingual. Map reference content to both locales:
 
 ### Spanish (Default / Root)
+
 - Route: `/`
 - Content: From reference site (verbatim)
 
 ### English
+
 - Route: `/en`
 - Content: English translations of reference content
 
 ### Navigation Toggle
+
 Add language switcher in Header component:
+
 ```html
-<a href="/{lang === 'es' ? 'en' : ''}/">
-  {lang === 'es' ? 'EN' : 'ES'}
-</a>
+<a href="/{lang === 'es' ? 'en' : ''}/"> {lang === 'es' ? 'EN' : 'ES'} </a>
 ```
 
 ---
@@ -259,6 +278,7 @@ Add language switcher in Header component:
 ## Reference Screenshots
 
 Visual documentation of each page section is available in `screenshots/reference/` showing:
+
 - Full hero section with navigation
 - Intro + service cards
 - Service descriptions
@@ -280,4 +300,3 @@ Visual documentation of each page section is available in `screenshots/reference
 6. **Form Integration**: Configure Netlify Forms or alternative
 7. **Test Bilingual**: Ensure `/en/` routes work correctly
 8. **QA**: Test on desktop and mobile; compare with reference site
-

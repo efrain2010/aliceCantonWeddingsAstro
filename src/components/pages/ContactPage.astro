@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ContactForm from '../ContactForm.astro';
-import SectionCTA from '../SectionCTA.astro';
-import { getLang, useTranslations } from '../../i18n/index';
-import HeroImage from '../HeroImage.astro';
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../ContactForm.astro";
+import SectionCTA from "../SectionCTA.astro";
+import { getLang, useTranslations } from "../../i18n/index";
+import HeroImage from "../HeroImage.astro";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -11,7 +11,7 @@ const p = t.pages.contact;
 const l = p.labels;
 
 const mapSrc =
-  'https://maps.google.com/maps?q=Alice%20Cant%C3%B3n%20Weddings%20Events%20Calle%2059D%20Yucalpet%C3%A9n%20M%C3%A9rida&t=&z=14&ie=UTF8&iwloc=&output=embed';
+  "https://maps.google.com/maps?q=Alice%20Cant%C3%B3n%20Weddings%20Events%20Calle%2059D%20Yucalpet%C3%A9n%20M%C3%A9rida&t=&z=14&ie=UTF8&iwloc=&output=embed";
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
@@ -21,26 +21,53 @@ const mapSrc =
   <section class="py-16 md:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-
         <!-- Left: Agenda una Cita + form -->
         <div>
-          <h2 class="font-serif text-4xl text-charcoal mb-6" style="font-variant: small-caps;">{l.scheduleTitle}</h2>
+          <h2
+            class="font-serif text-4xl text-charcoal mb-6"
+            style="font-variant: small-caps;"
+          >
+            {l.scheduleTitle}
+          </h2>
           <p class="text-gray-500 text-sm mb-6">{l.formNote}</p>
-          <ContactForm singleColumn={true} showDate={false} bare={true} submitLabel={lang === 'es' ? 'Enviar' : 'Send'} />
+          <ContactForm
+            singleColumn={true}
+            showDate={false}
+            bare={true}
+            submitLabel={lang === "es" ? "Enviar" : "Send"}
+          />
         </div>
 
         <!-- Right: Contacto info + map -->
         <div>
-          <h2 class="font-serif text-4xl text-charcoal mb-6" style="font-variant: small-caps;">{l.contactTitle}</h2>
+          <h2
+            class="font-serif text-4xl text-charcoal mb-6"
+            style="font-variant: small-caps;"
+          >
+            {l.contactTitle}
+          </h2>
           <div class="space-y-3 text-gray-600 mb-8">
-            <p><span class="font-semibold text-charcoal">{l.addressLabel}:</span> {l.address}</p>
             <p>
-              <span class="font-semibold text-charcoal">{l.phoneLabel}:</span>{' '}
-              <a href={`tel:${l.phone.replace(/\s/g, '')}`} class="text-gold hover:underline">{l.phone}</a>
+              <span class="font-semibold text-charcoal">{l.addressLabel}:</span>
+              {l.address}
             </p>
             <p>
-              <span class="font-semibold text-charcoal">{l.emailLabel}:</span>{' '}
-              <a href={`mailto:${l.email}`} class="text-gold hover:underline break-all">{l.email}</a>
+              <span class="font-semibold text-charcoal">{l.phoneLabel}:</span>{
+                " "
+              }
+              <a
+                href={`tel:${l.phone.replace(/\s/g, "")}`}
+                class="text-gold hover:underline">{l.phone}</a
+              >
+            </p>
+            <p>
+              <span class="font-semibold text-charcoal">{l.emailLabel}:</span>{
+                " "
+              }
+              <a
+                href={`mailto:${l.email}`}
+                class="text-gold hover:underline break-all">{l.email}</a
+              >
             </p>
           </div>
           <div class="overflow-hidden border border-gray-200">
@@ -51,8 +78,7 @@ const mapSrc =
               height="300"
               style="border:0;"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -63,16 +89,30 @@ const mapSrc =
   <section class="py-16 md:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-serif text-4xl md:text-5xl text-charcoal" style="font-variant: small-caps;">{p.faq.title}</h2>
-        <div class="w-16 h-0.5 bg-gold mx-auto mt-5" />
+        <h2
+          class="font-serif text-4xl md:text-5xl text-charcoal"
+          style="font-variant: small-caps;"
+        >
+          {p.faq.title}
+        </h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mt-5"></div>
       </div>
-      <div class="columns-1 md:columns-2 gap-12 [&>*]:break-inside-avoid [&>*]:mb-10">
-        {p.faq.items.map((faq) => (
-          <div>
-            <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-3" style="font-variant: small-caps;">{faq.q}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-          </div>
-        ))}
+      <div
+        class="columns-1 md:columns-2 gap-12 [&>*]:break-inside-avoid [&>*]:mb-10"
+      >
+        {
+          p.faq.items.map((faq) => (
+            <div>
+              <h3
+                class="font-serif text-xl md:text-2xl text-charcoal mb-3"
+                style="font-variant: small-caps;"
+              >
+                {faq.q}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -80,7 +120,12 @@ const mapSrc =
   <!-- ④ QUOTE BAND -->
   <section class="bg-forest text-white py-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-serif text-2xl md:text-3xl leading-relaxed" style="font-variant: small-caps;">{p.quote}</h2>
+      <h2
+        class="font-serif text-2xl md:text-3xl leading-relaxed"
+        style="font-variant: small-caps;"
+      >
+        {p.quote}
+      </h2>
     </div>
   </section>
 
