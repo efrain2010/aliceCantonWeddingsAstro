@@ -1,17 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Hero from '../Hero.astro';
 import SectionCTA from '../SectionCTA.astro';
 import { getLang, useTranslations } from '../../i18n/index';
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.venues;
+
+const heroTitle = lang === 'es' ? 'Locaciones' : 'Venues';
+
+// Per-category photo galleries (shared across locales)
+const categoryImages = [
+  ['hac-1', 'hac-2', 'hac-3', 'hac-4', 'hac-5', 'hac-6', 'hac-7', 'hac-8'],
+  ['pla-1', 'pla-2', 'pla-3', 'pla-4', 'pla-5', 'pla-6'],
+  ['cen-1', 'cen-2', 'cen-3', 'cen-4', 'cen-5', 'cen-6', 'cen-7', 'cen-8'],
+  ['bac-1', 'bac-2'],
+].map((arr) => arr.map((n) => `/images/venues/${n}.jpg`));
+
 const content = {
   es: {
     increiblasImage: '/images/boda-playa-1024x576.jpg',
     celebracionesImage: '/images/guests-smartphones-bride-1024x584.jpg',
-    sectionTitleBg: 'charcoal',
+    increiblasTitle: 'Locaciones Increíbles',
+    increiblasBody:
+      'Conoce las locaciones del estado de Yucatán, podemos organizar el mejor día de tu vida en haciendas, playas y lugares con los que solo has soñado. Agenda una cita y conoce salones de eventos impresionantes, haciendas antiguas y playas increíbles.',
+    celebracionesTitle: 'Celebraciones Inolvidables',
+    celebracionesBody:
+      'Dejanos ayudarte con la planeación de tu evento, te asesoramos para tener la mejor experiencia aún si ya has elegido un lugar. Haciendas, playas, cenotes, el lugar que desees nosotros te ayudamos a volverlo increíble.',
+    bandTitle: 'Locaciones en Mérida Yucatán',
     venueCategories: [
       {
         title: 'Haciendas en Yucatán',
@@ -34,7 +50,13 @@ const content = {
   en: {
     increiblasImage: '/images/boda-playa-1024x576.jpg',
     celebracionesImage: '/images/guests-smartphones-bride-1024x584.jpg',
-    sectionTitleBg: 'charcoal',
+    increiblasTitle: 'Amazing Venues',
+    increiblasBody:
+      "Get to know the venues in the state of Yucatán. We can organize the best day of your life in haciendas, beaches and places you've only dreamed of. Schedule an appointment and discover impressive event halls, ancient haciendas and incredible beaches.",
+    celebracionesTitle: 'Unforgettable Celebrations',
+    celebracionesBody:
+      "Let us help you plan your event. We advise you to have the best experience even if you've already chosen a location. Haciendas, beaches, cenotes—whatever location you choose, we'll help you make it incredible.",
+    bandTitle: 'Venues in Mérida Yucatán',
     venueCategories: [
       {
         title: 'Haciendas in Yucatán',
@@ -59,65 +81,70 @@ const content = {
 
 <Layout title={p.meta.title} description={p.meta.description}>
 
-  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="full" imageSrc="/images/foxglove-spires-path-PYQPXBU-1.jpg" />
+  <!-- ① HERO: full-height B&W photo + Great Vibes script title -->
+  <section class="relative min-h-screen overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/foxglove-spires-path-PYQPXBU-1.jpg'); filter: grayscale(100%);"
+    />
+    <div class="absolute inset-0 bg-black/30" />
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
+      <h1
+        class="text-white leading-none"
+        style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
+      >
+        {heroTitle}
+      </h1>
+    </div>
+  </section>
 
-  <!-- Two-column intro section with images -->
-  <section class="py-20 bg-cream">
+  <!-- ② TWO-COLUMN INTRO -->
+  <section class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left column: image + text -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
         <div>
-          <img src={content.increiblasImage} alt="Locaciones Increíbles" class="w-full h-auto mb-8 object-cover" />
-          <h2 class="font-serif text-4xl text-charcoal mb-6">
-            {lang === 'es' ? 'Locaciones Increíbles' : 'Amazing Venues'}
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            {lang === 'es'
-              ? 'Conoce las locaciones del estado de Yucatán, podemos organizar el mejor día de tu vida en haciendas, playas y lugares con los que solo has soñado. Agenda una cita y conoce salones de eventos impresionantes, haciendas antiguas y playas increíbles.'
-              : 'Get to know the venues in the state of Yucatán. We can organize the best day of your life in haciendas, beaches and places you\'ve only dreamed of. Schedule an appointment and discover impressive event halls, ancient haciendas and incredible beaches.'}
-          </p>
+          <img src={content.increiblasImage} alt={content.increiblasTitle} class="w-full h-auto mb-7 object-cover" />
+          <h2 class="font-serif text-3xl md:text-4xl text-charcoal mb-5" style="font-variant: small-caps;">{content.increiblasTitle}</h2>
+          <p class="text-gray-600 leading-relaxed">{content.increiblasBody}</p>
         </div>
-
-        <!-- Right column: image + text -->
         <div>
-          <img src={content.celebracionesImage} alt="Celebraciones Inolvidables" class="w-full h-auto mb-8 object-cover" />
-          <h2 class="font-serif text-4xl text-charcoal mb-6">
-            {lang === 'es' ? 'Celebraciones Inolvidables' : 'Unforgettable Celebrations'}
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            {lang === 'es'
-              ? 'Dejanos ayudarte con la planeación de tu evento, te asesoramos para tener la mejor experiencia aún si ya has elegido un lugar. Haciendas, playas, cenotes, el lugar que desees nosotros te ayudamos a volverlo increíble.'
-              : 'Let us help you plan your event. We advise you to have the best experience even if you\'ve already chosen a location. Haciendas, beaches, cenotes—whatever location you choose, we\'ll help you make it incredible.'}
-          </p>
+          <img src={content.celebracionesImage} alt={content.celebracionesTitle} class="w-full h-auto mb-7 object-cover" />
+          <h2 class="font-serif text-3xl md:text-4xl text-charcoal mb-5" style="font-variant: small-caps;">{content.celebracionesTitle}</h2>
+          <p class="text-gray-600 leading-relaxed">{content.celebracionesBody}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Venue categories section -->
-  <section class="bg-white py-20">
-    <!-- Section title band -->
-    <div class="bg-charcoal text-white py-24 mb-20 px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="font-serif text-6xl md:text-7xl">
-          {lang === 'es' ? 'Locaciones en Mérida Yucatán' : 'Venues in Mérida Yucatán'}
-        </h1>
-      </div>
+  <!-- ③ FOREST-GREEN SECTION BAND -->
+  <div class="bg-forest text-white py-20 md:py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-serif text-5xl md:text-6xl leading-tight" style="font-variant: small-caps;">{content.bandTitle}</h2>
     </div>
+  </div>
 
-    <!-- Venue categories -->
-    <div class="max-w-6xl mx-auto px-6">
-      {content.venueCategories.map((category) => (
-        <div class="mb-24">
-          <div class="text-center mb-12">
-            <h2 class="font-serif text-5xl text-charcoal mb-8">{category.title}</h2>
-            <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              {category.description}
-            </p>
-          </div>
+  <!-- ④ VENUE CATEGORIES with galleries -->
+  <section class="bg-white py-16 md:py-20">
+    {content.venueCategories.map((category, ci) => (
+      <div class="mb-16 md:mb-20 last:mb-0">
+        <div class="text-center mb-10 px-6">
+          <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-5" style="font-variant: small-caps;">{category.title}</h2>
+          <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">{category.description}</p>
         </div>
-      ))}
-    </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1.5 px-1.5">
+          {categoryImages[ci].map((src) => (
+            <div class="overflow-hidden group aspect-square">
+              <img
+                src={src}
+                alt={category.title}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
   </section>
 
   <SectionCTA />
