@@ -1,5 +1,6 @@
 ---
 import { translations, getLang, type Lang } from '../i18n/index';
+import { formEndpoint } from '../config/site';
 
 interface Props {
   singleColumn?: boolean;
@@ -16,7 +17,7 @@ const f = translations[lang].form;
 <form
   class={bare ? 'w-full' : 'bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto'}
   method="POST"
-  action="https://formspree.io/f/alicecantonweddings@gmail.com"
+  action={formEndpoint}
 >
   <div class={`grid gap-6 mb-6 ${singleColumn ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
     <div>

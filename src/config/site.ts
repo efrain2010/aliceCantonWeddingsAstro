@@ -14,3 +14,9 @@ export const phoneHref = `tel:${CONTACT.phone.replace(/[^\d+]/g, '')}`;
 
 /** `mailto:` href derived from the email */
 export const emailHref = `mailto:${CONTACT.email}`;
+
+/**
+ * Endpoint every contact form submits to (Formspree).
+ * Single source of truth so all forms use the same technology + email.
+ */
+export const formEndpoint = `https://formspree.io/f/${CONTACT.email}`;
