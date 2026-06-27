@@ -1,69 +1,63 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Hero from '../Hero.astro';
-import SectionCTA from '../SectionCTA.astro';
-import { getLang, routes, useTranslations } from '../../i18n/index';
+import { getLang, useTranslations } from '../../i18n/index';
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.gallery;
-const r = routes[lang];
-
-const gradients = [
-  'linear-gradient(135deg, #3d2e22 0%, #C9A96E 100%)',
-  'linear-gradient(135deg, #2C2C2C 0%, #4a3728 100%)',
-  'linear-gradient(135deg, #E8D5C4 0%, #C9A96E 100%)',
-  'linear-gradient(135deg, #4a3728 0%, #3d2e22 100%)',
-  'linear-gradient(135deg, #2C2C2C 0%, #C9A96E 100%)',
-  'linear-gradient(135deg, #3d2e22 0%, #E8D5C4 100%)',
-  'linear-gradient(135deg, #C9A96E 0%, #2C2C2C 100%)',
-  'linear-gradient(135deg, #FAF7F2 0%, #C9A96E 100%)',
-];
 ---
 
-<Layout title={p.meta.title} description={p.meta.description}>
+<Layout title={p.meta.title} description={p.meta.description} heroOverlay={true}>
 
-  <Hero title={p.hero.title} subtitle={p.hero.subtitle} height="small" />
-
-  <!-- Gallery Grid -->
-  <section class="py-20 bg-charcoal">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-14">
-        <p class="text-gold text-xs uppercase tracking-widest mb-3">{p.grid.label}</p>
-        <h2 class="font-serif text-4xl text-white">{p.grid.title}</h2>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px]">
-        {p.photos.map((photo, i) => (
-          <div class={`overflow-hidden group cursor-pointer ${photo.span}`}>
-            {photo.src
-              ? (
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-              )
-              : (
-                <div
-                  class="w-full h-full transition-transform duration-700 group-hover:scale-110 flex items-end p-4"
-                  style={`background: ${gradients[i % gradients.length]};`}
-                >
-                  <span class="text-white/40 text-xs uppercase tracking-widest">{photo.alt}</span>
-                </div>
-              )
-            }
-          </div>
-        ))}
-      </div>
-
-      <p class="text-center text-gray-500 text-sm mt-10">
-        {p.grid.ctaNote}{' '}
-        <a href={r.contact} class="text-gold hover:underline">{p.grid.ctaLink}</a>
-      </p>
+  <!-- ① HERO: full-height B&W photo + Great Vibes script title -->
+  <section class="relative min-h-screen overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/guests-smartphones-bride-1024x584.jpg'); filter: grayscale(100%);"
+    />
+    <div class="absolute inset-0 bg-black/20" />
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6 text-center">
+      <h1
+        class="text-white leading-none"
+        style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
+      >
+        {p.hero.title}
+      </h1>
     </div>
   </section>
 
-  <SectionCTA />
+  <!-- ② PORTAFOLIO INTRO -->
+  <section class="py-16 md:py-20 bg-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-6" style="font-variant: small-caps;">{p.intro.title}</h2>
+      <p class="text-gray-600 leading-relaxed" set:html={p.intro.body} />
+    </div>
+  </section>
+
+  <!-- ③ MASONRY GRID -->
+  <section class="bg-white pb-2">
+    <div class="columns-2 md:columns-3 lg:columns-4 gap-1.5 px-1.5 [&>*]:mb-1.5">
+      {p.photos.map(photo => (
+        <div class="overflow-hidden group break-inside-avoid">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            class="w-full block transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ④ GOLD CTA: Su Especialista en Bodas -->
+  <section class="bg-gold text-white text-center py-16 px-6">
+    <h2 class="font-serif text-3xl md:text-4xl mb-6" style="font-variant: small-caps;">{p.cta.title}</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-10 text-sm tracking-wide">
+      <span>{p.cta.phoneLabel}: <a href={`tel:${p.cta.phone.replace(/\s/g, '')}`} class="hover:underline">{p.cta.phone}</a></span>
+      <span class="hidden md:inline text-white/40" aria-hidden="true">|</span>
+      <span>{p.cta.emailLabel}: <a href={`mailto:${p.cta.email}`} class="hover:underline">{p.cta.email}</a></span>
+    </div>
+  </section>
+
 </Layout>
