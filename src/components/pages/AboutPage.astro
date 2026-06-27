@@ -44,18 +44,36 @@ const img13 = '/images/img-13.jpg';
   </section>
 
   <!-- ③ ALICE CANTON FOUNDER -->
-  <section class="relative py-20 md:py-28">
+  <section class="relative py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${img13}');`} />
-    <div class="absolute inset-0 bg-black/10" />
+    <div class="absolute inset-0 bg-cream/85" />
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-      <div class="bg-white border border-gold/40 max-w-md px-8 md:px-10 py-12 text-center shadow-lg">
-        <h2 class="font-serif text-2xl text-charcoal leading-tight" style="font-variant: small-caps;">Alice Cantón</h2>
-        <p class="font-serif text-base text-charcoal/70 mt-1" style="font-variant: small-caps;">Wedding Planner en Mérida Yucatán</p>
-        <p class="font-serif text-lg text-charcoal/70 mt-1" style="font-variant: small-caps;">{p.founder.role}</p>
-        <div class="text-gold text-2xl my-4" aria-hidden="true">♛</div>
-        <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.bio}</p>
-        <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.quote}</p>
-        <p class="text-gray-500 text-sm leading-relaxed">{p.founder.note}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+        <!-- Founder bio card -->
+        <div class="bg-white border border-gold/40 px-8 md:px-10 py-12 text-center shadow-lg">
+          <h2 class="font-serif text-2xl text-charcoal leading-tight" style="font-variant: small-caps;">Alice Cantón</h2>
+          <p class="font-serif text-base text-charcoal/70 mt-1" style="font-variant: small-caps;">Wedding Planner en Mérida Yucatán</p>
+          <p class="font-serif text-lg text-charcoal/70 mt-1" style="font-variant: small-caps;">{p.founder.role}</p>
+          <div class="text-gold text-2xl my-4" aria-hidden="true">♛</div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.bio}</p>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">{p.founder.quote}</p>
+          <p class="text-gray-500 text-sm leading-relaxed">{p.founder.note}</p>
+        </div>
+
+        <!-- Alice's photo, matted with an offset gold frame -->
+        <div class="flex justify-center md:justify-start">
+          <div class="relative group max-w-lg w-full">
+            <span class="hidden sm:block absolute -top-4 -left-4 w-full h-full border border-gold/60" aria-hidden="true"></span>
+            <img
+              src="/images/alice-canton-helping-bride.png"
+              alt="Alice Cantón ayudando a una novia"
+              loading="lazy"
+              class="relative w-full aspect-[4/3] object-cover object-center shadow-xl transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
