@@ -1,175 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLang } from "../../i18n/index";
+import { getLang, useTranslations } from "../../i18n/index";
 import ContactForm from "../ContactForm.astro";
 import HeroImage from "../HeroImage.astro";
 
 const lang = getLang(Astro.url.pathname);
-
-// Content for both languages
-const content = {
-  es: {
-    meta: {
-      title: "Servicios",
-      description:
-        "Servicios de coordinación de bodas en Mérida Yucatán: coordinación total, boda destino y coordinación del día.",
-    },
-    hero: {
-      title: "Servicios",
-    },
-    values: [
-      {
-        icon: "icon-1.png",
-        title: "Experiencia",
-        text: "Contamos con varios años de experiencia en la organización de bodas, dejanos guiarte al mejor día de tu vida.",
-      },
-      {
-        icon: "icon-2.png",
-        title: "Profesionalismo",
-        text: "Estamos comprometidos con el trabajo que realizamos, comprometidos con hacer que tu gran día sea excelente.",
-      },
-      {
-        icon: "icon-6.png",
-        title: "Garantía",
-        text: "Nuestro trabajo respalda la experiencia que tenemos, podemos garantizarte que ese día será simplemente sensacional.",
-      },
-      {
-        icon: "icon-5.png",
-        title: "Calidad",
-        text: "Todos nuestros clientes están de acuerdo que la calidad que ofrecemos es arriba de lo esperado, nuestro compromiso es hacer un trabajo excelente.",
-      },
-    ],
-    packagesIntro: {
-      title: "Pregunta por nuestros paquetes",
-      text: "Escríbenos y pregunta por nuestros paquetes, tenemos uno para cada ocasión. Estamos orgullosos de adaptarnos a cada cliente según las necesidades que presente para ofercer un mejor y más personalizado servicio. Contáctanos y pregunta por el precio de cada servicio.",
-    },
-    packagesTitle: "Nuestros Paquetes",
-    packages: [
-      {
-        icon: "icon-1.png",
-        title: "Coordinación Total",
-        text: "La planificación de la boda puede ser inmensamente estresante e implica mucho tiempo. ¡Déjenos manejar el trabajo por usted! El servicio Coordinación Total les guiará a través de cada paso del proceso de planificación de la boda cubriendo todos los aspectos creativos, organizativos, técnicos y logísticos de tu gran día. Es ideal para parejas muy ocupadas que necesitan apoyo para la planeación de su boda.",
-        cta: "Quiero este Paquete",
-      },
-      {
-        icon: "icon-3.png",
-        title: "Coordinación boda destino",
-        text: "Este servicio cubrirá cada paso del proceso de planificación incluyendo todos los aspectos creativos, organizativos, técnicos y logísticos de tu evento. Ideal para las parejas que quieren disfrutar de una boda en el estado de Yucatán y al rededores, además de encargarme del evento, montaje, logística y cronograma, les ayudaré a tener la mejor estncia en el estado sugiriendo lugares donde hospedarse y organizando la logistica para los novios y sus invitados.",
-        cta: "Quiero este Paquete",
-      },
-      {
-        icon: "icon-4.png",
-        title: "Coordinación del día",
-        text: "Este servicio es ideal si ya tienes todo listo para tu boda pero necesitas a alguien que coordine el día de tu evento. Montaje, logística, cronograma. Ustedes solo tienen que disfrutar.",
-        cta: "Quiero este Paquete",
-      },
-    ],
-    social: {
-      title: "¿Quieres saber más de nosotros?",
-      subtitle: "Síguenos en Redes Sociales",
-    },
-    contact: {
-      title: "¡Pregunta por el precio de nuestros servicios!",
-      text: "Envíame un comentario, reúnete conmigo, patiquemos sobre tus ideas y planeemos juntos la boda de tus sueños.",
-      formLabel: "Contacto",
-      requiredNote: "Campos marcados con * son requeridos",
-      fields: {
-        name: "Nombre",
-        email: "Email",
-        phone: "Teléfono",
-        message: "Mensaje",
-      },
-      submit: "Enviar",
-    },
-  },
-  en: {
-    meta: {
-      title: "Services",
-      description:
-        "Wedding coordination services in Mérida Yucatán: full coordination, destination wedding, and day-of coordination.",
-    },
-    hero: {
-      title: "Services",
-    },
-    values: [
-      {
-        icon: "icon-1.png",
-        title: "Experience",
-        text: "We have several years of experience in wedding organization. Let us guide you to the best day of your life.",
-      },
-      {
-        icon: "icon-2.png",
-        title: "Professionalism",
-        text: "We are committed to the work we do, dedicated to making your big day excellent.",
-      },
-      {
-        icon: "icon-6.png",
-        title: "Guarantee",
-        text: "Our work is backed by the experience we have. We can guarantee you that day will be simply sensational.",
-      },
-      {
-        icon: "icon-5.png",
-        title: "Quality",
-        text: "All our clients agree that the quality we offer exceeds expectations. Our commitment is to do excellent work.",
-      },
-    ],
-    packagesIntro: {
-      title: "Ask about our packages",
-      text: "Write to us and ask about our packages. We have one for each occasion. We are proud to adapt to each client according to their needs to offer better and more personalized service. Contact us and ask for the price of each service.",
-    },
-    packagesTitle: "Our Packages",
-    packages: [
-      {
-        icon: "icon-1.png",
-        title: "Full Coordination",
-        text: "Wedding planning can be immensely stressful and time-consuming. Let us handle the work for you! The Full Coordination service will guide you through every step of the wedding planning process, covering all creative, organizational, technical, and logistical aspects of your big day. It is ideal for very busy couples who need support for their wedding planning.",
-        cta: "I Want This Package",
-      },
-      {
-        icon: "icon-3.png",
-        title: "Destination wedding coordination",
-        text: "This service will cover every step of the planning process including all creative, organizational, technical, and logistical aspects of your event. Ideal for couples who want to enjoy a wedding in the state of Yucatán and surroundings. In addition to managing the event, setup, logistics, and schedule, I will help you have the best stay in the state by suggesting places to stay and organizing logistics for the newlyweds and their guests.",
-        cta: "I Want This Package",
-      },
-      {
-        icon: "icon-4.png",
-        title: "Day-of coordination",
-        text: "This service is ideal if you already have everything ready for your wedding but need someone to coordinate your event day. Setup, logistics, schedule. You just have to enjoy.",
-        cta: "I Want This Package",
-      },
-    ],
-    social: {
-      title: "Want to know more about us?",
-      subtitle: "Follow us on Social Media",
-    },
-    contact: {
-      title: "Ask about the price of our services!",
-      text: "Send me a message, meet with me, let's talk about your ideas and plan together the wedding of your dreams.",
-      formLabel: "Contact",
-      requiredNote: "Fields marked with * are required",
-      fields: {
-        name: "Name",
-        email: "Email",
-        phone: "Phone",
-        message: "Message",
-      },
-      submit: "Send",
-    },
-  },
-}[lang];
+const t = useTranslations(lang);
+const p = t.pages.services;
 ---
 
-<Layout description={content.meta.description} title={content.meta.title}>
+<Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage
     heroImage="/images/servicios-hero-tablescape.jpg"
-    title={content.hero.title}
+    title={p.hero.title}
   />
 
   <!-- ② STRENGTHS: 4 left-aligned columns on white, no cards -->
   <section class="bg-white py-20">
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 md:grid-cols-4">
       {
-        content.values.map((v) => (
+        p.values.map((v) => (
           <div>
             <img alt="" class="mb-6 h-12 w-auto" src={`/images/${v.icon}`} />
             <h2
@@ -188,7 +38,7 @@ const content = {
   <!-- ③ PACKAGES INTRO: split photo / teal block -->
   <section class="grid grid-cols-1 md:grid-cols-2">
     <div
-      aria-label={content.packagesIntro.title}
+      aria-label={p.packagesIntro.title}
       class="min-h-[320px] bg-cover bg-center md:min-h-[400px]"
       role="img"
       style="background-image: url('/images/boda-yarene-sergio-2.jpg');"
@@ -199,11 +49,11 @@ const content = {
         class="mb-4 font-serif text-3xl text-white md:text-4xl"
         style="font-variant: small-caps;"
       >
-        {content.packagesIntro.title}
+        {p.packagesIntro.title}
       </h2>
       <div class="mb-8 w-40 border-b border-white/60"></div>
       <p class="text-base leading-loose text-white">
-        {content.packagesIntro.text}
+        {p.packagesIntro.text}
       </p>
     </div>
   </section>
@@ -215,11 +65,11 @@ const content = {
         class="text-heading-gray mb-20 text-center font-serif text-5xl md:text-6xl"
         style="font-variant: small-caps;"
       >
-        {content.packagesTitle}
+        {p.packagesTitle}
       </h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
         {
-          content.packages.map((pkg) => (
+          p.packages.map((pkg) => (
             <div class="flex flex-col items-center text-center">
               <img
                 alt=""
@@ -255,13 +105,13 @@ const content = {
         class="text-heading-gray mb-2 font-serif text-3xl"
         style="font-variant: small-caps;"
       >
-        {content.social.title}
+        {p.social.title}
       </h2>
       <h3
         class="text-heading-gray mb-10 font-serif text-3xl"
         style="font-variant: small-caps;"
       >
-        {content.social.subtitle}
+        {p.social.subtitle}
       </h3>
       <div class="flex justify-center gap-16">
         <a
@@ -310,10 +160,10 @@ const content = {
             class="text-heading-gray mb-8 font-serif text-4xl leading-tight md:text-5xl"
             style="font-variant: small-caps;"
           >
-            {content.contact.title}
+            {p.contact.title}
           </h2>
           <p class="text-body-gray text-base leading-loose">
-            {content.contact.text}
+            {p.contact.text}
           </p>
         </div>
         <!-- Right: form -->

@@ -85,20 +85,13 @@ describe("translations structural parity", () => {
     );
   });
 
-  it("services items and values items arrays are the same length", () => {
-    expect(en.pages.services.items.length).toBe(es.pages.services.items.length);
-    expect(en.pages.services.values.items.length).toBe(
-      es.pages.services.values.items.length,
+  it("services values and packages arrays are the same length", () => {
+    expect(en.pages.services.values.length).toBe(
+      es.pages.services.values.length,
     );
-  });
-
-  it("services details arrays are the same length per item", () => {
-    en.pages.services.items.forEach((item, i) => {
-      expect(
-        item.details.length,
-        `services.items[${i}].details length differs`,
-      ).toBe(es.pages.services.items[i].details.length);
-    });
+    expect(en.pages.services.packages.length).toBe(
+      es.pages.services.packages.length,
+    );
   });
 
   it("venues items array is the same length", () => {

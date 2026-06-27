@@ -256,78 +256,61 @@ export const translations = {
         },
         hero: {
           title: "Servicios",
-          subtitle:
-            "Tres niveles de coordinación diseñados para que cada pareja encuentre el apoyo perfecto",
         },
-        items: [
+        values: [
           {
-            icon: "♛",
-            title: "Coordinación Total",
-            description:
-              "Nuestro servicio más completo. Cubrimos todos los aspectos creativos, organizacionales, técnicos y logísticos de tu boda desde el primer día hasta el último baile. Trabajamos contigo para definir el estilo, seleccionar proveedores, gestionar presupuesto y asegurarnos de que cada detalle refleje exactamente quiénes son como pareja.",
-            details: [
-              "Consultoría de estilo y concepto",
-              "Selección y gestión de proveedores",
-              "Control de presupuesto",
-              "Coordinación de ensayo y boda",
-              "Timeline detallado del evento",
-              "Supervisión el día de la boda",
-            ],
+            icon: "icon-1.png",
+            title: "Experiencia",
+            text: "Contamos con varios años de experiencia en la organización de bodas, dejanos guiarte al mejor día de tu vida.",
           },
           {
-            icon: "✈",
-            title: "Coordinación Boda Destino",
-            description:
-              "Especializada para parejas que vienen de otras ciudades o países a casarse en el hermoso Yucatán. Nos encargamos de todo desde la distancia: locaciones, proveedores locales, hospedaje para invitados, traslados y la logística completa para que su llegada a Mérida o Bacalar sea perfecta.",
-            details: [
-              "Scouting de locaciones",
-              "Recomendaciones de hospedaje",
-              "Logística de traslados para invitados",
-              "Coordinación con proveedores locales",
-              "Visitas virtuales y presenciales",
-              "Acompañamiento completo el día del evento",
-            ],
+            icon: "icon-2.png",
+            title: "Profesionalismo",
+            text: "Estamos comprometidos con el trabajo que realizamos, comprometidos con hacer que tu gran día sea excelente.",
           },
           {
-            icon: "◈",
-            title: "Coordinación del Día",
-            description:
-              "Para parejas que ya tienen todo planeado y necesitan a alguien de confianza que ejecute su visión a la perfección. Nos integramos a tu planeación semanas antes, conocemos a todos los proveedores, preparamos el timeline y el día de la boda nos aseguramos de que todo fluya exactamente como lo soñaste.",
-            details: [
-              "Revisión del plan existente",
-              "Reunión con proveedores previo al evento",
-              "Elaboración del timeline del día",
-              "Coordinación del ensayo",
-              "Supervisión completa del evento",
-              "Gestión de imprevistos",
-            ],
+            icon: "icon-6.png",
+            title: "Garantía",
+            text: "Nuestro trabajo respalda la experiencia que tenemos, podemos garantizarte que ese día será simplemente sensacional.",
+          },
+          {
+            icon: "icon-5.png",
+            title: "Calidad",
+            text: "Todos nuestros clientes están de acuerdo que la calidad que ofrecemos es arriba de lo esperado, nuestro compromiso es hacer un trabajo excelente.",
           },
         ],
-        values: {
-          label: "Por qué elegirnos",
-          title: "Nuestros Valores",
-          items: [
-            {
-              icon: "★",
-              label: "Experiencia",
-              text: "Más de 10 años coordinando bodas en Yucatán y destinos especiales.",
-            },
-            {
-              icon: "◆",
-              label: "Profesionalismo",
-              text: "Un equipo dedicado que trabaja con los mejores proveedores de la región.",
-            },
-            {
-              icon: "✓",
-              label: "Garantía",
-              text: "Tu satisfacción es nuestra prioridad. Trabajamos hasta que todo sea perfecto.",
-            },
-            {
-              icon: "❋",
-              label: "Calidad",
-              text: "Cuidamos cada detalle para que tu boda supere todas tus expectativas.",
-            },
-          ],
+        packagesIntro: {
+          title: "Pregunta por nuestros paquetes",
+          text: "Escríbenos y pregunta por nuestros paquetes, tenemos uno para cada ocasión. Estamos orgullosos de adaptarnos a cada cliente según las necesidades que presente para ofercer un mejor y más personalizado servicio. Contáctanos y pregunta por el precio de cada servicio.",
+        },
+        packagesTitle: "Nuestros Paquetes",
+        packages: [
+          {
+            icon: "icon-1.png",
+            title: "Coordinación Total",
+            text: "La planificación de la boda puede ser inmensamente estresante e implica mucho tiempo. ¡Déjenos manejar el trabajo por usted! El servicio Coordinación Total les guiará a través de cada paso del proceso de planificación de la boda cubriendo todos los aspectos creativos, organizativos, técnicos y logísticos de tu gran día. Es ideal para parejas muy ocupadas que necesitan apoyo para la planeación de su boda.",
+            cta: "Quiero este Paquete",
+          },
+          {
+            icon: "icon-3.png",
+            title: "Coordinación boda destino",
+            text: "Este servicio cubrirá cada paso del proceso de planificación incluyendo todos los aspectos creativos, organizativos, técnicos y logísticos de tu evento. Ideal para las parejas que quieren disfrutar de una boda en el estado de Yucatán y al rededores, además de encargarme del evento, montaje, logística y cronograma, les ayudaré a tener la mejor estncia en el estado sugiriendo lugares donde hospedarse y organizando la logistica para los novios y sus invitados.",
+            cta: "Quiero este Paquete",
+          },
+          {
+            icon: "icon-4.png",
+            title: "Coordinación del día",
+            text: "Este servicio es ideal si ya tienes todo listo para tu boda pero necesitas a alguien que coordine el día de tu evento. Montaje, logística, cronograma. Ustedes solo tienen que disfrutar.",
+            cta: "Quiero este Paquete",
+          },
+        ],
+        social: {
+          title: "¿Quieres saber más de nosotros?",
+          subtitle: "Síguenos en Redes Sociales",
+        },
+        contact: {
+          title: "¡Pregunta por el precio de nuestros servicios!",
+          text: "Envíame un comentario, reúnete conmigo, patiquemos sobre tus ideas y planeemos juntos la boda de tus sueños.",
         },
       },
       venues: {
@@ -747,78 +730,61 @@ export const translations = {
         },
         hero: {
           title: "Services",
-          subtitle:
-            "Three levels of coordination designed so every couple finds the perfect support",
         },
-        items: [
+        values: [
           {
-            icon: "♛",
-            title: "Full Coordination",
-            description:
-              "Our most complete service. We cover all creative, organizational, technical, and logistical aspects of your wedding from day one to the last dance. We work with you to define the style, select vendors, manage the budget, and ensure every detail reflects exactly who you are as a couple.",
-            details: [
-              "Style and concept consulting",
-              "Vendor selection and management",
-              "Budget control",
-              "Rehearsal and wedding day coordination",
-              "Detailed event timeline",
-              "Wedding day supervision",
-            ],
+            icon: "icon-1.png",
+            title: "Experience",
+            text: "We have several years of experience in wedding organization. Let us guide you to the best day of your life.",
           },
           {
-            icon: "✈",
-            title: "Destination Wedding Coordination",
-            description:
-              "Specialized for couples coming from other cities or countries to marry in beautiful Yucatán. We handle everything from a distance: venues, local vendors, guest accommodation, transportation, and complete logistics for your arrival in Mérida or Bacalar to be perfect.",
-            details: [
-              "Venue scouting",
-              "Accommodation recommendations",
-              "Guest transportation logistics",
-              "Coordination with local vendors",
-              "Virtual and in-person site visits",
-              "Full day-of event support",
-            ],
+            icon: "icon-2.png",
+            title: "Professionalism",
+            text: "We are committed to the work we do, dedicated to making your big day excellent.",
           },
           {
-            icon: "◈",
-            title: "Day-of Coordination",
-            description:
-              "For couples who have everything planned and need someone they trust to execute their vision perfectly. We integrate with your planning weeks before, meet all the vendors, prepare the timeline, and on your wedding day we make sure everything flows exactly as you dreamed.",
-            details: [
-              "Review of existing plan",
-              "Pre-event vendor meeting",
-              "Day-of timeline preparation",
-              "Rehearsal coordination",
-              "Full event supervision",
-              "Managing unexpected situations",
-            ],
+            icon: "icon-6.png",
+            title: "Guarantee",
+            text: "Our work is backed by the experience we have. We can guarantee you that day will be simply sensational.",
+          },
+          {
+            icon: "icon-5.png",
+            title: "Quality",
+            text: "All our clients agree that the quality we offer exceeds expectations. Our commitment is to do excellent work.",
           },
         ],
-        values: {
-          label: "Why choose us",
-          title: "Our Values",
-          items: [
-            {
-              icon: "★",
-              label: "Experience",
-              text: "Over 10 years coordinating weddings in Yucatán and special destinations.",
-            },
-            {
-              icon: "◆",
-              label: "Professionalism",
-              text: "A dedicated team that works with the best vendors in the region.",
-            },
-            {
-              icon: "✓",
-              label: "Guarantee",
-              text: "Your satisfaction is our priority. We work until everything is perfect.",
-            },
-            {
-              icon: "❋",
-              label: "Quality",
-              text: "We care for every detail so your wedding exceeds all your expectations.",
-            },
-          ],
+        packagesIntro: {
+          title: "Ask about our packages",
+          text: "Write to us and ask about our packages. We have one for each occasion. We are proud to adapt to each client according to their needs to offer better and more personalized service. Contact us and ask for the price of each service.",
+        },
+        packagesTitle: "Our Packages",
+        packages: [
+          {
+            icon: "icon-1.png",
+            title: "Full Coordination",
+            text: "Wedding planning can be immensely stressful and time-consuming. Let us handle the work for you! The Full Coordination service will guide you through every step of the wedding planning process, covering all creative, organizational, technical, and logistical aspects of your big day. It is ideal for very busy couples who need support for their wedding planning.",
+            cta: "I Want This Package",
+          },
+          {
+            icon: "icon-3.png",
+            title: "Destination wedding coordination",
+            text: "This service will cover every step of the planning process including all creative, organizational, technical, and logistical aspects of your event. Ideal for couples who want to enjoy a wedding in the state of Yucatán and surroundings. In addition to managing the event, setup, logistics, and schedule, I will help you have the best stay in the state by suggesting places to stay and organizing logistics for the newlyweds and their guests.",
+            cta: "I Want This Package",
+          },
+          {
+            icon: "icon-4.png",
+            title: "Day-of coordination",
+            text: "This service is ideal if you already have everything ready for your wedding but need someone to coordinate your event day. Setup, logistics, schedule. You just have to enjoy.",
+            cta: "I Want This Package",
+          },
+        ],
+        social: {
+          title: "Want to know more about us?",
+          subtitle: "Follow us on Social Media",
+        },
+        contact: {
+          title: "Ask about the price of our services!",
+          text: "Send me a message, meet with me, let's talk about your ideas and plan together the wedding of your dreams.",
         },
       },
       venues: {
