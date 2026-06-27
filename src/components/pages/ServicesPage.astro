@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getLang } from '../../i18n/index';
+import ContactForm from '../ContactForm.astro';
 
 const lang = getLang(Astro.url.pathname);
 
@@ -227,26 +228,9 @@ const content = {
           <p class="text-body-gray text-base leading-loose">{content.contact.text}</p>
         </div>
         <!-- Right: form -->
-        <form class="md:col-span-3" action="#" method="post">
-          <p class="text-body-gray text-sm mb-1">{content.contact.formLabel}</p>
-          <p class="text-body-gray text-sm mb-6">{lang === 'es' ? 'Campos marcados con ' : 'Fields marked with '}<span class="text-red-500">*</span>{lang === 'es' ? ' son requeridos' : ' are required'}</p>
-
-          <label class="block font-serif text-heading-gray mb-2" for="sv-name">{content.contact.fields.name} <span class="text-red-500">*</span></label>
-          <input id="sv-name" name="name" type="text" required class="w-full bg-gray-100 border border-gray-200 h-12 px-3 mb-6" />
-
-          <label class="block font-serif text-heading-gray mb-2" for="sv-email">{content.contact.fields.email} <span class="text-red-500">*</span></label>
-          <input id="sv-email" name="email" type="email" required class="w-full bg-gray-100 border border-gray-200 h-12 px-3 mb-6" />
-
-          <label class="block font-serif text-heading-gray mb-2" for="sv-phone">{content.contact.fields.phone} <span class="text-red-500">*</span></label>
-          <input id="sv-phone" name="phone" type="tel" required class="w-full bg-gray-100 border border-gray-200 h-12 px-3 mb-6" />
-
-          <label class="block font-serif text-heading-gray mb-2" for="sv-message">{content.contact.fields.message} <span class="text-red-500">*</span></label>
-          <textarea id="sv-message" name="message" required rows="7" class="w-full bg-gray-100 border border-gray-200 p-3 mb-8"></textarea>
-
-          <button type="submit" class="bg-button-dark text-white font-serif px-9 py-4 text-base hover:opacity-90 transition-opacity" style="font-variant: small-caps;">
-            {content.contact.submit}
-          </button>
-        </form>
+        <div class="md:col-span-3">
+          <ContactForm bare />
+        </div>
       </div>
     </div>
   </section>
