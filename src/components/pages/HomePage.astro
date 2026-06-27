@@ -15,6 +15,22 @@ const categoryImages = [
   '/images/gallery-2.jpg',
   '/images/img-vert-3.jpg',
 ];
+
+// Portfolio teaser gallery
+const portfolioImages = [
+  '/images/img-10.jpg',
+  '/images/img-13.jpg',
+  '/images/11866446-1055970124415858-485634197070961453-n.jpg',
+  '/images/12042744-677267902410858-182616168831263564-n.jpg',
+  '/images/21766380-1682893168411606-8935133582193004569-n.jpg',
+  '/images/22045605-1682895238411399-7185113022696085452-n.jpg',
+  '/images/26114160-10155866400061278-369103440261741743-n.jpg',
+  '/images/26231465-10155865148386278-3104021065434766057-n.jpg',
+  '/images/hg1a5445-1024x683.jpg',
+  '/images/48397507-1055284681317792-3700600962478505984-o-1024x648.jpg',
+  '/images/dsc00641-1024x674.jpg',
+  '/images/48244230-1056587157856808-6144760103514931200-o-1024x682.jpg',
+];
 ---
 
 <Layout title={p.meta.title} description={p.meta.description}>
@@ -150,44 +166,20 @@ const categoryImages = [
     </div>
   </section>
 
-  <!-- ⑦ PORTFOLIO GALLERY: Grid of wedding images -->
-  <section class="bg-gray-900 py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-64 md:auto-rows-80">
-        <!-- Sample portfolio images from manifest -->
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/img-10.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/img-13.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/11866446-1055970124415858-485634197070961453-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/12042744-677267902410858-182616168831263564-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/21766380-1682893168411606-8935133582193004569-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/22045605-1682895238411399-7185113022696085452-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/26114160-10155866400061278-369103440261741743-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/26231465-10155865148386278-3104021065434766057-n.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-2 md:col-span-2 row-span-1 overflow-hidden group">
-          <img src="/images/hg1a5445-1024x683.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/48397507-1055284681317792-3700600962478505984-o-1024x648.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="col-span-1 row-span-1 overflow-hidden group">
-          <img src="/images/dsc00641-1024x674.jpg" alt="Wedding portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
+  <!-- ⑦ PORTFOLIO GALLERY: uniform grid of wedding images -->
+  <section class="bg-gray-900 py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-2">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        {portfolioImages.map((src) => (
+          <div class="aspect-square overflow-hidden group">
+            <img
+              src={src}
+              alt="Wedding portfolio"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>
