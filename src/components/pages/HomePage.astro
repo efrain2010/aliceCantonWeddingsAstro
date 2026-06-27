@@ -28,17 +28,27 @@ const r = routes[lang];
     </div>
   </section>
 
-  <!-- ② INTRO: Value proposition text + 4 category cards -->
+  <!-- ② INTRO: image left + value proposition text right -->
   <section class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <!-- Intro heading and text -->
-      <div class="mb-16 text-center md:text-left">
-        <h1 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
-          {p.intro.title}
-        </h1>
-        <p class="text-body-gray text-lg leading-relaxed max-w-3xl mx-auto md:mx-0">
-          {p.intro.body}
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Image (left) -->
+        <div>
+          <img
+            src="/images/boda-ciudad-1024x576.jpg"
+            alt="Boda en Mérida Yucatán"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+        <!-- Intro heading and text (right) -->
+        <div class="text-center md:text-left">
+          <h1 class="font-serif text-4xl md:text-5xl text-heading-gray mb-8 uppercase tracking-wide">
+            {p.intro.title}
+          </h1>
+          <p class="text-body-gray text-lg leading-relaxed">
+            {p.intro.body}
+          </p>
+        </div>
       </div>
     </div>
   </section>
