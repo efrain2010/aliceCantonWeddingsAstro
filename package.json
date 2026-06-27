@@ -32,5 +32,8 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.1.6",
     "vitest": "^4.1.6"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3"
   }
 }

@@ -2,19 +2,32 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-import { getLang } from "../i18n/index";
+import { getLang, getPageKey, routes } from "../i18n/index";
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title,
   description = "Alice Cantón Wedding Planner en Mérida Yucatán — organización de bodas y eventos desde 2014.",
+  image = "/images/hero-beach.png",
 } = Astro.props;
 
 const lang = getLang(Astro.url.pathname);
+const pageKey = getPageKey(Astro.url.pathname);
+const pageTitle = `${title} | Alice Cantón Wedding Planner`;
+const ogLocale = lang === "es" ? "es_MX" : "en_US";
+
+const withTrailingSlash = (path: string) =>
+  path.endsWith("/") ? path : `${path}/`;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const esURL = new URL(withTrailingSlash(routes.es[pageKey]), Astro.site);
+const enURL = new URL(withTrailingSlash(routes.en[pageKey]), Astro.site);
 ---
 
 <!doctype html>
@@ -22,9 +35,27 @@ const lang = getLang(Astro.url.pathname);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
     <meta name="description" content={description} />
-    <title>{title} | Alice Cantón Wedding Planner</title>
+    <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={esURL} />
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="x-default" href={esURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Alice Cantón Wedding Planner" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
   </head>
   <body>
     <Header />
