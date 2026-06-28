@@ -234,13 +234,20 @@ const labels =
       if (e.key === "ArrowLeft") prev();
     });
 
-    // Pinch-to-zoom (max 3x) + double-tap zoom (2x) + drag-to-pan when zoomed
-    // + swipe left/right to navigate when not zoomed in
+    // Touch gestures: pinch-to-zoom (max 3x), double-tap zoom (2x),
+    // drag-to-pan when zoomed, and swipe left/right to navigate when not
+    // zoomed in. Each gesture gets its own start/update/end functions so
+    // the touchstart/move/end listeners stay thin dispatchers.
     const SWIPE_THRESHOLD_PX = 40;
     const SWIPE_MAX_DURATION_MS = 600;
+    const SWIPE_INTENT_PX = 10;
+    const DOUBLE_TAP_MAX_DISTANCE_PX = 30;
+
     let pinchStartDistance = 0;
     let pinchStartScale = 1;
     let lastTapTime = 0;
+    let lastTapX = 0;
+    let lastTapY = 0;
     let isDragging = false;
     let dragStartX = 0;
     let dragStartY = 0;
@@ -256,38 +263,98 @@ const labels =
         touches[1].clientY - touches[0].clientY,
       );
 
+    const isZoomed = () => scale > MIN_SCALE;
+
+    // -- Pinch-to-zoom --------------------------------------------------
+    const startPinch = (touches: TouchList) => {
+      pinchStartDistance = touchDistance(touches);
+      pinchStartScale = scale;
+      isDragging = false;
+    };
+
+    const updatePinch = (touches: TouchList) => {
+      const ratio = touchDistance(touches) / pinchStartDistance;
+      scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, pinchStartScale * ratio));
+      applyTransform();
+    };
+
+    // -- Double-tap zoom --------------------------------------------------
+    const handleDoubleTap = (touch: Touch) => {
+      const now = Date.now();
+      const distanceFromLastTap = Math.hypot(
+        touch.clientX - lastTapX,
+        touch.clientY - lastTapY,
+      );
+      const isDoubleTap =
+        now - lastTapTime < DOUBLE_TAP_WINDOW_MS &&
+        distanceFromLastTap < DOUBLE_TAP_MAX_DISTANCE_PX;
+
+      lastTapTime = isDoubleTap ? 0 : now;
+      lastTapX = touch.clientX;
+      lastTapY = touch.clientY;
+      if (!isDoubleTap) return;
+
+      scale = isZoomed() ? MIN_SCALE : DOUBLE_TAP_SCALE;
+      panX = 0;
+      panY = 0;
+      applyTransform();
+    };
+
+    // -- Drag-to-pan (only while zoomed in) ------------------------------
+    const startPan = (touch: Touch) => {
+      if (!isZoomed()) return;
+      isDragging = true;
+      dragStartX = touch.clientX;
+      dragStartY = touch.clientY;
+      dragStartPanX = panX;
+      dragStartPanY = panY;
+    };
+
+    const updatePan = (touch: Touch) => {
+      panX = dragStartPanX + (touch.clientX - dragStartX);
+      panY = dragStartPanY + (touch.clientY - dragStartY);
+      applyTransform();
+    };
+
+    // -- Swipe-to-navigate (only while not zoomed in) --------------------
+    const recordSwipeStart = (touch: Touch) => {
+      swipeStartX = touch.clientX;
+      swipeStartY = touch.clientY;
+      swipeStartTime = Date.now();
+    };
+
+    const isHorizontalDrag = (touch: Touch, minDistance: number) => {
+      const deltaX = touch.clientX - swipeStartX;
+      const deltaY = touch.clientY - swipeStartY;
+      return (
+        Math.abs(deltaX) > minDistance &&
+        Math.abs(deltaX) > Math.abs(deltaY) * 1.5
+      );
+    };
+
+    const finishSwipe = (touch: Touch) => {
+      const elapsed = Date.now() - swipeStartTime;
+      if (elapsed >= SWIPE_MAX_DURATION_MS) return;
+      if (!isHorizontalDrag(touch, SWIPE_THRESHOLD_PX)) return;
+
+      const deltaX = touch.clientX - swipeStartX;
+      if (deltaX < 0) next();
+      else prev();
+    };
+
+    // -- Event listeners --------------------------------------------------
     img.addEventListener("touchstart", (e) => {
       if (e.touches.length === 2) {
-        pinchStartDistance = touchDistance(e.touches);
-        pinchStartScale = scale;
-        isDragging = false;
+        startPinch(e.touches);
         return;
       }
 
       if (e.touches.length !== 1) return;
 
-      swipeStartX = e.touches[0].clientX;
-      swipeStartY = e.touches[0].clientY;
-      swipeStartTime = Date.now();
-
-      const now = Date.now();
-      if (now - lastTapTime < DOUBLE_TAP_WINDOW_MS) {
-        scale = scale > MIN_SCALE ? MIN_SCALE : DOUBLE_TAP_SCALE;
-        panX = 0;
-        panY = 0;
-        applyTransform();
-        lastTapTime = 0;
-      } else {
-        lastTapTime = now;
-      }
-
-      if (scale > MIN_SCALE) {
-        isDragging = true;
-        dragStartX = e.touches[0].clientX;
-        dragStartY = e.touches[0].clientY;
-        dragStartPanX = panX;
-        dragStartPanY = panY;
-      }
+      const touch = e.touches[0];
+      recordSwipeStart(touch);
+      handleDoubleTap(touch);
+      startPan(touch);
     });
 
     img.addEventListener(
@@ -295,62 +362,39 @@ const labels =
       (e) => {
         if (e.touches.length === 2) {
           e.preventDefault();
-          const distance = touchDistance(e.touches);
-          const ratio = distance / pinchStartDistance;
-          scale = Math.min(
-            MAX_SCALE,
-            Math.max(MIN_SCALE, pinchStartScale * ratio),
-          );
-          applyTransform();
+          updatePinch(e.touches);
           return;
         }
 
-        if (e.touches.length === 1 && isDragging && scale > MIN_SCALE) {
+        if (e.touches.length !== 1) return;
+        const touch = e.touches[0];
+
+        if (isDragging && isZoomed()) {
           e.preventDefault();
-          panX = dragStartPanX + (e.touches[0].clientX - dragStartX);
-          panY = dragStartPanY + (e.touches[0].clientY - dragStartY);
-          applyTransform();
+          updatePan(touch);
           return;
         }
 
-        if (e.touches.length === 1 && scale <= MIN_SCALE) {
-          const deltaX = e.touches[0].clientX - swipeStartX;
-          const deltaY = e.touches[0].clientY - swipeStartY;
-          if (
-            Math.abs(deltaX) > 10 &&
-            Math.abs(deltaX) > Math.abs(deltaY) * 1.5
-          ) {
-            e.preventDefault();
-          }
+        // Not zoomed: a horizontal drag is a swipe-in-progress. Suppress
+        // the browser's own gesture handling (e.g. edge-swipe back nav).
+        if (!isZoomed() && isHorizontalDrag(touch, SWIPE_INTENT_PX)) {
+          e.preventDefault();
         }
       },
       { passive: false },
     );
 
     img.addEventListener("touchend", (e) => {
-      if (e.touches.length === 0) {
-        isDragging = false;
-        if (scale <= MIN_SCALE) {
-          panX = 0;
-          panY = 0;
-          applyTransform();
+      if (e.touches.length !== 0) return;
+      isDragging = false;
+      if (isZoomed()) return;
 
-          const touch = e.changedTouches[0];
-          if (touch) {
-            const deltaX = touch.clientX - swipeStartX;
-            const deltaY = touch.clientY - swipeStartY;
-            const elapsed = Date.now() - swipeStartTime;
-            const isSwipe =
-              elapsed < SWIPE_MAX_DURATION_MS &&
-              Math.abs(deltaX) > SWIPE_THRESHOLD_PX &&
-              Math.abs(deltaX) > Math.abs(deltaY) * 1.5;
-            if (isSwipe) {
-              if (deltaX < 0) next();
-              else prev();
-            }
-          }
-        }
-      }
+      panX = 0;
+      panY = 0;
+      applyTransform();
+
+      const touch = e.changedTouches[0];
+      if (touch) finishSwipe(touch);
     });
 
     // Desktop convenience: double-click to zoom
