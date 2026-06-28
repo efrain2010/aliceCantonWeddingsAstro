@@ -1,19 +1,38 @@
 ---
+import { getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { getLang, useTranslations } from "../../i18n/index";
 import ContactForm from "../ContactForm.astro";
 import HeroImage from "../HeroImage.astro";
+import heroTablescape from "../../assets/services/aerial-rustic-table-toast-bride-groom-cards.jpg";
+import packagesIntroBg from "../../assets/services/garden-dessert-table-teal-lights-night.jpg";
+import contactParallaxBg from "../../assets/services/wicker-wreath-centerpiece-gold-rim-glasses.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.services;
+
+// Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
+const heroTablescapeOptimized = await getImage({
+  src: heroTablescape,
+  width: 900,
+  format: "webp",
+  quality: 40,
+});
+const packagesIntroOptimized = await getImage({
+  src: packagesIntroBg,
+  width: 960,
+  format: "webp",
+});
+const contactParallaxOptimized = await getImage({
+  src: contactParallaxBg,
+  width: 1920,
+  format: "webp",
+});
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
-  <HeroImage
-    heroImage="/images/servicios-hero-tablescape.jpg"
-    title={p.hero.title}
-  />
+  <HeroImage heroImage={heroTablescapeOptimized.src} title={p.hero.title} />
 
   <!-- ② STRENGTHS: 4 left-aligned columns on white, no cards -->
   <section class="bg-white py-20">
@@ -41,7 +60,7 @@ const p = t.pages.services;
       aria-label={p.packagesIntro.title}
       class="min-h-[320px] bg-cover bg-center md:min-h-[400px]"
       role="img"
-      style="background-image: url('/images/boda-yarene-sergio-2.jpg');"
+      style={`background-image: url('${packagesIntroOptimized.src}');`}
     >
     </div>
     <div class="bg-teal-bg flex flex-col justify-center px-10 py-16 md:px-14">
@@ -148,7 +167,7 @@ const p = t.pages.services;
   <section
     class="relative bg-cover bg-scroll bg-center py-24 md:bg-fixed"
     id="form"
-    style="background-image: url('/images/parallax-1.jpg');"
+    style={`background-image: url('${contactParallaxOptimized.src}');`}
   >
     <div class="relative mx-auto max-w-5xl px-6">
       <div
