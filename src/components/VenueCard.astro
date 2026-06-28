@@ -17,10 +17,10 @@ const { title, description, imageSrc, reverse = false, note } = Astro.props;
     {
       imageSrc ? (
         <img
-          src={imageSrc}
           alt={title}
           class="h-full w-full object-cover"
           loading="lazy"
+          src={imageSrc}
         />
       ) : (
         <div

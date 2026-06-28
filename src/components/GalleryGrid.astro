@@ -29,13 +29,13 @@ const {
       return (
         <div class="group break-inside-avoid overflow-hidden">
           <Image
-            src={image}
             alt={photo.alt}
-            widths={[320, 640, 1024]}
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            loading="lazy"
-            decoding="async"
             class={`block w-full ${imageClass}`}
+            decoding="async"
+            loading="lazy"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            src={image}
+            widths={[320, 640, 1024]}
           />
         </div>
       );

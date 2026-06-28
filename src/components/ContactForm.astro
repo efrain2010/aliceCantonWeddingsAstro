@@ -20,74 +20,71 @@ const f = translations[lang].form;
 ---
 
 <form
+  action={formEndpoint}
   class={bare ? "w-full" : "bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto"}
   method="POST"
-  action={formEndpoint}
 >
   <div
     class={`grid gap-6 mb-6 ${singleColumn ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}
   >
     <div>
       <label
-        for="nombre"
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        >{f.nameLabel}</label
+        for="nombre">{f.nameLabel}</label
       >
       <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        required
         autocomplete="name"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
+        id="nombre"
+        name="nombre"
         placeholder={f.namePlaceholder}
+        required
+        type="text"
       />
     </div>
     <div>
       <label
-        for="correo"
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        >{f.emailLabel}</label
+        for="correo">{f.emailLabel}</label
       >
       <input
-        type="email"
-        id="correo"
-        name="correo"
-        required
         autocomplete="email"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
+        id="correo"
+        name="correo"
         placeholder={f.emailPlaceholder}
+        required
+        type="email"
       />
     </div>
     <div>
       <label
-        for="telefono"
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        >{f.phoneLabel}</label
+        for="telefono">{f.phoneLabel}</label
       >
       <input
-        type="tel"
-        id="telefono"
-        name="telefono"
         autocomplete="tel"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
+        id="telefono"
+        name="telefono"
         placeholder={f.phonePlaceholder}
+        type="tel"
       />
     </div>
     {
       showDate && (
         <div>
           <label
-            for="fecha"
             class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
+            for="fecha"
           >
             {f.dateLabel}
           </label>
           <input
-            type="date"
+            class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 transition-colors outline-none"
             id="fecha"
             name="fecha"
-            class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 transition-colors outline-none"
+            type="date"
           />
         </div>
       )
@@ -96,22 +93,21 @@ const f = translations[lang].form;
 
   <div class="mb-8">
     <label
-      for="mensaje"
       class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-      >{f.messageLabel}</label
+      for="mensaje">{f.messageLabel}</label
     >
     <textarea
+      class="focus:border-gold text-charcoal w-full resize-none border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
       id="mensaje"
       name="mensaje"
-      rows="5"
+      placeholder={f.messagePlaceholder}
       required
-      class="focus:border-gold text-charcoal w-full resize-none border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
-      placeholder={f.messagePlaceholder}></textarea>
+      rows="5"></textarea>
   </div>
 
   <button
-    type="submit"
     class="bg-gold hover:bg-charcoal cursor-pointer px-10 py-3 text-xs font-medium tracking-widest text-white uppercase transition-colors duration-300"
+    type="submit"
   >
     {submitLabel ?? f.submitLabel}
   </button>
