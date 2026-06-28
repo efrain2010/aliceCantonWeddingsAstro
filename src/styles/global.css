@@ -71,6 +71,7 @@
   }
 
   #menu-toggle .hamburger-line {
+    width: 1.5rem;
     transform-origin: center;
     transition:
       transform 0.35s ease,
@@ -78,8 +79,11 @@
       width 0.35s ease;
   }
 
+  #menu-toggle .hamburger-line-3 {
+    width: 1rem;
+  }
+
   #menu-toggle.is-open .hamburger-line-1 {
-    width: 1.5rem;
     transform: translateY(8px) rotate(45deg);
   }
 
