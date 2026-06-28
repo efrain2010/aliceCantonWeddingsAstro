@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import HeroImage from "../HeroImage.astro";
 import ContactForm from "../ContactForm.astro";
 import GalleryGrid from "../GalleryGrid.astro";
+import GalleryLightbox from "../GalleryLightbox.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
 import heroBeach from "../../assets/home/bride-groom-beach-embrace-stormy-sky.png";
 import logoBadge from "../../assets/home/alice-canton-weddings-events-logo-badge.png";
@@ -231,9 +232,12 @@ const parallaxOptimized = await getImage({
     <GalleryGrid
       gridClass="columns-2 gap-1 md:columns-4 [&>*]:mb-1"
       imageClass="transition-transform duration-500 group-hover:scale-105"
+      lightboxGroup="home"
       photos={portfolioImages}
     />
   </section>
+
+  <GalleryLightbox group="home" />
 
   <!-- ⑧ TESTIMONIALS QUOTE BAND -->
   <section class="bg-teal-bg py-16 text-center">
