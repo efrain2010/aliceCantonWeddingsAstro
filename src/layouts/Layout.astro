@@ -4,6 +4,8 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { getLang, getPageKey, routes } from "../i18n/index";
 import { ADDRESS, CONTACT, SOCIAL, phoneInternational } from "../config/site";
+import latoRegularUrl from "@fontsource/lato/files/lato-latin-400-normal.woff2?url";
+import playfairBoldUrl from "@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -65,6 +67,14 @@ const businessSchema = {
     <meta name="theme-color" content="#C9A96E" />
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
+    <link rel="preload" as="font" type="font/woff2" href={latoRegularUrl} crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={playfairBoldUrl}
+      crossorigin
+    />
     <link
       rel="icon"
       type="image/png"
