@@ -1,9 +1,11 @@
 ---
+import { getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
+import parallaxBg from "../../assets/shared/parallax-2.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -12,12 +14,19 @@ const r = routes[lang];
 
 const img10 = "/images/img-10.jpg";
 const img13 = "/images/img-13.jpg";
+
+// Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
+const parallaxOptimized = await getImage({
+  src: parallaxBg,
+  width: 1920,
+  format: "webp",
+});
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
   <HeroImage
     className="bg-position-[100%_top]"
-    heroImage="/images/parallax-2.jpg"
+    heroImage={parallaxOptimized.src}
     title={p.hero.title}
   />
 
@@ -219,7 +228,7 @@ const img13 = "/images/img-13.jpg";
   <section class="relative py-20">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/images/parallax-2.jpg');"
+      style={`background-image: url('${parallaxOptimized.src}');`}
     >
     </div>
     <div class="absolute inset-0 bg-black/30"></div>
