@@ -41,3 +41,63 @@
     font-family: "Playfair Display", Georgia, serif;
   }
 }
+
+@layer components {
+  #mobile-menu {
+    clip-path: circle(0% at calc(100% - 2.75rem) 2.25rem);
+    visibility: hidden;
+    transition:
+      clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+      visibility 0s linear 0.7s;
+  }
+
+  #mobile-menu.is-open {
+    clip-path: circle(150% at calc(100% - 2.75rem) 2.25rem);
+    visibility: visible;
+    transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  #mobile-menu .menu-link {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+
+  #mobile-menu.is-open .menu-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #menu-toggle .hamburger-line {
+    transform-origin: center;
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease,
+      width 0.35s ease;
+  }
+
+  #menu-toggle.is-open .hamburger-line-1 {
+    width: 1.5rem;
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #menu-toggle.is-open .hamburger-line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  #menu-toggle.is-open .hamburger-line-3 {
+    width: 1.5rem;
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-menu,
+    #mobile-menu .menu-link,
+    #menu-toggle .hamburger-line {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
