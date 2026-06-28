@@ -1,10 +1,12 @@
 ---
+import { getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
 import SectionCTA from "../SectionCTA.astro";
 import { getLang, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
+import heroTableSetting from "../../assets/contact/bride-hand-engagement-ring-place-card-table-setting.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -13,10 +15,17 @@ const l = p.labels;
 
 const mapSrc =
   "https://maps.google.com/maps?q=Alice%20Cant%C3%B3n%20Weddings%20Events%20Calle%2059D%20Yucalpet%C3%A9n%20M%C3%A9rida&t=&z=14&ie=UTF8&iwloc=&output=embed";
+
+// Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
+const heroTableSettingOptimized = await getImage({
+  src: heroTableSetting,
+  width: 1366,
+  format: "webp",
+});
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
-  <HeroImage heroImage="/images/contacto-hero.jpg" title={p.hero.title} />
+  <HeroImage heroImage={heroTableSettingOptimized.src} title={p.hero.title} />
 
   <!-- ② FORM + CONTACT INFO -->
   <section class="bg-white py-16 md:py-20">
@@ -56,8 +65,7 @@ const mapSrc =
               <span class="text-charcoal font-semibold">{l.phoneLabel}:</span>{
                 " "
               }
-              <a class="text-gold hover:underline" href={phoneHref}
-                >{l.phone}</a
+              <a class="text-gold hover:underline" href={phoneHref}>{l.phone}</a
               >
             </p>
             <p>
