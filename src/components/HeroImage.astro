@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 
 const classNames = [
-  "relative min-h-screen overflow-hidden bg-cover bg-center",
+  "relative h-[70vh] md:min-h-screen overflow-hidden bg-cover bg-center",
   fixImage ? "w-full pt-[80px] bg-cover bg-center bg-scroll md:bg-fixed" : "",
   className,
 ].join(" ");
@@ -34,7 +34,7 @@ const classNames = [
   <div class="absolute inset-0 bg-black/20"></div>
   {
     title && (
-      <div class="relative z-10 flex min-h-screen items-center justify-center px-6 text-center">
+      <div class="relative z-10 flex h-[70vh] items-center justify-center px-6 text-center md:min-h-screen">
         <h1
           class="leading-none text-white"
           style="font-family: 'Great Vibes', cursive; font-size: clamp(5rem, 12vw, 10rem); font-weight: 400;"
