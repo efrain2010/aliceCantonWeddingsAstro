@@ -39,6 +39,10 @@ export const translations = {
         { label: "Bodas en Cenote", pageKey: "venues" as const },
         { label: "Bodas Destino", pageKey: "services" as const },
       ],
+      creator: {
+        text: "Hecho con ❤️ por Efraín Villanueva",
+        link: "https://www.linkedin.com/in/efrain-villanueva",
+      },
     },
     cta: {
       title: "Platiquemos",
@@ -51,12 +55,19 @@ export const translations = {
       namePlaceholder: "Tu nombre completo",
       emailLabel: "Correo *",
       emailPlaceholder: "tu@correo.com",
+      emailError: "Por favor ingresa un correo electrónico válido.",
       phoneLabel: "Teléfono",
       phonePlaceholder: "999 000 0000",
+      phoneError:
+        "Por favor ingresa solo números (puedes incluir + para el código de país).",
       dateLabel: "Fecha de la Boda",
       messageLabel: "Mensaje *",
       messagePlaceholder: "Cuéntanos sobre tu boda soñada...",
       submitLabel: "Enviar Mensaje",
+      successMessage:
+        "¡Gracias! Tu mensaje fue enviado, te contactaremos pronto.",
+      errorMessage:
+        "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente.",
     },
     notFound: {
       meta: {
@@ -73,8 +84,9 @@ export const translations = {
     pages: {
       home: {
         meta: {
-          title: "Wedding Planner en Mérida, Yucatán",
-          description: `Alice Cantón Wedding Planner en Mérida Yucatán — organización de bodas y eventos desde 2014. Agenda tu cita al ${CONTACT.phone}.`,
+          title: "Inicio",
+          description:
+            "Alice Cantón Wedding Planner en Mérida Yucatán — organización de bodas y eventos desde 2014.",
         },
         hero: {
           title: "Wedding Planner en Mérida Yucatán",
@@ -173,9 +185,9 @@ export const translations = {
       },
       about: {
         meta: {
-          title: "Conoce a tu Wedding Planner en Mérida",
+          title: "Nosotros",
           description:
-            "Conoce a Alice Cantón y su equipo de wedding planners en Mérida, Yucatán, organizando bodas inolvidables desde 2014.",
+            "Conoce a Alice Cantón y su equipo de wedding planners en Mérida, Yucatán.",
         },
         hero: {
           title: "Nosotros",
@@ -263,8 +275,9 @@ export const translations = {
       },
       services: {
         meta: {
-          title: "Coordinación de Bodas en Mérida",
-          description: `Servicios de coordinación de bodas en Mérida Yucatán: coordinación total, boda destino y coordinación del día. Llámanos al ${CONTACT.phone}.`,
+          title: "Servicios",
+          description:
+            "Servicios de coordinación de bodas en Mérida Yucatán: coordinación total, boda destino y coordinación del día.",
         },
         hero: {
           title: "Servicios",
@@ -327,8 +340,9 @@ export const translations = {
       },
       venues: {
         meta: {
-          title: "Locaciones para Bodas en Mérida",
-          description: `Locaciones increíbles para tu boda en Yucatán: haciendas, playas, cenotes y Bacalar. Llámame al ${CONTACT.phone}.`,
+          title: "Locaciones",
+          description:
+            "Locaciones increíbles para tu boda en Yucatán: haciendas, playas, cenotes y Bacalar.",
         },
         hero: {
           title: "Locaciones Increíbles",
@@ -371,9 +385,9 @@ export const translations = {
       },
       gallery: {
         meta: {
-          title: "Galería de Bodas en Mérida",
+          title: "Galería",
           description:
-            "Portafolio de bodas coordinadas por Alice Cantón Wedding Planner en Mérida Yucatán. Descubre nuestro trabajo.",
+            "Portafolio de bodas coordinadas por Alice Cantón Wedding Planner en Mérida Yucatán.",
         },
         hero: {
           title: "Galería",
@@ -875,8 +889,9 @@ export const translations = {
       },
       contact: {
         meta: {
-          title: "Agenda tu Cita en Mérida, Yucatán",
-          description: `Alice Cantón Wedding Planner es una organizadora de bodas y eventos en Mérida Yucatán. Agenda una cita al ${CONTACT.phone} y planeemos la boda de tus sueños.`,
+          title: "Contacto",
+          description:
+            "Contacta a Alice Cantón Wedding Planner en Mérida Yucatán. Teléfono, correo y formulario de contacto.",
         },
         hero: {
           title: "Contacto",
@@ -969,6 +984,10 @@ export const translations = {
         { label: "Cenote Weddings", pageKey: "venues" as const },
         { label: "Destination Weddings", pageKey: "services" as const },
       ],
+      creator: {
+        text: "Made with ❤️ by Efraín Villanueva",
+        link: "https://www.linkedin.com/in/efrain-villanueva",
+      },
     },
     cta: {
       title: "Let's Talk",
@@ -981,12 +1000,19 @@ export const translations = {
       namePlaceholder: "Your full name",
       emailLabel: "Email *",
       emailPlaceholder: "your@email.com",
+      emailError: "Please enter a valid email address.",
       phoneLabel: "Phone",
       phonePlaceholder: "999 000 0000",
+      phoneError:
+        "Please enter numbers only (you may include + for the country code).",
       dateLabel: "Wedding Date",
       messageLabel: "Message *",
       messagePlaceholder: "Tell us about your dream wedding...",
       submitLabel: "Send Message",
+      successMessage:
+        "Thank you! Your message was sent, we'll be in touch soon.",
+      errorMessage:
+        "There was a problem sending your message. Please try again or email us directly.",
     },
     notFound: {
       meta: {
@@ -1003,8 +1029,9 @@ export const translations = {
     pages: {
       home: {
         meta: {
-          title: "Wedding Planner in Mérida, Yucatán",
-          description: `Alice Cantón Wedding Planner in Mérida, Yucatán — wedding and event coordination since 2014. Schedule your consultation at ${CONTACT.phone}.`,
+          title: "Home",
+          description:
+            "Alice Cantón Wedding Planner in Mérida Yucatán — wedding and event coordination since 2014.",
         },
         hero: {
           title: "Wedding Planner in Mérida Yucatán",
@@ -1103,9 +1130,9 @@ export const translations = {
       },
       about: {
         meta: {
-          title: "Meet Your Wedding Planner in Mérida",
+          title: "About Us",
           description:
-            "Meet Alice Cantón and her wedding planning team in Mérida, Yucatán, creating unforgettable weddings since 2014.",
+            "Meet Alice Cantón and her wedding planning team in Mérida, Yucatán.",
         },
         hero: {
           title: "About Us",
@@ -1192,8 +1219,9 @@ export const translations = {
       },
       services: {
         meta: {
-          title: "Wedding Coordination in Mérida",
-          description: `Wedding coordination services in Mérida Yucatán: full coordination, destination wedding, and day-of coordination. Call us at ${CONTACT.phone}.`,
+          title: "Services",
+          description:
+            "Wedding coordination services in Mérida Yucatán: full coordination, destination wedding, and day-of coordination.",
         },
         hero: {
           title: "Services",
@@ -1256,8 +1284,9 @@ export const translations = {
       },
       venues: {
         meta: {
-          title: "Wedding Venues in Mérida, Yucatán",
-          description: `Incredible wedding venues in Yucatán: haciendas, beaches, cenotes, and Bacalar. Call me at ${CONTACT.phone}.`,
+          title: "Venues",
+          description:
+            "Incredible wedding venues in Yucatán: haciendas, beaches, cenotes, and Bacalar.",
         },
         hero: {
           title: "Amazing Venues",
@@ -1300,9 +1329,9 @@ export const translations = {
       },
       gallery: {
         meta: {
-          title: "Wedding Gallery in Mérida",
+          title: "Gallery",
           description:
-            "Portfolio of weddings coordinated by Alice Cantón Wedding Planner in Mérida Yucatán. See our work.",
+            "Portfolio of weddings coordinated by Alice Cantón Wedding Planner in Mérida Yucatán.",
         },
         hero: {
           title: "Gallery",
@@ -1804,8 +1833,9 @@ export const translations = {
       },
       contact: {
         meta: {
-          title: "Schedule Your Appointment in Mérida",
-          description: `Alice Cantón Wedding Planner is a wedding and event coordinator in Mérida, Yucatán. Schedule an appointment at ${CONTACT.phone} and let's plan the wedding of your dreams.`,
+          title: "Contact",
+          description:
+            "Contact Alice Cantón Wedding Planner in Mérida Yucatán. Phone, email, and contact form.",
         },
         hero: {
           title: "Contact",

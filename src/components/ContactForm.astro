@@ -52,6 +52,7 @@ const f = translations[lang].form;
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
         id="correo"
         name="correo"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         placeholder={f.emailPlaceholder}
         required
         type="email"
@@ -67,6 +68,7 @@ const f = translations[lang].form;
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
         id="telefono"
         name="telefono"
+        pattern="^\+?[0-9]+$"
         placeholder={f.phonePlaceholder}
         type="tel"
       />
@@ -112,3 +114,25 @@ const f = translations[lang].form;
     {submitLabel ?? f.submitLabel}
   </button>
 </form>
+
+<script
+  define:vars={{ emailError: f.emailError, phoneError: f.phoneError }}
+  is:inline
+>
+  document.querySelectorAll('input[type="email"]').forEach((input) => {
+    input.addEventListener("invalid", () => {
+      input.setCustomValidity(emailError);
+    });
+    input.addEventListener("input", () => {
+      input.setCustomValidity("");
+    });
+  });
+  document.querySelectorAll('input[type="tel"]').forEach((input) => {
+    input.addEventListener("invalid", () => {
+      input.setCustomValidity(phoneError);
+    });
+    input.addEventListener("input", () => {
+      input.setCustomValidity("");
+    });
+  });
+</script>

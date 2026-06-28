@@ -1,0 +1,7 @@
+name = "alice-canton-weddings"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-01-01"
+
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "planner@alicecantonweddings.com"
