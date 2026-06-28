@@ -81,23 +81,35 @@ const navItems = [
       </a>
     </div>
 
-    <!-- Mobile hamburger -->
-    <button
-      id="menu-toggle"
-      class="relative z-[70] flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
-      aria-label={t.header.mobileMenuLabel}
-      data-label-open={t.header.mobileMenuLabel}
-      data-label-close={t.header.mobileMenuCloseLabel}
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span class="hamburger-line hamburger-line-1 block h-0.5 bg-white"
-      ></span>
-      <span class="hamburger-line hamburger-line-2 block h-0.5 bg-white"
-      ></span>
-      <span class="hamburger-line hamburger-line-3 block h-0.5 bg-white"
-      ></span>
-    </button>
+    <!-- Mobile language switcher + hamburger -->
+    <div class="flex items-center gap-3 md:hidden">
+      <a
+        href={altUrl}
+        class="border-gold text-gold hover:bg-gold relative z-[70] border px-2 py-0.5 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
+        aria-label={altLang === "en"
+          ? "Switch to English"
+          : "Cambiar a Español"}
+      >
+        {t.header.langSwitch}
+      </a>
+
+      <button
+        id="menu-toggle"
+        class="relative z-[70] flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+        aria-label={t.header.mobileMenuLabel}
+        data-label-open={t.header.mobileMenuLabel}
+        data-label-close={t.header.mobileMenuCloseLabel}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line hamburger-line-1 block h-0.5 bg-white"
+        ></span>
+        <span class="hamburger-line hamburger-line-2 block h-0.5 bg-white"
+        ></span>
+        <span class="hamburger-line hamburger-line-3 block h-0.5 bg-white"
+        ></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile menu -->
@@ -139,17 +151,6 @@ const navItems = [
           );
         })
       }
-      <li
-        class="menu-link mt-6"
-        style={`transition-delay:${120 + navItems.length * 70}ms`}
-      >
-        <a
-          href={altUrl}
-          class="border-gold text-gold hover:bg-gold inline-block border px-4 py-2 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
-        >
-          {t.header.langSwitch}
-        </a>
-      </li>
     </ul>
   </div>
 </header>
