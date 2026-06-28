@@ -32,7 +32,7 @@ const navItems = [
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
     <a href={r.home} class="group flex items-center">
       <img
-        src="/images/wedding-planner-alice-canton-logotipo.png"
+        src="/images/wedding-planner-alice-canton-logotipo.webp"
         alt={`${t.header.logoText} — Weddings & Events`}
         class="h-12 w-auto object-contain"
       />
@@ -115,7 +115,7 @@ const navItems = [
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-[60] flex flex-col justify-center overflow-hidden bg-charcoal px-10 md:hidden"
+    class="bg-charcoal fixed inset-0 z-[60] flex flex-col justify-center overflow-hidden px-10 md:hidden"
   >
     <span
       aria-hidden="true"
@@ -140,7 +140,7 @@ const navItems = [
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  class={`font-serif text-3xl tracking-wide uppercase transition-colors group-hover:text-gold sm:text-4xl ${
+                  class={`group-hover:text-gold font-serif text-3xl tracking-wide uppercase transition-colors sm:text-4xl ${
                     isActive ? "text-gold" : "text-white"
                   }`}
                 >
