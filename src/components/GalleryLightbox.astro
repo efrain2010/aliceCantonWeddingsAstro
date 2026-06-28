@@ -245,6 +245,10 @@ const labels =
 
     let pinchStartDistance = 0;
     let pinchStartScale = 1;
+    // True from the moment a 2nd finger touches down until every finger has
+    // been lifted. Guards against the trailing single-finger touchend of a
+    // pinch (e.g. zooming back out to 1x) being misread as a tap/swipe.
+    let isPinching = false;
     let lastTapTime = 0;
     let lastTapX = 0;
     let lastTapY = 0;
@@ -269,6 +273,7 @@ const labels =
     const startPinch = (touches: TouchList) => {
       pinchStartDistance = touchDistance(touches);
       pinchStartScale = scale;
+      isPinching = true;
       isDragging = false;
     };
 
@@ -349,6 +354,11 @@ const labels =
         return;
       }
 
+      // Ignore: this is the lingering finger left over right after a pinch
+      // (lifting one of two fingers doesn't fire a new touchstart), not a
+      // fresh single-finger gesture.
+      if (isPinching) return;
+
       if (e.touches.length !== 1) return;
 
       const touch = e.touches[0];
@@ -367,6 +377,9 @@ const labels =
         }
 
         if (e.touches.length !== 1) return;
+        // Still mid-release from a pinch (one finger already lifted) —
+        // don't let this tail movement pan or arm a swipe.
+        if (isPinching) return;
         const touch = e.touches[0];
 
         if (isDragging && isZoomed()) {
@@ -387,6 +400,13 @@ const labels =
     img.addEventListener("touchend", (e) => {
       if (e.touches.length !== 0) return;
       isDragging = false;
+
+      // The last finger of a pinch just lifted — settle the zoom state but
+      // don't treat this release as a tap/swipe.
+      const wasPinching = isPinching;
+      isPinching = false;
+      if (wasPinching) return;
+
       if (isZoomed()) return;
 
       panX = 0;
@@ -395,6 +415,11 @@ const labels =
 
       const touch = e.changedTouches[0];
       if (touch) finishSwipe(touch);
+    });
+
+    img.addEventListener("touchcancel", () => {
+      isDragging = false;
+      isPinching = false;
     });
 
     // Desktop convenience: double-click to zoom
