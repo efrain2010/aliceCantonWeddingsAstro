@@ -1,9 +1,22 @@
 ---
+import { getImage, Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import HeroImage from "../HeroImage.astro";
 import ContactForm from "../ContactForm.astro";
 import GalleryGrid from "../GalleryGrid.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
+import heroBeach from "../../assets/home/hero-beach.png";
+import logoBadge from "../../assets/home/logo-badge.png";
+import bodaCiudad from "../../assets/home/boda-ciudad.jpg";
+import weddingBouquet from "../../assets/home/wedding-bouquet-pakbnhh.jpg";
+import parallaxBg from "../../assets/shared/parallax-2.jpg";
+import categoryImg1 from "../../assets/home/img-1.jpg";
+import categoryImg3 from "../../assets/home/img-3.jpg";
+import categoryGallery2 from "../../assets/home/gallery-2.jpg";
+import categoryImgVert3 from "../../assets/home/img-vert-3.jpg";
+import avatar3 from "../../assets/home/avatar-3.jpg";
+import yareneSergio from "../../assets/home/yarene-sergio-150x150.jpg";
+import marthaSergio1 from "../../assets/home/martha-sergio-1-150x150.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -12,10 +25,10 @@ const r = routes[lang];
 
 // Background photos for the 4 category cards (Planeación, Banquete, Música, Duración)
 const categoryImages = [
-  "/images/img-1.jpg",
-  "/images/img-3.jpg",
-  "/images/gallery-2.jpg",
-  "/images/img-vert-3.jpg",
+  categoryImg1,
+  categoryImg3,
+  categoryGallery2,
+  categoryImgVert3,
 ];
 
 // Portfolio teaser gallery — masonry mix of portrait + landscape photos
@@ -35,23 +48,33 @@ const portfolioImages = [
 ].map((src) => ({ src, alt: "Wedding portfolio" }));
 
 // Client avatars, in the same order as the testimonials
-const testimonialAvatars = [
-  "/images/avatar-3.jpg",
-  "/images/yarene-sergio-150x150.jpg",
-  "/images/martha-sergio-1-150x150.jpg",
-];
+const testimonialAvatars = [avatar3, yareneSergio, marthaSergio1];
+
+// Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
+const heroBeachOptimized = await getImage({
+  src: heroBeach,
+  width: 1920,
+  format: "webp",
+});
+const parallaxOptimized = await getImage({
+  src: parallaxBg,
+  width: 1920,
+  format: "webp",
+});
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
-  <HeroImage disableGreyscale fixImage heroImage="/images/hero-beach.png">
+  <HeroImage disableGreyscale fixImage heroImage={heroBeachOptimized.src}>
     <div class="absolute inset-0 bg-black/40"></div>
 
     <!-- Centered circular badge logo (real asset from brand) -->
     <div class="absolute inset-0 z-10 flex items-center justify-center">
-      <img
+      <Image
         alt="Alice Cantón Weddings & Events"
         class="h-72 w-72 object-contain md:h-96 md:w-96"
-        src="/images/logo-badge.png"
+        height={384}
+        src={logoBadge}
+        width={384}
       />
     </div>
   </HeroImage>
@@ -62,10 +85,14 @@ const testimonialAvatars = [
       <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <!-- Image (left) -->
         <div>
-          <img
+          <Image
             alt="Boda en Mérida Yucatán"
             class="h-auto w-full object-cover"
-            src="/images/boda-ciudad-1024x576.jpg"
+            decoding="async"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={bodaCiudad}
+            widths={[400, 768, 1024]}
           />
         </div>
         <!-- Intro heading and text (right) -->
@@ -87,10 +114,14 @@ const testimonialAvatars = [
   <div class="grid w-full grid-cols-2 md:grid-cols-4">
     {
       p.categories.map((cat, i) => (
-        <div
-          class="group relative h-56 overflow-hidden bg-cover bg-center"
-          style={`background-image: url('${categoryImages[i]}');`}
-        >
+        <div class="group relative h-56 overflow-hidden">
+          <Image
+            alt={cat.label}
+            class="absolute inset-0 h-full w-full object-cover"
+            sizes="(max-width: 768px) 50vw, 25vw"
+            src={categoryImages[i]}
+            widths={[300, 500, 800]}
+          />
           <div class="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/25" />
           <div class="absolute inset-0 flex items-center justify-center">
             <span class="px-4 text-center font-serif text-2xl tracking-widest text-white uppercase">
@@ -165,10 +196,14 @@ const testimonialAvatars = [
 
         <!-- Image column (right) -->
         <div class="hidden md:block">
-          <img
+          <Image
             alt="Wedding bouquet"
             class="h-auto w-full object-cover"
-            src="/images/wedding-bouquet-pakbnhh.jpg"
+            decoding="async"
+            loading="lazy"
+            sizes="50vw"
+            src={weddingBouquet}
+            widths={[400, 650]}
           />
         </div>
       </div>
@@ -217,7 +252,7 @@ const testimonialAvatars = [
   <!-- ⑨ TESTIMONIALS: Review cards with client feedback -->
   <section
     class="relative bg-cover bg-scroll bg-center py-24 md:bg-fixed"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/parallax-2.jpg');"
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${parallaxOptimized.src}');`}
   >
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -229,10 +264,12 @@ const testimonialAvatars = [
               </p>
               <div class="flex items-center gap-4">
                 <div class="h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
-                  <img
+                  <Image
                     alt={item.author}
                     class="h-full w-full object-cover"
+                    height={112}
                     src={testimonialAvatars[i]}
+                    width={112}
                   />
                 </div>
                 <div>
