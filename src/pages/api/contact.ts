@@ -1,25 +1,26 @@
-/// <reference types="@cloudflare/workers-types" />
+import type { APIRoute } from "astro";
 import { EmailMessage } from "cloudflare:email";
 import { createMimeMessage, Mailbox } from "mimetext/browser";
+import { CONTACT_EMAIL } from "astro:env/server";
 
-interface Env {
-  SEND_EMAIL: SendEmail;
-}
+export const prerender = false;
 
 const FROM_ADDRESS = "forms@alicecantonweddings.com";
-const TO_ADDRESS = "planner@alicecantonweddings.com";
+const TO_ADDRESS = CONTACT_EMAIL;
+
+const getUrl = (request: Request) => {
+  const referer = request.headers.get("referer");
+  return new URL(referer ?? request.url);
+};
 
 const redirect = (request: Request, query: string): Response => {
-  const referer = request.headers.get("referer");
-  const base = referer ? new URL(referer) : new URL(request.url);
+  const base = getUrl(request);
   base.search = query;
   return Response.redirect(base.toString(), 302);
 };
 
 const getLang = (request: Request): "es" | "en" => {
-  const referer = request.headers.get("referer");
-  const pathname = referer ? new URL(referer).pathname : new URL(request.url).pathname;
-  return pathname.startsWith("/en") ? "en" : "es";
+  return getUrl(request).pathname.startsWith("/en") ? "en" : "es";
 };
 
 const acknowledgementCopy = {
@@ -57,7 +58,8 @@ const acknowledgementCopy = {
   },
 };
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
+  const env = locals.runtime.env;
   const formData = await request.formData();
   const name = formData.get("name")?.toString().trim() ?? "";
   const email = formData.get("email")?.toString().trim() ?? "";
@@ -91,7 +93,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   try {
     await env.SEND_EMAIL.send(
-      new EmailMessage(FROM_ADDRESS, TO_ADDRESS, notifyMsg.asRaw())
+      new EmailMessage(FROM_ADDRESS, TO_ADDRESS, notifyMsg.asRaw()),
     );
   } catch (err) {
     console.error("Failed to send contact form email", err);
@@ -112,7 +114,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   });
 
   try {
-    await env.SEND_EMAIL.send(new EmailMessage(FROM_ADDRESS, email, ackMsg.asRaw()));
+    await env.SEND_EMAIL.send(
+      new EmailMessage(FROM_ADDRESS, email, ackMsg.asRaw()),
+    );
   } catch (err) {
     console.error("Failed to send acknowledgement email", err);
   }

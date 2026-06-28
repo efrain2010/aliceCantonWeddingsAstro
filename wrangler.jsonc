@@ -11,4 +11,27 @@
     "binding": "ASSETS",
     "directory": "dist",
   },
+  "vars": {
+    "CONTACT_EMAIL": "planner@alicecantonweddings.com",
+  },
+  "send_email": [
+    {
+      "name": "SEND_EMAIL",
+      "destination_address": "planner@alicecantonweddings.com",
+    },
+  ],
+  "env": {
+    "staging": {
+      "name": "alice-canton-weddings-staging",
+      "vars": {
+        "CONTACT_EMAIL": "efrain.villanueva3@gmail.com",
+      },
+      "send_email": [
+        {
+          "name": "SEND_EMAIL",
+          "destination_address": "efrain.villanueva3@gmail.com",
+        },
+      ],
+    },
+  },
 }
