@@ -130,13 +130,29 @@ const labels =
       img.classList.toggle("opacity-0", loading);
     };
 
-    img.addEventListener("load", () => setLoading(false));
-    img.addEventListener("error", () => setLoading(false));
+    // Wait for the image to be fully decoded (not just downloaded) before
+    // revealing it, otherwise large photos can flash a partially painted
+    // frame while the browser finishes decoding off the main thread.
+    let loadToken = 0;
+    const handleLoad = (token: number) => {
+      if (typeof img.decode === "function") {
+        img.decode().then(
+          () => token === loadToken && setLoading(false),
+          () => token === loadToken && setLoading(false),
+        );
+      } else if (token === loadToken) {
+        setLoading(false);
+      }
+    };
 
     const show = (index: number) => {
       currentIndex = (index + items.length) % items.length;
       const item = items[currentIndex];
       setLoading(true);
+      loadToken += 1;
+      const token = loadToken;
+      img.onload = () => handleLoad(token);
+      img.onerror = () => token === loadToken && setLoading(false);
       img.src = item.full;
       img.alt = item.alt;
       resetZoom();
