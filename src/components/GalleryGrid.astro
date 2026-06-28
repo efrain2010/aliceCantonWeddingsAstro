@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import { galleryImages } from "../assets/gallery";
+
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  photos: Photo[];
+  imageClass?: string;
+  gridClass?: string;
+}
+
+const {
+  photos,
+  imageClass = "transition-transform duration-700 group-hover:scale-105",
+  gridClass = "columns-2 gap-1.5 px-1.5 md:columns-3 lg:columns-4 [&>*]:mb-1.5",
+} = Astro.props;
+---
+
+<div class={gridClass}>
+  {
+    photos.map((photo) => {
+      const filename = photo.src.split("/").pop()!;
+      const image = galleryImages[filename];
+
+      return (
+        <div class="group break-inside-avoid overflow-hidden">
+          <Image
+            src={image}
+            alt={photo.alt}
+            widths={[320, 640, 1024]}
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            loading="lazy"
+            decoding="async"
+            class={`block w-full ${imageClass}`}
+          />
+        </div>
+      );
+    })
+  }
+</div>
