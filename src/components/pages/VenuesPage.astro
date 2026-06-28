@@ -1,8 +1,13 @@
 ---
+import { getImage, Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import SectionCTA from "../SectionCTA.astro";
 import { getLang, useTranslations } from "../../i18n/index";
 import HeroImage from "../HeroImage.astro";
+import { venueImages } from "../../assets/venues";
+import heroPath from "../../assets/venues/garden-arch-tunnel-fallen-leaves-path.jpg";
+import beachWeddingArch from "../../assets/venues/beach-wedding-ceremony-arch-rose-petals.jpg";
+import guestsPhones from "../../assets/shared/wedding-guests-photographing-bride-groom-phones.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -12,16 +17,49 @@ const heroTitle = lang === "es" ? "Locaciones" : "Venues";
 
 // Per-category photo galleries (shared across locales)
 const categoryImages = [
-  ["hac-1", "hac-2", "hac-3", "hac-4", "hac-5", "hac-6", "hac-7", "hac-8"],
-  ["pla-1", "pla-2", "pla-3", "pla-4", "pla-5", "pla-6"],
-  ["cen-1", "cen-2", "cen-3", "cen-4", "cen-5", "cen-6", "cen-7", "cen-8"],
-  ["bac-1", "bac-2"],
-].map((arr) => arr.map((n) => `/images/venues/${n}.jpg`));
+  [
+    "hacienda-yucatan-colonial-mansion-grand-staircase.jpg",
+    "hacienda-yucatan-historic-ruins-garden-lawn.jpg",
+    "hacienda-yucatan-poolside-terrace-palapa.jpg",
+    "hacienda-yucatan-terracotta-facade-palm-trees.jpg",
+    "hacienda-yucatan-blue-chapel-courtyard-papel-picado.jpg",
+    "hacienda-yucatan-ancient-fig-tree-garden.jpg",
+    "hacienda-yucatan-pool-tree-lined-garden.jpg",
+    "hacienda-yucatan-red-chapel-green-lawn.jpg",
+  ],
+  [
+    "yucatan-beach-turquoise-water-wooden-pier.jpg",
+    "yucatan-beach-white-sand-coastal-houses.jpg",
+    "yucatan-beach-palm-tree-overcast-sky.jpg",
+    "yucatan-beach-rocky-shoreline-pastel-sky.jpg",
+    "yucatan-beach-panoramic-shoreline-houses.jpg",
+    "yucatan-beach-sunny-shoreline-palm-trees.jpg",
+  ],
+  [
+    "cenote-yucatan-garden-entrance-boulder.jpg",
+    "cenote-yucatan-cave-interior-stone-stairway.jpg",
+    "cenote-yucatan-illuminated-cave-walls.jpg",
+    "cenote-yucatan-garden-pathway-flower-beds.jpg",
+    "cenote-yucatan-ancient-tree-swing-family.jpg",
+    "cenote-yucatan-turquoise-pool-stalactites.jpg",
+    "cenote-yucatan-rock-formations-turquoise-water.jpg",
+    "cenote-yucatan-lagoon-terrace-palm-leaf.jpg",
+  ],
+  [
+    "bacalar-lagoon-overwater-palapa-dock.jpg",
+    "bacalar-lagoon-wooden-pier-sailboats.jpg",
+  ],
+];
+
+// Full-bleed CSS background can't use <Image>, so pre-optimize via getImage()
+const heroOptimized = await getImage({
+  src: heroPath,
+  width: 1360,
+  format: "webp",
+});
 
 const content = {
   es: {
-    increiblasImage: "/images/boda-playa-1024x576.jpg",
-    celebracionesImage: "/images/guests-smartphones-bride-1024x584.jpg",
     increiblasTitle: "Locaciones Increíbles",
     increiblasBody:
       "Conoce las locaciones del estado de Yucatán, podemos organizar el mejor día de tu vida en haciendas, playas y lugares con los que solo has soñado. Agenda una cita y conoce salones de eventos impresionantes, haciendas antiguas y playas increíbles.",
@@ -53,8 +91,6 @@ const content = {
     ],
   },
   en: {
-    increiblasImage: "/images/boda-playa-1024x576.jpg",
-    celebracionesImage: "/images/guests-smartphones-bride-1024x584.jpg",
     increiblasTitle: "Amazing Venues",
     increiblasBody:
       "Get to know the venues in the state of Yucatán. We can organize the best day of your life in haciendas, beaches and places you've only dreamed of. Schedule an appointment and discover impressive event halls, ancient haciendas and incredible beaches.",
@@ -89,20 +125,21 @@ const content = {
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
-  <HeroImage
-    heroImage="/images/foxglove-spires-path-PYQPXBU-1.jpg"
-    title={heroTitle}
-  />
+  <HeroImage heroImage={heroOptimized.src} title={heroTitle} />
 
   <!-- ② TWO-COLUMN INTRO -->
   <section class="bg-white py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-6">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
         <div>
-          <img
+          <Image
             alt={content.increiblasTitle}
             class="mb-7 h-auto w-full object-cover"
-            src={content.increiblasImage}
+            decoding="async"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={beachWeddingArch}
+            widths={[400, 768, 1024]}
           />
           <h2
             class="text-charcoal mb-5 font-serif text-3xl md:text-4xl"
@@ -113,10 +150,14 @@ const content = {
           <p class="leading-relaxed text-gray-600">{content.increiblasBody}</p>
         </div>
         <div>
-          <img
+          <Image
             alt={content.celebracionesTitle}
             class="mb-7 h-auto w-full object-cover"
-            src={content.celebracionesImage}
+            decoding="async"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={guestsPhones}
+            widths={[400, 768, 1024]}
           />
           <h2
             class="text-charcoal mb-5 font-serif text-3xl md:text-4xl"
@@ -161,13 +202,15 @@ const content = {
             </p>
           </div>
           <div class="grid grid-cols-2 gap-1.5 px-1.5 md:grid-cols-4">
-            {categoryImages[ci].map((src) => (
+            {categoryImages[ci].map((filename) => (
               <div class="group aspect-square overflow-hidden">
-                <img
+                <Image
                   alt={category.title}
                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
-                  src={src}
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  src={venueImages[filename]}
+                  widths={[300, 500, 800]}
                 />
               </div>
             ))}
