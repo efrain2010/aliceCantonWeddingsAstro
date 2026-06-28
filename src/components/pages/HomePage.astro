@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import HeroImage from "../HeroImage.astro";
 import ContactForm from "../ContactForm.astro";
+import GalleryGrid from "../GalleryGrid.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
 
 const lang = getLang(Astro.url.pathname);
@@ -19,19 +20,19 @@ const categoryImages = [
 
 // Portfolio teaser gallery — masonry mix of portrait + landscape photos
 const portfolioImages = [
-  "/images/gallery/g01.jpg",
-  "/images/gallery/g02.jpg",
-  "/images/gallery/g03.jpg",
-  "/images/gallery/g04.jpg",
-  "/images/gallery/g05.jpg",
-  "/images/gallery/g09.jpg",
-  "/images/gallery/g08.jpg",
-  "/images/gallery/g11.jpg",
-  "/images/gallery/g13.jpg",
-  "/images/gallery/g17.jpg",
-  "/images/gallery/g16.jpg",
-  "/images/gallery/g22.jpg",
-];
+  "g01.jpg",
+  "g02.jpg",
+  "g03.jpg",
+  "g04.jpg",
+  "g05.jpg",
+  "g09.jpg",
+  "g08.jpg",
+  "g11.jpg",
+  "g13.jpg",
+  "g17.jpg",
+  "g16.jpg",
+  "g22.jpg",
+].map((src) => ({ src, alt: "Wedding portfolio" }));
 
 // Client avatars, in the same order as the testimonials
 const testimonialAvatars = [
@@ -192,20 +193,11 @@ const testimonialAvatars = [
 
   <!-- ⑦ PORTFOLIO GALLERY: masonry of wedding images -->
   <section class="bg-white">
-    <div class="columns-2 gap-1 md:columns-4 [&>*]:mb-1">
-      {
-        portfolioImages.map((src) => (
-          <div class="group break-inside-avoid overflow-hidden">
-            <img
-              alt="Wedding portfolio"
-              class="block w-full transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              src={src}
-            />
-          </div>
-        ))
-      }
-    </div>
+    <GalleryGrid
+      photos={portfolioImages}
+      gridClass="columns-2 gap-1 md:columns-4 [&>*]:mb-1"
+      imageClass="transition-transform duration-500 group-hover:scale-105"
+    />
   </section>
 
   <!-- ⑧ TESTIMONIALS QUOTE BAND -->

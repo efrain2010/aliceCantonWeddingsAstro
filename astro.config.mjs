@@ -18,5 +18,7 @@ export default defineConfig({
     locales: ["es", "en"],
   },
 
-  adapter: cloudflare()
+  adapter: cloudflare({
+    imageService: "compile",
+  })
 });

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getLang, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
+import GalleryGrid from "../GalleryGrid.astro";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
@@ -30,22 +31,7 @@ const p = t.pages.gallery;
 
   <!-- ③ MASONRY GRID -->
   <section class="bg-white pb-2">
-    <div
-      class="columns-2 gap-1.5 px-1.5 md:columns-3 lg:columns-4 [&>*]:mb-1.5"
-    >
-      {
-        p.photos.map((photo) => (
-          <div class="group break-inside-avoid overflow-hidden">
-            <img
-              alt={photo.alt}
-              class="block w-full transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-              src={photo.src}
-            />
-          </div>
-        ))
-      }
-    </div>
+    <GalleryGrid photos={p.photos} />
   </section>
 
   <!-- ④ GOLD CTA: Su Especialista en Bodas -->
