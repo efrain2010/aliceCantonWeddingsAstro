@@ -1,19 +1,19 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 import parallaxBg from "../../assets/shared/wedding-planner-bride-consultation-table-setting.jpg";
+import aliceHelpingBride from "../../assets/about/alice-canton-wedding-planner-adjusting-bride-flower-crown.png";
+import invitationSuite from "../../assets/about/wedding-invitation-suite-ring-box-flatlay.jpg";
+import nakedCake from "../../assets/about/naked-wedding-cake-candles-floral-dessert-table.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.about;
 const r = routes[lang];
-
-const img10 = "/images/img-10.jpg";
-const img13 = "/images/img-13.jpg";
 
 // Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
 const parallaxOptimized = await getImage({
@@ -21,6 +21,11 @@ const parallaxOptimized = await getImage({
   width: 1920,
   format: "webp",
 });
+const img10 = (
+  await getImage({ src: invitationSuite, width: 800, format: "webp" })
+).src;
+const img13 = (await getImage({ src: nakedCake, width: 800, format: "webp" }))
+  .src;
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
@@ -100,11 +105,14 @@ const parallaxOptimized = await getImage({
               aria-hidden="true"
               class="border-gold/60 absolute -top-4 -left-4 hidden h-full w-full border sm:block"
             ></span>
-            <img
+            <Image
               alt="Alice Cantón ayudando a una novia"
               class="relative aspect-[4/3] w-full object-cover object-center shadow-xl transition-transform duration-700 group-hover:scale-[1.02]"
+              decoding="async"
               loading="lazy"
-              src="/images/alice-canton-helping-bride.png"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              src={aliceHelpingBride}
+              widths={[400, 768, 1024]}
             />
           </div>
         </div>
