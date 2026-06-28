@@ -69,9 +69,16 @@ Reusable components in `src/components/`. All are locale-aware via URL detection
 - `Header` — sticky nav + language switcher (EN ↔ ES), active item derived from `getPageKey()`
 - `Footer` — 4-column grid, links use `routes[lang]` so URLs are always locale-correct
 - `SectionCTA` — gold "Platiquemos / Let's Talk" band, reused on every page
-- `Hero` — accepts `title`, `subtitle`, `cta`, `imageSrc`, `height` props; gradient fallback when no image
+- `HeroImage` — accepts `heroImage`, `title`, `fixImage`, `disableGreyscale`, `className` props; fixed height on mobile, full-screen on desktop
 - `ContactForm` — locale-aware field labels/placeholders
 - `ServiceCard`, `TestimonialCard`, `VenueCard` — purely presentational, no locale logic
+- `GalleryGrid` — masonry photo grid; wraps each image in a `.gallery-trigger` button with a pre-optimized full-res URL so a `GalleryLightbox` on the same page can open it
+- `GalleryLightbox` — modal carousel island (vanilla JS, no framework). Drop one per page, pair its `group` prop with the matching `GalleryGrid`'s `lightboxGroup`. Handles open/close animation, pinch/double-tap zoom on mobile, and decode-before-reveal loading
+- `LoadingSpinner` — atom: animated spinner circle, `className` prop overrides size/color (default `h-12 w-12 border-white/25 border-t-white`). Use this instead of inlining a new spinner
+
+### Reusable components & atomic design
+
+Before writing new markup, check whether a piece of UI already exists in `src/components/` (or could be pulled out of a page component into one) rather than inlining it again. Default to **atomic design**: build small, single-purpose presentational pieces (e.g. `LoadingSpinner`, `ServiceCard`) — "atoms" — and compose larger sections (e.g. `GalleryLightbox`, `ContactForm`) — "molecules/organisms" — out of them, instead of one large component owning everything inline. When a new feature needs something generic (a spinner, a badge, a button style, an icon button), pull it into its own component in `src/components/` first, then use it from the feature component — don't duplicate the markup/CSS inline. This keeps visual primitives consistent and means a future style change happens in one place.
 
 ### Adding a new page
 
