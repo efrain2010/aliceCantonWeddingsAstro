@@ -16,7 +16,7 @@ const labels =
 
 <div
   aria-label={labels.close}
-  class="gallery-lightbox fixed inset-0 z-100 hidden bg-black/85"
+  class="gallery-lightbox fixed inset-0 z-100 hidden bg-black/85 opacity-0 transition-opacity duration-300 ease-out"
   data-group={group}
   role="dialog"
 >
@@ -47,7 +47,7 @@ const labels =
   </button>
 
   <div
-    class="gallery-lightbox-stage relative mx-auto flex h-full w-full items-center justify-center overflow-hidden md:h-[85vh] md:max-w-5xl md:rounded-lg md:shadow-2xl"
+    class="gallery-lightbox-stage relative mx-auto flex h-full w-full scale-95 items-center justify-center overflow-hidden transition-transform duration-300 ease-out md:h-[85vh] md:max-w-5xl md:rounded-lg md:shadow-2xl"
   >
     <img
       alt=""
@@ -78,13 +78,15 @@ const labels =
     }));
 
     const img = root.querySelector<HTMLImageElement>(".gallery-lightbox-img");
+    const stage = root.querySelector<HTMLElement>(".gallery-lightbox-stage");
     const backdrop = root.querySelector<HTMLElement>(
       ".gallery-lightbox-backdrop",
     );
     const closeBtn = root.querySelector<HTMLElement>(".gallery-lightbox-close");
     const prevBtn = root.querySelector<HTMLElement>(".gallery-lightbox-prev");
     const nextBtn = root.querySelector<HTMLElement>(".gallery-lightbox-next");
-    if (!img || !backdrop || !closeBtn || !prevBtn || !nextBtn) return;
+    if (!img || !stage || !backdrop || !closeBtn || !prevBtn || !nextBtn)
+      return;
 
     let currentIndex = 0;
     let scale = 1;
@@ -111,18 +113,33 @@ const labels =
     };
 
     const isOpen = () => !root.classList.contains("hidden");
+    let closeTimeoutId = 0;
 
     const open = (index: number) => {
+      window.clearTimeout(closeTimeoutId);
       show(index);
       root.classList.remove("hidden");
       root.classList.add("flex");
       document.documentElement.classList.add("overflow-hidden");
+      // Force layout with the starting (faded/scaled-down) styles applied
+      // before flipping to the open state, so the transition actually runs.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          root.classList.remove("opacity-0");
+          stage.classList.remove("scale-95");
+        });
+      });
     };
 
     const close = () => {
-      root.classList.remove("flex");
-      root.classList.add("hidden");
+      window.clearTimeout(closeTimeoutId);
+      root.classList.add("opacity-0");
+      stage.classList.add("scale-95");
       document.documentElement.classList.remove("overflow-hidden");
+      closeTimeoutId = window.setTimeout(() => {
+        root.classList.remove("flex");
+        root.classList.add("hidden");
+      }, 300);
     };
 
     const next = () => show(currentIndex + 1);
