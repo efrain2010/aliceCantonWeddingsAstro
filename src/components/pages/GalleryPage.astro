@@ -5,6 +5,7 @@ import { getLang, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 import GalleryGrid from "../GalleryGrid.astro";
+import GalleryLightbox from "../GalleryLightbox.astro";
 import guestsPhones from "../../assets/shared/wedding-guests-photographing-bride-groom-phones.jpg";
 
 const lang = getLang(Astro.url.pathname);
@@ -39,6 +40,8 @@ const heroOptimized = await getImage({
   <section class="bg-white pb-2">
     <GalleryGrid photos={p.photos} />
   </section>
+
+  <GalleryLightbox />
 
   <!-- ④ GOLD CTA: Su Especialista en Bodas -->
   <section class="bg-gold px-6 py-16 text-center text-white">

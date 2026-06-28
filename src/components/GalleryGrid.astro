@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { galleryImages } from "../assets/gallery";
 
 interface Photo {
@@ -11,23 +11,39 @@ interface Props {
   photos: Photo[];
   imageClass?: string;
   gridClass?: string;
+  lightboxGroup?: string;
 }
 
 const {
   photos,
   imageClass = "transition-transform duration-700 group-hover:scale-105",
   gridClass = "columns-2 gap-1.5 px-1.5 md:columns-3 lg:columns-4 [&>*]:mb-1.5",
+  lightboxGroup = "default",
 } = Astro.props;
+
+const items = await Promise.all(
+  photos.map(async (photo, index) => {
+    const filename = photo.src.split("/").pop()!;
+    const image = galleryImages[filename];
+    const full = await getImage({ src: image, width: 1600, format: "webp" });
+    return { photo, image, full, index };
+  }),
+);
 ---
 
 <div class={gridClass}>
   {
-    photos.map((photo) => {
-      const filename = photo.src.split("/").pop()!;
-      const image = galleryImages[filename];
-
-      return (
-        <div class="group break-inside-avoid overflow-hidden">
+    items.map(({ photo, image, full, index }) => (
+      <div class="group break-inside-avoid overflow-hidden">
+        <button
+          aria-label={photo.alt}
+          class="gallery-trigger block w-full cursor-zoom-in"
+          data-alt={photo.alt}
+          data-full={full.src}
+          data-group={lightboxGroup}
+          data-index={index}
+          type="button"
+        >
           <Image
             alt={photo.alt}
             class={`block w-full ${imageClass}`}
@@ -37,8 +53,8 @@ const {
             src={image}
             widths={[320, 640, 1024]}
           />
-        </div>
-      );
-    })
+        </button>
+      </div>
+    ))
   }
 </div>

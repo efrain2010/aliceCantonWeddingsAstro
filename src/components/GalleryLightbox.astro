@@ -1,0 +1,247 @@
+---
+import { getLang } from "../i18n/index";
+
+interface Props {
+  group?: string;
+}
+
+const { group = "default" } = Astro.props;
+const lang = getLang(Astro.url.pathname);
+
+const labels =
+  lang === "en"
+    ? { close: "Close", prev: "Previous image", next: "Next image" }
+    : { close: "Cerrar", prev: "Imagen anterior", next: "Imagen siguiente" };
+---
+
+<div
+  aria-label={labels.close}
+  class="gallery-lightbox fixed inset-0 z-100 hidden bg-black/85"
+  data-group={group}
+  role="dialog"
+>
+  <div class="gallery-lightbox-backdrop absolute inset-0"></div>
+
+  <button
+    aria-label={labels.close}
+    class="gallery-lightbox-close absolute top-3 right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:top-6 md:right-6"
+    type="button"
+  >
+    &times;
+  </button>
+
+  <button
+    aria-label={labels.prev}
+    class="gallery-lightbox-prev absolute top-1/2 left-1 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:left-4"
+    type="button"
+  >
+    &lsaquo;
+  </button>
+
+  <button
+    aria-label={labels.next}
+    class="gallery-lightbox-next absolute top-1/2 right-1 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:right-4"
+    type="button"
+  >
+    &rsaquo;
+  </button>
+
+  <div
+    class="gallery-lightbox-stage relative mx-auto flex h-full w-full items-center justify-center overflow-hidden md:h-[85vh] md:max-w-5xl md:rounded-lg md:shadow-2xl"
+  >
+    <img
+      alt=""
+      class="gallery-lightbox-img h-full w-full touch-none object-contain select-none"
+      draggable="false"
+    />
+  </div>
+</div>
+
+<script>
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 3;
+  const DOUBLE_TAP_SCALE = 2;
+  const DOUBLE_TAP_WINDOW_MS = 300;
+
+  function initLightbox(root: HTMLElement) {
+    const group = root.dataset.group ?? "default";
+    const triggers = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        `.gallery-trigger[data-group="${group}"]`,
+      ),
+    );
+    if (triggers.length === 0) return;
+
+    const items = triggers.map((trigger) => ({
+      full: trigger.dataset.full ?? "",
+      alt: trigger.dataset.alt ?? "",
+    }));
+
+    const img = root.querySelector<HTMLImageElement>(".gallery-lightbox-img");
+    const backdrop = root.querySelector<HTMLElement>(
+      ".gallery-lightbox-backdrop",
+    );
+    const closeBtn = root.querySelector<HTMLElement>(".gallery-lightbox-close");
+    const prevBtn = root.querySelector<HTMLElement>(".gallery-lightbox-prev");
+    const nextBtn = root.querySelector<HTMLElement>(".gallery-lightbox-next");
+    if (!img || !backdrop || !closeBtn || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    let scale = 1;
+    let panX = 0;
+    let panY = 0;
+
+    const applyTransform = () => {
+      img.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+    };
+
+    const resetZoom = () => {
+      scale = 1;
+      panX = 0;
+      panY = 0;
+      applyTransform();
+    };
+
+    const show = (index: number) => {
+      currentIndex = (index + items.length) % items.length;
+      const item = items[currentIndex];
+      img.src = item.full;
+      img.alt = item.alt;
+      resetZoom();
+    };
+
+    const isOpen = () => !root.classList.contains("hidden");
+
+    const open = (index: number) => {
+      show(index);
+      root.classList.remove("hidden");
+      root.classList.add("flex");
+      document.documentElement.classList.add("overflow-hidden");
+    };
+
+    const close = () => {
+      root.classList.remove("flex");
+      root.classList.add("hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+    };
+
+    const next = () => show(currentIndex + 1);
+    const prev = () => show(currentIndex - 1);
+
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener("click", () => open(index));
+    });
+
+    closeBtn.addEventListener("click", close);
+    backdrop.addEventListener("click", close);
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      next();
+    });
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      prev();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!isOpen()) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+
+    // Pinch-to-zoom (max 3x) + double-tap zoom (2x) + drag-to-pan when zoomed
+    let pinchStartDistance = 0;
+    let pinchStartScale = 1;
+    let lastTapTime = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragStartPanX = 0;
+    let dragStartPanY = 0;
+
+    const touchDistance = (touches: TouchList) =>
+      Math.hypot(
+        touches[1].clientX - touches[0].clientX,
+        touches[1].clientY - touches[0].clientY,
+      );
+
+    img.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 2) {
+        pinchStartDistance = touchDistance(e.touches);
+        pinchStartScale = scale;
+        isDragging = false;
+        return;
+      }
+
+      if (e.touches.length !== 1) return;
+
+      const now = Date.now();
+      if (now - lastTapTime < DOUBLE_TAP_WINDOW_MS) {
+        scale = scale > MIN_SCALE ? MIN_SCALE : DOUBLE_TAP_SCALE;
+        panX = 0;
+        panY = 0;
+        applyTransform();
+        lastTapTime = 0;
+      } else {
+        lastTapTime = now;
+      }
+
+      if (scale > MIN_SCALE) {
+        isDragging = true;
+        dragStartX = e.touches[0].clientX;
+        dragStartY = e.touches[0].clientY;
+        dragStartPanX = panX;
+        dragStartPanY = panY;
+      }
+    });
+
+    img.addEventListener(
+      "touchmove",
+      (e) => {
+        if (e.touches.length === 2) {
+          e.preventDefault();
+          const distance = touchDistance(e.touches);
+          const ratio = distance / pinchStartDistance;
+          scale = Math.min(
+            MAX_SCALE,
+            Math.max(MIN_SCALE, pinchStartScale * ratio),
+          );
+          applyTransform();
+          return;
+        }
+
+        if (e.touches.length === 1 && isDragging && scale > MIN_SCALE) {
+          e.preventDefault();
+          panX = dragStartPanX + (e.touches[0].clientX - dragStartX);
+          panY = dragStartPanY + (e.touches[0].clientY - dragStartY);
+          applyTransform();
+        }
+      },
+      { passive: false },
+    );
+
+    img.addEventListener("touchend", (e) => {
+      if (e.touches.length === 0) {
+        isDragging = false;
+        if (scale <= MIN_SCALE) {
+          panX = 0;
+          panY = 0;
+          applyTransform();
+        }
+      }
+    });
+
+    // Desktop convenience: double-click to zoom
+    img.addEventListener("dblclick", () => {
+      scale = scale > MIN_SCALE ? MIN_SCALE : DOUBLE_TAP_SCALE;
+      panX = 0;
+      panY = 0;
+      applyTransform();
+    });
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".gallery-lightbox")
+    .forEach(initLightbox);
+</script>
