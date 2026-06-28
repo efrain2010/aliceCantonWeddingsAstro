@@ -235,6 +235,9 @@ const labels =
     });
 
     // Pinch-to-zoom (max 3x) + double-tap zoom (2x) + drag-to-pan when zoomed
+    // + swipe left/right to navigate when not zoomed in
+    const SWIPE_THRESHOLD_PX = 40;
+    const SWIPE_MAX_DURATION_MS = 600;
     let pinchStartDistance = 0;
     let pinchStartScale = 1;
     let lastTapTime = 0;
@@ -243,6 +246,9 @@ const labels =
     let dragStartY = 0;
     let dragStartPanX = 0;
     let dragStartPanY = 0;
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+    let swipeStartTime = 0;
 
     const touchDistance = (touches: TouchList) =>
       Math.hypot(
@@ -259,6 +265,10 @@ const labels =
       }
 
       if (e.touches.length !== 1) return;
+
+      swipeStartX = e.touches[0].clientX;
+      swipeStartY = e.touches[0].clientY;
+      swipeStartTime = Date.now();
 
       const now = Date.now();
       if (now - lastTapTime < DOUBLE_TAP_WINDOW_MS) {
@@ -300,6 +310,18 @@ const labels =
           panX = dragStartPanX + (e.touches[0].clientX - dragStartX);
           panY = dragStartPanY + (e.touches[0].clientY - dragStartY);
           applyTransform();
+          return;
+        }
+
+        if (e.touches.length === 1 && scale <= MIN_SCALE) {
+          const deltaX = e.touches[0].clientX - swipeStartX;
+          const deltaY = e.touches[0].clientY - swipeStartY;
+          if (
+            Math.abs(deltaX) > 10 &&
+            Math.abs(deltaX) > Math.abs(deltaY) * 1.5
+          ) {
+            e.preventDefault();
+          }
         }
       },
       { passive: false },
@@ -312,6 +334,21 @@ const labels =
           panX = 0;
           panY = 0;
           applyTransform();
+
+          const touch = e.changedTouches[0];
+          if (touch) {
+            const deltaX = touch.clientX - swipeStartX;
+            const deltaY = touch.clientY - swipeStartY;
+            const elapsed = Date.now() - swipeStartTime;
+            const isSwipe =
+              elapsed < SWIPE_MAX_DURATION_MS &&
+              Math.abs(deltaX) > SWIPE_THRESHOLD_PX &&
+              Math.abs(deltaX) > Math.abs(deltaY) * 1.5;
+            if (isSwipe) {
+              if (deltaX < 0) next();
+              else prev();
+            }
+          }
         }
       }
     });
