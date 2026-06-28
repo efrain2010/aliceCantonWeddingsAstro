@@ -1,20 +1,26 @@
 ---
+import { getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { getLang, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 import GalleryGrid from "../GalleryGrid.astro";
+import guestsPhones from "../../assets/shared/wedding-guests-photographing-bride-groom-phones.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.gallery;
+
+// Full-bleed CSS background can't use <Image>, so pre-optimize via getImage()
+const heroOptimized = await getImage({
+  src: guestsPhones,
+  width: 1024,
+  format: "webp",
+});
 ---
 
 <Layout description={p.meta.description} title={p.meta.title}>
-  <HeroImage
-    heroImage="/images/guests-smartphones-bride-1024x584.jpg"
-    title={p.hero.title}
-  />
+  <HeroImage heroImage={heroOptimized.src} title={p.hero.title} />
 
   <!-- ② PORTAFOLIO INTRO -->
   <section class="bg-white py-16 text-center md:py-20">
