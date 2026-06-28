@@ -17,7 +17,7 @@ const labels =
 
 <div
   aria-label={labels.close}
-  class="gallery-lightbox fixed inset-0 z-100 hidden bg-black/85 opacity-0 transition-opacity duration-300 ease-out"
+  class="gallery-lightbox fixed inset-0 z-100 hidden items-center justify-center overflow-hidden bg-black/85 opacity-0 transition-opacity duration-300 ease-out"
   data-group={group}
   role="dialog"
 >
@@ -48,11 +48,11 @@ const labels =
   </button>
 
   <div
-    class="gallery-lightbox-stage relative mx-auto flex h-full w-full scale-95 items-center justify-center overflow-hidden transition-transform duration-300 ease-out md:h-[85vh] md:max-w-5xl md:rounded-lg md:shadow-2xl"
+    class="gallery-lightbox-stage relative mx-auto flex h-full w-full min-h-0 min-w-0 scale-95 items-center justify-center overflow-hidden transition-transform duration-300 ease-out md:h-[85vh] md:max-w-5xl md:rounded-lg md:shadow-2xl"
   >
     <img
       alt=""
-      class="gallery-lightbox-img h-full w-full touch-none object-contain opacity-0 transition-opacity duration-200 select-none"
+      class="gallery-lightbox-img h-full max-h-full w-full max-w-full min-h-0 min-w-0 touch-none object-contain opacity-0 transition-opacity duration-200 select-none"
       draggable="false"
     />
     <div
