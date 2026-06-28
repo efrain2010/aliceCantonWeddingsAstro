@@ -378,41 +378,146 @@ export const translations = {
           email: CONTACT.email,
         },
         photos: [
-          { src: "/images/gallery/wedding-reception-tent-dance-floor.jpg", alt: "Boda en hacienda" },
-          { src: "/images/gallery/dessert-table-string-lights-night.jpg", alt: "Decoración de mesa" },
-          { src: "/images/gallery/wedding-cake-dessert-table-roses.jpg", alt: "Retrato de novios" },
-          { src: "/images/gallery/bride-groom-hacienda-doorway-steps.jpg", alt: "Ceremonia al aire libre" },
-          { src: "/images/gallery/bride-groom-night-reception-portrait.jpg", alt: "Recepción iluminada" },
-          { src: "/images/gallery/reception-tent-floral-chandelier-banquet.jpg", alt: "Ramo y detalles" },
-          { src: "/images/gallery/bride-groom-kiss-agave-garden.jpg", alt: "Primer baile" },
-          { src: "/images/gallery/bride-groom-kiss-hacienda-arch-flowergirls.jpg", alt: "Banquete de boda" },
-          { src: "/images/gallery/bride-groom-floral-archway-night.jpg", alt: "Pareja de novios" },
-          { src: "/images/gallery/reception-tent-band-stage-chandelier.jpg", alt: "Jardín decorado" },
-          { src: "/images/gallery/bride-groom-greenery-wall-loveseat.jpg", alt: "Brindis de boda" },
-          { src: "/images/gallery/bride-bridesmaids-celebration-greenery-wall.jpg", alt: "Pastel de boda" },
-          { src: "/images/gallery/newlyweds-hacienda-corridor-bubbles.jpg", alt: "Boda en hacienda" },
-          { src: "/images/gallery/wedding-dessert-table-monogram-terracotta.jpg", alt: "Decoración de mesa" },
-          { src: "/images/gallery/reception-tent-band-dinner-chandelier.jpg", alt: "Retrato de novios" },
-          { src: "/images/gallery/bride-groom-kiss-courtyard-roses.jpg", alt: "Ceremonia al aire libre" },
-          { src: "/images/gallery/bride-groom-beach-picnic-table.jpg", alt: "Recepción iluminada" },
-          { src: "/images/gallery/hacienda-stage-red-lanterns-band.jpg", alt: "Ramo y detalles" },
-          { src: "/images/gallery/beach-reception-table-coconut-centerpiece.jpg", alt: "Primer baile" },
-          { src: "/images/gallery/first-dance-paper-lanterns-guests.jpg", alt: "Banquete de boda" },
-          { src: "/images/gallery/elegant-table-setting-candlelight.jpg", alt: "Pareja de novios" },
-          { src: "/images/gallery/neon-sign-amor-de-mis-amores-decor.jpg", alt: "Jardín decorado" },
-          { src: "/images/gallery/outdoor-dinner-candlelit-toast.jpg", alt: "Brindis de boda" },
-          { src: "/images/gallery/beach-picnic-table-aerial-pillows.jpg", alt: "Pastel de boda" },
-          { src: "/images/gallery/bride-groom-sparkler-send-off.jpg", alt: "Boda en hacienda" },
-          { src: "/images/gallery/rustic-table-figs-citrus-flatlay.jpg", alt: "Decoración de mesa" },
-          { src: "/images/gallery/bride-veil-staircase-detail.jpg", alt: "Retrato de novios" },
-          { src: "/images/gallery/bride-groom-rooftop-terrace-skyline.jpg", alt: "Ceremonia al aire libre" },
-          { src: "/images/gallery/table-setting-wine-glasses-detail.jpg", alt: "Recepción iluminada" },
-          { src: "/images/gallery/reception-dance-floor-dj-floral-chandelier.jpg", alt: "Ramo y detalles" },
-          { src: "/images/gallery/bride-bouquet-beach-closeup.jpg", alt: "Primer baile" },
-          { src: "/images/gallery/bride-chandelier-hallway-hacienda.jpg", alt: "Banquete de boda" },
-          { src: "/images/gallery/outdoor-dinner-illuminated-mansion-facade.jpg", alt: "Pareja de novios" },
-          { src: "/images/gallery/boho-hammock-lounge-seating.jpg", alt: "Jardín decorado" },
-          { src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg", alt: "Brindis de boda" },
+          {
+            src: "/images/gallery/wedding-reception-tent-dance-floor.jpg",
+            alt: "Carpa de recepción de boda con pista de baile iluminada en rosa",
+          },
+          {
+            src: "/images/gallery/dessert-table-string-lights-night.jpg",
+            alt: "Mesa de postres de boda iluminada con velas y faroles",
+          },
+          {
+            src: "/images/gallery/wedding-cake-dessert-table-roses.jpg",
+            alt: "Mesa de pastel de boda decorada con rosas rojas y faroles colgantes",
+          },
+          {
+            src: "/images/gallery/bride-groom-hacienda-doorway-steps.jpg",
+            alt: "Novios sentados en la entrada de una hacienda con vestido de encaje y velo largo",
+          },
+          {
+            src: "/images/gallery/bride-groom-night-reception-portrait.jpg",
+            alt: "Novios tomados de la mano durante la recepción nocturna de la boda",
+          },
+          {
+            src: "/images/gallery/reception-tent-floral-chandelier-banquet.jpg",
+            alt: "Carpa de recepción de boda con candelabro floral y mesas de banquete",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-agave-garden.jpg",
+            alt: "Novios besándose al aire libre entre plantas de agave",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-hacienda-arch-flowergirls.jpg",
+            alt: "Novios besándose bajo los arcos de la hacienda junto a las niñas de las flores",
+          },
+          {
+            src: "/images/gallery/bride-groom-floral-archway-night.jpg",
+            alt: "Novios bajo un arco floral iluminado durante la boda nocturna",
+          },
+          {
+            src: "/images/gallery/reception-tent-band-stage-chandelier.jpg",
+            alt: "Carpa de recepción de boda con escenario para banda en vivo y candelabro floral",
+          },
+          {
+            src: "/images/gallery/bride-groom-greenery-wall-loveseat.jpg",
+            alt: "Novios frente a un muro verde con guirnaldas florales y sillón blanco",
+          },
+          {
+            src: "/images/gallery/bride-bridesmaids-celebration-greenery-wall.jpg",
+            alt: "Novia celebrando con sus damas de honor frente a un muro de follaje",
+          },
+          {
+            src: "/images/gallery/newlyweds-hacienda-corridor-bubbles.jpg",
+            alt: "Recién casados caminando por el corredor de la hacienda entre burbujas",
+          },
+          {
+            src: "/images/gallery/wedding-dessert-table-monogram-terracotta.jpg",
+            alt: "Mesa de postres de boda con monograma de iniciales y paredes de terracota",
+          },
+          {
+            src: "/images/gallery/reception-tent-band-dinner-chandelier.jpg",
+            alt: "Carpa de recepción de boda con banda en vivo y mesas de cena",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-courtyard-roses.jpg",
+            alt: "Novios besándose en un patio colonial con ramo de rosas rojas",
+          },
+          {
+            src: "/images/gallery/bride-groom-beach-picnic-table.jpg",
+            alt: "Novios sentados en una mesa de picnic boho en la playa",
+          },
+          {
+            src: "/images/gallery/hacienda-stage-red-lanterns-band.jpg",
+            alt: "Escenario de hacienda con faroles rojos y equipo de banda en vivo",
+          },
+          {
+            src: "/images/gallery/beach-reception-table-coconut-centerpiece.jpg",
+            alt: "Mesa de recepción en la playa con centro de mesa de coco",
+          },
+          {
+            src: "/images/gallery/first-dance-paper-lanterns-guests.jpg",
+            alt: "Primer baile de los novios bajo faroles de papel frente a los invitados",
+          },
+          {
+            src: "/images/gallery/elegant-table-setting-candlelight.jpg",
+            alt: "Montaje de mesa elegante con velas para la recepción de boda",
+          },
+          {
+            src: "/images/gallery/neon-sign-amor-de-mis-amores-decor.jpg",
+            alt: "Letrero de neón 'Amor de mis amores' con decoración de plumas de pampa",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-candlelit-toast.jpg",
+            alt: "Cena de boda al aire libre con velas e invitados haciendo un brindis",
+          },
+          {
+            src: "/images/gallery/beach-picnic-table-aerial-pillows.jpg",
+            alt: "Vista aérea de mesa de picnic en la playa con cojines y centro de mesa de coco",
+          },
+          {
+            src: "/images/gallery/bride-groom-sparkler-send-off.jpg",
+            alt: "Novios bailando entre bengalas durante la despedida de la boda",
+          },
+          {
+            src: "/images/gallery/rustic-table-figs-citrus-flatlay.jpg",
+            alt: "Vista superior de mesa rústica de boda con higos, cítricos y velas",
+          },
+          {
+            src: "/images/gallery/bride-veil-staircase-detail.jpg",
+            alt: "Detalle del velo de la novia en una escalera de hacienda",
+          },
+          {
+            src: "/images/gallery/bride-groom-rooftop-terrace-skyline.jpg",
+            alt: "Novios en una terraza con vista panorámica de la ciudad",
+          },
+          {
+            src: "/images/gallery/table-setting-wine-glasses-detail.jpg",
+            alt: "Detalle de copas de vino y tarjeta de mesa en la recepción de boda",
+          },
+          {
+            src: "/images/gallery/reception-dance-floor-dj-floral-chandelier.jpg",
+            alt: "Pista de baile de la recepción con cabina de DJ y candelabro floral",
+          },
+          {
+            src: "/images/gallery/bride-bouquet-beach-closeup.jpg",
+            alt: "Detalle del ramo de novia con el mar de fondo",
+          },
+          {
+            src: "/images/gallery/bride-chandelier-hallway-hacienda.jpg",
+            alt: "Novia posando bajo un candelabro en el pasillo de la hacienda",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-illuminated-mansion-facade.jpg",
+            alt: "Cena de boda al aire libre frente a una fachada iluminada",
+          },
+          {
+            src: "/images/gallery/boho-hammock-lounge-seating.jpg",
+            alt: "Área de descanso boho con hamacas para los invitados de la boda",
+          },
+          {
+            src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg",
+            alt: "Mesa larga de boda rústica con centros de mesa florales",
+          },
         ],
       },
       contact: {
@@ -849,41 +954,146 @@ export const translations = {
           email: CONTACT.email,
         },
         photos: [
-          { src: "/images/gallery/wedding-reception-tent-dance-floor.jpg", alt: "Hacienda wedding" },
-          { src: "/images/gallery/dessert-table-string-lights-night.jpg", alt: "Table setting" },
-          { src: "/images/gallery/wedding-cake-dessert-table-roses.jpg", alt: "Bride and groom portrait" },
-          { src: "/images/gallery/bride-groom-hacienda-doorway-steps.jpg", alt: "Outdoor ceremony" },
-          { src: "/images/gallery/bride-groom-night-reception-portrait.jpg", alt: "Lit reception" },
-          { src: "/images/gallery/reception-tent-floral-chandelier-banquet.jpg", alt: "Bouquet and details" },
-          { src: "/images/gallery/bride-groom-kiss-agave-garden.jpg", alt: "First dance" },
-          { src: "/images/gallery/bride-groom-kiss-hacienda-arch-flowergirls.jpg", alt: "Wedding banquet" },
-          { src: "/images/gallery/bride-groom-floral-archway-night.jpg", alt: "Newlyweds" },
-          { src: "/images/gallery/reception-tent-band-stage-chandelier.jpg", alt: "Decorated garden" },
-          { src: "/images/gallery/bride-groom-greenery-wall-loveseat.jpg", alt: "Wedding toast" },
-          { src: "/images/gallery/bride-bridesmaids-celebration-greenery-wall.jpg", alt: "Wedding cake" },
-          { src: "/images/gallery/newlyweds-hacienda-corridor-bubbles.jpg", alt: "Hacienda wedding" },
-          { src: "/images/gallery/wedding-dessert-table-monogram-terracotta.jpg", alt: "Table setting" },
-          { src: "/images/gallery/reception-tent-band-dinner-chandelier.jpg", alt: "Bride and groom portrait" },
-          { src: "/images/gallery/bride-groom-kiss-courtyard-roses.jpg", alt: "Outdoor ceremony" },
-          { src: "/images/gallery/bride-groom-beach-picnic-table.jpg", alt: "Lit reception" },
-          { src: "/images/gallery/hacienda-stage-red-lanterns-band.jpg", alt: "Bouquet and details" },
-          { src: "/images/gallery/beach-reception-table-coconut-centerpiece.jpg", alt: "First dance" },
-          { src: "/images/gallery/first-dance-paper-lanterns-guests.jpg", alt: "Wedding banquet" },
-          { src: "/images/gallery/elegant-table-setting-candlelight.jpg", alt: "Newlyweds" },
-          { src: "/images/gallery/neon-sign-amor-de-mis-amores-decor.jpg", alt: "Decorated garden" },
-          { src: "/images/gallery/outdoor-dinner-candlelit-toast.jpg", alt: "Wedding toast" },
-          { src: "/images/gallery/beach-picnic-table-aerial-pillows.jpg", alt: "Wedding cake" },
-          { src: "/images/gallery/bride-groom-sparkler-send-off.jpg", alt: "Hacienda wedding" },
-          { src: "/images/gallery/rustic-table-figs-citrus-flatlay.jpg", alt: "Table setting" },
-          { src: "/images/gallery/bride-veil-staircase-detail.jpg", alt: "Bride and groom portrait" },
-          { src: "/images/gallery/bride-groom-rooftop-terrace-skyline.jpg", alt: "Outdoor ceremony" },
-          { src: "/images/gallery/table-setting-wine-glasses-detail.jpg", alt: "Lit reception" },
-          { src: "/images/gallery/reception-dance-floor-dj-floral-chandelier.jpg", alt: "Bouquet and details" },
-          { src: "/images/gallery/bride-bouquet-beach-closeup.jpg", alt: "First dance" },
-          { src: "/images/gallery/bride-chandelier-hallway-hacienda.jpg", alt: "Wedding banquet" },
-          { src: "/images/gallery/outdoor-dinner-illuminated-mansion-facade.jpg", alt: "Newlyweds" },
-          { src: "/images/gallery/boho-hammock-lounge-seating.jpg", alt: "Decorated garden" },
-          { src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg", alt: "Wedding toast" },
+          {
+            src: "/images/gallery/wedding-reception-tent-dance-floor.jpg",
+            alt: "Wedding reception tent with pink-lit dance floor",
+          },
+          {
+            src: "/images/gallery/dessert-table-string-lights-night.jpg",
+            alt: "Wedding dessert table lit with candles and lanterns",
+          },
+          {
+            src: "/images/gallery/wedding-cake-dessert-table-roses.jpg",
+            alt: "Wedding cake table decorated with red roses and hanging lanterns",
+          },
+          {
+            src: "/images/gallery/bride-groom-hacienda-doorway-steps.jpg",
+            alt: "Bride and groom seated on hacienda doorway steps in lace gown and long veil",
+          },
+          {
+            src: "/images/gallery/bride-groom-night-reception-portrait.jpg",
+            alt: "Bride and groom holding hands at the nighttime wedding reception",
+          },
+          {
+            src: "/images/gallery/reception-tent-floral-chandelier-banquet.jpg",
+            alt: "Wedding reception tent with floral chandelier and banquet tables",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-agave-garden.jpg",
+            alt: "Bride and groom kissing outdoors among agave plants",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-hacienda-arch-flowergirls.jpg",
+            alt: "Bride and groom kissing under hacienda arches with flower girls",
+          },
+          {
+            src: "/images/gallery/bride-groom-floral-archway-night.jpg",
+            alt: "Bride and groom under an illuminated floral archway at night",
+          },
+          {
+            src: "/images/gallery/reception-tent-band-stage-chandelier.jpg",
+            alt: "Wedding reception tent with live band stage and floral chandelier",
+          },
+          {
+            src: "/images/gallery/bride-groom-greenery-wall-loveseat.jpg",
+            alt: "Bride and groom in front of a greenery wall with floral garlands and white loveseat",
+          },
+          {
+            src: "/images/gallery/bride-bridesmaids-celebration-greenery-wall.jpg",
+            alt: "Bride celebrating with her bridesmaids in front of a greenery wall",
+          },
+          {
+            src: "/images/gallery/newlyweds-hacienda-corridor-bubbles.jpg",
+            alt: "Newlyweds walking through the hacienda corridor amid bubbles",
+          },
+          {
+            src: "/images/gallery/wedding-dessert-table-monogram-terracotta.jpg",
+            alt: "Wedding dessert table with monogram initials and terracotta walls",
+          },
+          {
+            src: "/images/gallery/reception-tent-band-dinner-chandelier.jpg",
+            alt: "Wedding reception tent with live band and dinner tables",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-courtyard-roses.jpg",
+            alt: "Bride and groom kissing in a colonial courtyard with a red rose bouquet",
+          },
+          {
+            src: "/images/gallery/bride-groom-beach-picnic-table.jpg",
+            alt: "Bride and groom seated at a boho beach picnic table",
+          },
+          {
+            src: "/images/gallery/hacienda-stage-red-lanterns-band.jpg",
+            alt: "Hacienda stage with red lanterns and live band setup",
+          },
+          {
+            src: "/images/gallery/beach-reception-table-coconut-centerpiece.jpg",
+            alt: "Beach reception table with a coconut centerpiece",
+          },
+          {
+            src: "/images/gallery/first-dance-paper-lanterns-guests.jpg",
+            alt: "Bride and groom's first dance under paper lanterns with guests watching",
+          },
+          {
+            src: "/images/gallery/elegant-table-setting-candlelight.jpg",
+            alt: "Elegant candlelit table setting for the wedding reception",
+          },
+          {
+            src: "/images/gallery/neon-sign-amor-de-mis-amores-decor.jpg",
+            alt: "Neon sign reading 'Amor de mis amores' with pampas grass decor",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-candlelit-toast.jpg",
+            alt: "Outdoor wedding dinner with candlelight and guests toasting",
+          },
+          {
+            src: "/images/gallery/beach-picnic-table-aerial-pillows.jpg",
+            alt: "Aerial view of a beach picnic table with cushions and coconut centerpiece",
+          },
+          {
+            src: "/images/gallery/bride-groom-sparkler-send-off.jpg",
+            alt: "Bride and groom dancing among sparklers during the wedding send-off",
+          },
+          {
+            src: "/images/gallery/rustic-table-figs-citrus-flatlay.jpg",
+            alt: "Overhead view of a rustic wedding table with figs, citrus, and candles",
+          },
+          {
+            src: "/images/gallery/bride-veil-staircase-detail.jpg",
+            alt: "Close-up of the bride's veil on a hacienda staircase",
+          },
+          {
+            src: "/images/gallery/bride-groom-rooftop-terrace-skyline.jpg",
+            alt: "Bride and groom on a rooftop terrace with a city skyline view",
+          },
+          {
+            src: "/images/gallery/table-setting-wine-glasses-detail.jpg",
+            alt: "Detail of wine glasses and table card at the wedding reception",
+          },
+          {
+            src: "/images/gallery/reception-dance-floor-dj-floral-chandelier.jpg",
+            alt: "Reception dance floor with DJ booth and floral chandelier",
+          },
+          {
+            src: "/images/gallery/bride-bouquet-beach-closeup.jpg",
+            alt: "Close-up of the bride's bouquet with the beach in the background",
+          },
+          {
+            src: "/images/gallery/bride-chandelier-hallway-hacienda.jpg",
+            alt: "Bride posing under a chandelier in the hacienda hallway",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-illuminated-mansion-facade.jpg",
+            alt: "Outdoor wedding dinner in front of an illuminated mansion facade",
+          },
+          {
+            src: "/images/gallery/boho-hammock-lounge-seating.jpg",
+            alt: "Boho lounge area with hammocks for wedding guests",
+          },
+          {
+            src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg",
+            alt: "Long rustic wedding table with floral centerpieces",
+          },
         ],
       },
       contact: {
