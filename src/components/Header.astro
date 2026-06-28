@@ -84,46 +84,69 @@ const navItems = [
     <!-- Mobile hamburger -->
     <button
       id="menu-toggle"
-      class="p-2 text-white md:hidden"
+      class="relative z-[70] flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
       aria-label={t.header.mobileMenuLabel}
+      data-label-open={t.header.mobileMenuLabel}
+      data-label-close={t.header.mobileMenuCloseLabel}
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
+      <span class="hamburger-line hamburger-line-1 block h-0.5 w-6 bg-white"
+      ></span>
+      <span class="hamburger-line hamburger-line-2 block h-0.5 w-6 bg-white"
+      ></span>
+      <span
+        class="hamburger-line hamburger-line-3 block h-0.5 w-4 self-end bg-white"
+      ></span>
     </button>
   </nav>
 
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="hidden border-t border-gray-100 bg-white md:hidden"
+    class="fixed inset-0 z-[60] flex flex-col justify-center overflow-hidden bg-charcoal px-10 md:hidden"
   >
-    <ul class="m-0 flex list-none flex-col gap-4 p-0 px-6 py-4 pt-4 pb-4 pl-6">
+    <span
+      aria-hidden="true"
+      class="font-script pointer-events-none absolute -top-4 -right-2 text-[9rem] leading-none text-white/5 select-none"
+    >
+      AC
+    </span>
+    <ul class="relative m-0 flex list-none flex-col gap-1 p-0">
       {
-        navItems.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="text-charcoal hover:text-gold block py-1 text-xs tracking-widest uppercase transition-colors"
+        navItems.map((link, i) => {
+          const isActive = pageKey === link.key;
+          return (
+            <li
+              class="menu-link overflow-hidden"
+              style={`transition-delay:${120 + i * 70}ms`}
             >
-              {link.label}
-            </a>
-          </li>
-        ))
+              <a
+                href={link.href}
+                class="group flex items-baseline gap-3 py-2.5"
+              >
+                <span class="text-gold font-sans text-xs tracking-widest">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  class={`font-serif text-3xl tracking-wide uppercase transition-colors group-hover:text-gold sm:text-4xl ${
+                    isActive ? "text-gold" : "text-white"
+                  }`}
+                >
+                  {link.label}
+                </span>
+              </a>
+            </li>
+          );
+        })
       }
-      <li>
+      <li
+        class="menu-link mt-6"
+        style={`transition-delay:${120 + navItems.length * 70}ms`}
+      >
         <a
           href={altUrl}
-          class="border-gold text-gold hover:bg-gold mt-1 inline-block border px-3 py-1 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
+          class="border-gold text-gold hover:bg-gold inline-block border px-4 py-2 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
         >
           {t.header.langSwitch}
         </a>
@@ -135,5 +158,27 @@ const navItems = [
 <script>
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
-  toggle?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle("is-open", open);
+    toggle?.classList.toggle("is-open", open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute(
+      "aria-label",
+      (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) ?? "",
+    );
+    document.documentElement.classList.toggle("overflow-hidden", open);
+  };
+
+  toggle?.addEventListener("click", () => {
+    setOpen(!menu?.classList.contains("is-open"));
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
 </script>

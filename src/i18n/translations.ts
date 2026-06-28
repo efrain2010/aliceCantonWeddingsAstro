@@ -13,6 +13,7 @@ export const translations = {
     header: {
       logoText: "Alice Cantón",
       mobileMenuLabel: "Abrir menú",
+      mobileMenuCloseLabel: "Cerrar menú",
       langSwitch: "EN",
     },
     footer: {
@@ -485,6 +486,7 @@ export const translations = {
     header: {
       logoText: "Alice Cantón",
       mobileMenuLabel: "Open menu",
+      mobileMenuCloseLabel: "Close menu",
       langSwitch: "ES",
     },
     footer: {
