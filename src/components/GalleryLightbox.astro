@@ -25,26 +25,49 @@ const labels =
 
   <button
     aria-label={labels.close}
-    class="gallery-lightbox-close absolute top-3 right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:top-6 md:right-6"
+    class="gallery-lightbox-close absolute top-3 right-3 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white/90 transition hover:bg-white/10 md:top-6 md:right-6"
     type="button"
   >
-    &times;
+    <svg fill="none" height="20" viewBox="0 0 24 24" width="20">
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
   </button>
 
   <button
     aria-label={labels.prev}
-    class="gallery-lightbox-prev absolute top-1/2 left-1 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:left-4"
+    class="gallery-lightbox-prev absolute top-1/2 left-1 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-white/90 transition hover:bg-white/10 md:left-4"
     type="button"
   >
-    &lsaquo;
+    <svg fill="none" height="20" viewBox="0 0 24 24" width="20">
+      <path
+        d="M15 6l-6 6 6 6"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </button>
 
   <button
     aria-label={labels.next}
-    class="gallery-lightbox-next absolute top-1/2 right-1 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-3xl text-white/90 transition hover:bg-white/10 md:right-4"
+    class="gallery-lightbox-next absolute top-1/2 right-1 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-white/90 transition hover:bg-white/10 md:right-4"
     type="button"
   >
-    &rsaquo;
+    <svg fill="none" height="20" viewBox="0 0 24 24" width="20">
+      <path
+        d="M9 6l6 6-6 6"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </button>
 
   <div
