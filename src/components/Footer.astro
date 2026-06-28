@@ -21,17 +21,17 @@ const tf = t.footer;
       </p>
       <div class="flex gap-4">
         <a
-          href="https://facebook.com/Alice-Canton-Weddings-Events"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Facebook"
           class="hover:text-gold text-gray-400 transition-colors"
+          href="https://facebook.com/Alice-Canton-Weddings-Events"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <svg
+            aria-hidden="true"
             class="h-5 w-5"
             fill="currentColor"
             viewBox="0 0 24 24"
-            aria-hidden="true"
           >
             <path
               d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
@@ -39,23 +39,23 @@ const tf = t.footer;
           </svg>
         </a>
         <a
-          href="https://instagram.com/alicecantonweddings"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Instagram"
           class="hover:text-gold text-gray-400 transition-colors"
+          href="https://instagram.com/alicecantonweddings"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <svg
+            aria-hidden="true"
             class="h-5 w-5"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
             viewBox="0 0 24 24"
-            aria-hidden="true"
           >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
             <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"
+            <circle cx="17.5" cy="6.5" fill="currentColor" r="1" stroke="none"
             ></circle>
           </svg>
         </a>
@@ -67,12 +67,12 @@ const tf = t.footer;
       <h4 class="text-gold mb-4 font-serif text-base">{tf.contactHeading}</h4>
       <ul class="space-y-2 text-sm text-gray-400">
         <li>
-          <a href={phoneHref} class="hover:text-gold transition-colors"
+          <a class="hover:text-gold transition-colors" href={phoneHref}
             >{CONTACT.phone}</a
           >
         </li>
         <li>
-          <a href={emailHref} class="hover:text-gold transition-colors"
+          <a class="hover:text-gold transition-colors" href={emailHref}
             >{CONTACT.email}</a
           >
         </li>
@@ -90,8 +90,8 @@ const tf = t.footer;
           tf.links.map((link) => (
             <li>
               <a
-                href={r[link.pageKey]}
                 class="hover:text-gold transition-colors"
+                href={r[link.pageKey]}
               >
                 {link.label}
               </a>
@@ -110,7 +110,7 @@ const tf = t.footer;
         {
           tf.specialties.map((s) => (
             <li>
-              <a href={r[s.pageKey]} class="hover:text-gold transition-colors">
+              <a class="hover:text-gold transition-colors" href={r[s.pageKey]}>
                 {s.label}
               </a>
             </li>

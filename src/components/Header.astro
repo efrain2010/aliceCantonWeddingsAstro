@@ -30,11 +30,11 @@ const navItems = [
   class="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-black/45 to-transparent"
 >
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href={r.home} class="group flex items-center">
+    <a class="group flex items-center" href={r.home}>
       <img
-        src="/images/wedding-planner-alice-canton-logotipo.webp"
         alt={`${t.header.logoText} — Weddings & Events`}
         class="h-12 w-auto object-contain"
+        src="/images/wedding-planner-alice-canton-logotipo.webp"
       />
     </a>
 
@@ -48,19 +48,19 @@ const navItems = [
               <li class="flex items-center">
                 {i > 0 && (
                   <span
-                    class="mx-3 text-white/40 select-none"
                     aria-hidden="true"
+                    class="mx-3 text-white/40 select-none"
                   >
                     |
                   </span>
                 )}
                 <a
-                  href={link.href}
                   class={`hover:text-gold text-xs tracking-widest uppercase transition-colors ${
                     isActive
                       ? "text-gold border-gold border-b pb-0.5"
                       : "text-white"
                   }`}
+                  href={link.href}
                 >
                   {link.label}
                 </a>
@@ -71,11 +71,11 @@ const navItems = [
       </ul>
       <!-- Language switcher -->
       <a
-        href={altUrl}
-        class="border-gold text-gold hover:bg-gold border px-2 py-0.5 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
         aria-label={altLang === "en"
           ? "Switch to English"
           : "Cambiar a Español"}
+        class="border-gold text-gold hover:bg-gold border px-2 py-0.5 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
+        href={altUrl}
       >
         {t.header.langSwitch}
       </a>
@@ -84,23 +84,23 @@ const navItems = [
     <!-- Mobile language switcher + hamburger -->
     <div class="flex items-center gap-3 md:hidden">
       <a
-        href={altUrl}
-        class="border-gold text-gold hover:bg-gold relative z-[70] border px-2 py-0.5 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
         aria-label={altLang === "en"
           ? "Switch to English"
           : "Cambiar a Español"}
+        class="border-gold text-gold hover:bg-gold relative z-[70] border px-2 py-0.5 text-xs tracking-widest uppercase transition-all duration-300 hover:text-white"
+        href={altUrl}
       >
         {t.header.langSwitch}
       </a>
 
       <button
-        id="menu-toggle"
-        class="relative z-[70] flex h-8 w-8 flex-col items-center justify-center gap-1.5"
-        aria-label={t.header.mobileMenuLabel}
-        data-label-open={t.header.mobileMenuLabel}
-        data-label-close={t.header.mobileMenuCloseLabel}
-        aria-expanded="false"
         aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label={t.header.mobileMenuLabel}
+        class="relative z-[70] flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+        data-label-close={t.header.mobileMenuCloseLabel}
+        data-label-open={t.header.mobileMenuLabel}
+        id="menu-toggle"
       >
         <span class="hamburger-line hamburger-line-1 block h-0.5 bg-white"
         ></span>
@@ -114,8 +114,8 @@ const navItems = [
 
   <!-- Mobile menu -->
   <div
-    id="mobile-menu"
     class="bg-charcoal fixed inset-0 z-[60] flex flex-col justify-center overflow-hidden px-10 md:hidden"
+    id="mobile-menu"
   >
     <span
       aria-hidden="true"
@@ -133,8 +133,8 @@ const navItems = [
               style={`transition-delay:${120 + i * 70}ms`}
             >
               <a
-                href={link.href}
                 class="group flex items-baseline gap-3 py-2.5"
+                href={link.href}
               >
                 <span class="text-gold font-sans text-xs tracking-widest">
                   {String(i + 1).padStart(2, "0")}

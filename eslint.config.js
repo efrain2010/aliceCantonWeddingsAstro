@@ -6,12 +6,6 @@ export default [
   // js.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   {
-    files: ["**/*.astro"],
-    languageOptions: {
-      parser: tsParser,
-    },
-  },
-  {
     rules: {
       "astro/sort-attributes": "warn",
       "astro/semi": "warn",
