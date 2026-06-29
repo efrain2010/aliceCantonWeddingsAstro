@@ -62,48 +62,6 @@ const businessSchema = {
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <script
-      data-page-key={pageKey}
-      data-routes={JSON.stringify(routes)}
-      id="lang-redirect"
-      is:inline
-    >
-      (function () {
-        try {
-          var STORAGE_KEY = "lang-redirect-checked";
-          if (localStorage.getItem(STORAGE_KEY)) return;
-          localStorage.setItem(STORAGE_KEY, "1");
-
-          var el = document.getElementById("lang-redirect");
-          var pageKey = el.getAttribute("data-page-key");
-          var routes = JSON.parse(el.getAttribute("data-routes"));
-          var currentLang = document.documentElement.lang;
-
-          var languages =
-            navigator.languages && navigator.languages.length
-              ? navigator.languages
-              : [navigator.language || ""];
-
-          var targetLang = null;
-          for (var i = 0; i < languages.length; i++) {
-            var code = (languages[i] || "").toLowerCase().slice(0, 2);
-            if (code === "en" || code === "es") {
-              targetLang = code;
-              break;
-            }
-          }
-
-          if (!targetLang || targetLang === currentLang) return;
-
-          var targetPath = routes[targetLang] && routes[targetLang][pageKey];
-          if (targetPath && targetPath !== window.location.pathname) {
-            window.location.replace(
-              targetPath + window.location.search + window.location.hash,
-            );
-          }
-        } catch (e) {}
-      })();
-    </script>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="index, follow" name="robots" />
     <meta content="#C9A96E" name="theme-color" />
