@@ -57,6 +57,18 @@ export const translations = {
       messagePlaceholder: "Cuéntanos sobre tu boda soñada...",
       submitLabel: "Enviar Mensaje",
     },
+    notFound: {
+      meta: {
+        title: "Página No Encontrada",
+        description:
+          "La página que buscas no existe, pero aquí tienes nuestro trabajo, servicios y cómo contactarnos.",
+      },
+      heroTitle: "404",
+      headline: "¡Oh oh! Esta página se perdió en el camino al altar",
+      body: "Parece que tomó una curva equivocada antes de llegar a la recepción. Mientras la encontramos, échale un vistazo a nuestro trabajo, seguro encontrarás algo que te inspire para tu gran día.",
+      ctaHome: "Volver al Inicio",
+      ctaGallery: "Ver Nuestro Trabajo",
+    },
     pages: {
       home: {
         meta: {
@@ -633,6 +645,18 @@ export const translations = {
       messageLabel: "Message *",
       messagePlaceholder: "Tell us about your dream wedding...",
       submitLabel: "Send Message",
+    },
+    notFound: {
+      meta: {
+        title: "Page Not Found",
+        description:
+          "The page you're looking for doesn't exist, but here's our work, services, and how to reach us.",
+      },
+      heroTitle: "404",
+      headline: "Oops! This page got lost on the way to the altar",
+      body: "Looks like it took a wrong turn before reaching the reception. While we go find it, take a look at our work — you might just find some inspiration for your big day.",
+      ctaHome: "Back to Home",
+      ctaGallery: "See Our Work",
     },
     pages: {
       home: {
