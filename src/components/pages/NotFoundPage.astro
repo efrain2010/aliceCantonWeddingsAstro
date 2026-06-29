@@ -1,0 +1,80 @@
+---
+import { getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import HeroImage from "../HeroImage.astro";
+import SectionCTA from "../SectionCTA.astro";
+import { getLang, routes } from "../../i18n/index";
+import heroVeil from "../../assets/gallery/bride-veil-staircase-detail.jpg";
+
+const lang = getLang(Astro.url.pathname);
+const r = routes[lang];
+
+const content = {
+  es: {
+    meta: {
+      title: "Página No Encontrada",
+      description:
+        "La página que buscas no existe, pero aquí tienes nuestro trabajo, servicios y cómo contactarnos.",
+    },
+    heroTitle: "404",
+    headline: "¡Oh oh! Esta página se perdió en el camino al altar",
+    body: "Parece que tomó una curva equivocada antes de llegar a la recepción. Mientras la encontramos, échale un vistazo a nuestro trabajo, seguro encontrarás algo que te inspire para tu gran día.",
+    ctaHome: "Volver al Inicio",
+    ctaGallery: "Ver Nuestro Trabajo",
+  },
+  en: {
+    meta: {
+      title: "Page Not Found",
+      description:
+        "The page you're looking for doesn't exist, but here's our work, services, and how to reach us.",
+    },
+    heroTitle: "404",
+    headline: "Oops! This page got lost on the way to the altar",
+    body: "Looks like it took a wrong turn before reaching the reception. While we go find it, take a look at our work — you might just find some inspiration for your big day.",
+    ctaHome: "Back to Home",
+    ctaGallery: "See Our Work",
+  },
+}[lang];
+
+// Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
+const heroVeilOptimized = await getImage({
+  src: heroVeil,
+  width: 1920,
+  format: "webp",
+});
+---
+
+<Layout description={content.meta.description} title={content.meta.title}>
+  <HeroImage heroImage={heroVeilOptimized.src} title={content.heroTitle} />
+
+  <!-- ② "WRONG PAGE" MESSAGE -->
+  <section class="bg-white py-20 text-center">
+    <div class="mx-auto max-w-2xl px-6">
+      <h1
+        class="text-heading-gray mb-6 font-serif text-3xl tracking-wide uppercase md:text-4xl"
+      >
+        {content.headline}
+      </h1>
+      <div aria-hidden="true" class="text-accent-gold my-6 text-3xl">◆</div>
+      <p class="text-body-gray mb-10 text-lg leading-relaxed">
+        {content.body}
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          class="bg-button-dark inline-block px-8 py-3 font-serif text-sm tracking-widest text-white uppercase transition-opacity hover:opacity-90"
+          href={r.home}
+        >
+          {content.ctaHome}
+        </a>
+        <a
+          class="text-heading-gray border-heading-gray hover:bg-heading-gray inline-block border-2 px-8 py-3 font-serif text-sm tracking-widest uppercase transition-colors duration-300 hover:text-white"
+          href={r.gallery}
+        >
+          {content.ctaGallery}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <SectionCTA />
+</Layout>
