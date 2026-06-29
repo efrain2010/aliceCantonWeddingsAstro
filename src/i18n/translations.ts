@@ -24,6 +24,8 @@ export const translations = {
       specialtiesHeading: "Especialidades",
       copyrightSuffix:
         "Alice Cantón Wedding Planner. Todos los derechos reservados.",
+      madeWith: "Hecho con",
+      byText: "por",
       links: [
         { label: "Servicios", pageKey: "services" as const },
         { label: "Locaciones", pageKey: "venues" as const },
@@ -613,6 +615,8 @@ export const translations = {
       linksHeading: "Quick Links",
       specialtiesHeading: "Specialties",
       copyrightSuffix: "Alice Cantón Wedding Planner. All rights reserved.",
+      madeWith: "Made with",
+      byText: "by",
       links: [
         { label: "Services", pageKey: "services" as const },
         { label: "Venues", pageKey: "venues" as const },
