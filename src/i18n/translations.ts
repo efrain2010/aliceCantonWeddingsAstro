@@ -530,6 +530,346 @@ export const translations = {
             src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg",
             alt: "Mesa larga de boda rústica con centros de mesa florales",
           },
+          {
+            src: "/images/gallery/grooms-colored-smoke-flares-celebration.jpg",
+            alt: "Novios celebrando de noche con bengalas de humo de colores",
+          },
+          {
+            src: "/images/gallery/first-dance-rattan-lanterns-tree.jpg",
+            alt: "Primer baile de los novios bajo faroles de mimbre colgados de un árbol",
+          },
+          {
+            src: "/images/gallery/rustic-terracotta-table-setting-candle.jpg",
+            alt: "Montaje de mesa rústica con vajilla de barro y vela encendida",
+          },
+          {
+            src: "/images/gallery/beach-reception-palms-string-lights-sunset.jpg",
+            alt: "Recepción de boda en la playa entre palmeras y luces colgantes al atardecer",
+          },
+          {
+            src: "/images/gallery/boho-beach-dinner-table-pillows.jpg",
+            alt: "Mesa de cena boho en la playa con cojines y copas doradas",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-pampas-grass-ceremony.jpg",
+            alt: "Pareja del mismo sexo tomados de la mano entre plumas de pampa durante la ceremonia",
+          },
+          {
+            src: "/images/gallery/beach-ceremony-dried-palm-arch-chairs.jpg",
+            alt: "Ceremonia en la playa con arco de palma seca frente al mar",
+          },
+          {
+            src: "/images/gallery/beach-table-floral-runner-coconut-candle.jpg",
+            alt: "Mesa de playa con camino de flores secas, coco y vela",
+          },
+          {
+            src: "/images/gallery/boho-beach-low-tables-pillow-seating-wide.jpg",
+            alt: "Mesas bajas boho con cojines para la cena de playa",
+          },
+          {
+            src: "/images/gallery/first-dance-silhouette-string-lights-night.jpg",
+            alt: "Silueta de los novios bailando de noche bajo luces y palmeras",
+          },
+          {
+            src: "/images/gallery/rustic-snack-table-dried-palm-arch.jpg",
+            alt: "Mesa de botanas rústica con arco de palma seca y canastas",
+          },
+          {
+            src: "/images/gallery/garden-long-table-gold-chiavari-chairs.jpg",
+            alt: "Mesa larga de jardín con sillas doradas Chiavari y centro floral",
+          },
+          {
+            src: "/images/gallery/white-tent-reception-red-hacienda-lights.jpg",
+            alt: "Carpa blanca de recepción frente a hacienda roja iluminada con luces cálidas",
+          },
+          {
+            src: "/images/gallery/bride-portrait-chandelier-hallway-veil.jpg",
+            alt: "Retrato de la novia bajo un candelabro en un pasillo elegante",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-night-ceremony-officiant.jpg",
+            alt: "Pareja del mismo sexo durante su ceremonia nocturna con el oficiante",
+          },
+          {
+            src: "/images/gallery/candlelit-dinner-illuminated-mansion-night.jpg",
+            alt: "Cena nocturna con velas frente a una mansión iluminada",
+          },
+          {
+            src: "/images/gallery/bride-veil-roses-wooden-staircase.jpg",
+            alt: "Velo de encaje de la novia con rosas sobre una escalera de madera",
+          },
+          {
+            src: "/images/gallery/bride-bridesmaids-veil-garden-shrine-walk.jpg",
+            alt: "Novia y damas de honor caminando hacia un altar de jardín sosteniendo el velo",
+          },
+          {
+            src: "/images/gallery/indoor-table-pink-roses-mirror-setting.jpg",
+            alt: "Mesa de recepción interior con rosas rosas y tablero de espejo",
+          },
+          {
+            src: "/images/gallery/sparkler-dance-floor-couple-celebration.jpg",
+            alt: "Pareja celebrando en la pista de baile rodeada de bengalas",
+          },
+          {
+            src: "/images/gallery/rustic-flatlay-dried-flowers-citrus.jpg",
+            alt: "Detalle de mesa rústica con flores secas, cítricos y velas",
+          },
+          {
+            src: "/images/gallery/bride-groom-church-altar-bouquet.jpg",
+            alt: "Novios de espaldas frente al altar de la iglesia con el ramo en la silla",
+          },
+          {
+            src: "/images/gallery/table-number-card-pink-floral.jpg",
+            alt: "Tarjeta de número de mesa con diseño floral rosa",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-staircase-peacock-mural.jpg",
+            alt: "Novios besándose en una escalinata con mural de pavorreales y monograma",
+          },
+          {
+            src: "/images/gallery/led-wings-light-painting-performance.jpg",
+            alt: "Actuación de luces con alas LED durante la celebración nupcial",
+          },
+          {
+            src: "/images/gallery/bride-groom-embrace-sandy-beach-path.jpg",
+            alt: "Novios abrazándose en un camino de arena junto al mar",
+          },
+          {
+            src: "/images/gallery/night-dinner-marigold-candle-centerpiece.jpg",
+            alt: "Cena nocturna con centros de mesa de cempasúchil y velas",
+          },
+          {
+            src: "/images/gallery/bride-groom-hug-white-shutter-doors.jpg",
+            alt: "Novios abrazados frente a puertas blancas de persiana",
+          },
+          {
+            src: "/images/gallery/church-mass-altar-white-florals.jpg",
+            alt: "Misa de boda en la iglesia con arreglos florales blancos en el altar",
+          },
+          {
+            src: "/images/gallery/indoor-boho-fringed-hammock-lounge.jpg",
+            alt: "Área de descanso boho interior con hamacas con flecos",
+          },
+          {
+            src: "/images/gallery/beach-picnic-dinner-group-low-tables.jpg",
+            alt: "Cena de picnic en la playa con invitados en mesas bajas",
+          },
+          {
+            src: "/images/gallery/indoor-cocktail-lounge-checkered-floor.jpg",
+            alt: "Lounge de cóctel interior con piso a cuadros y candelabro",
+          },
+          {
+            src: "/images/gallery/bride-groom-rooftop-skyline-sunset.jpg",
+            alt: "Novios en una terraza con vista al horizonte de la ciudad al atardecer",
+          },
+          {
+            src: "/images/gallery/bride-groom-courtyard-cherub-mural-lift.jpg",
+            alt: "Novio levantando a la novia en un patio colonial con mural de querubines",
+          },
+          {
+            src: "/images/gallery/first-dance-floral-chandelier-garland-reception.jpg",
+            alt: "Primer baile de los novios bajo una guirnalda floral colgante",
+          },
+          {
+            src: "/images/gallery/neon-amor-de-mis-amores-closeup.jpg",
+            alt: "Detalle del letrero de neón 'Amor de mis amores' con flores secas",
+          },
+          {
+            src: "/images/gallery/bride-groom-beach-mat-intimate-moment.jpg",
+            alt: "Novios en un momento íntimo sobre un tapete de playa",
+          },
+          {
+            src: "/images/gallery/bride-groom-garden-stone-path-veil.jpg",
+            alt: "Novios caminando por un sendero de piedra del jardín con el velo al viento",
+          },
+          {
+            src: "/images/gallery/bride-bouquet-orchids-ocean-backdrop.jpg",
+            alt: "Ramo de novia con orquídeas y el mar de fondo",
+          },
+          {
+            src: "/images/gallery/overhead-flatlay-rustic-figs-citrus.jpg",
+            alt: "Vista superior de mesa rústica con higos, cítricos y velas",
+          },
+          {
+            src: "/images/gallery/illuminated-stone-arch-gold-letters.jpg",
+            alt: "Arco de piedra iluminado con letras doradas y flores secas",
+          },
+          {
+            src: "/images/gallery/garden-ceremony-white-chairs-floral-arch.jpg",
+            alt: "Ceremonia de jardín con sillas blancas y arco floral frente al mar",
+          },
+          {
+            src: "/images/gallery/red-paper-lanterns-walkway-entrance.jpg",
+            alt: "Faroles de papel rojos iluminando la entrada de la recepción nocturna",
+          },
+          {
+            src: "/images/gallery/dessert-table-dried-palm-fans-gold.jpg",
+            alt: "Mesa de postres dorada con abanicos de palma seca",
+          },
+          {
+            src: "/images/gallery/hacienda-courtyard-red-lanterns-live-band.jpg",
+            alt: "Patio de hacienda con faroles rojos y banda en vivo",
+          },
+          {
+            src: "/images/gallery/garden-ceremony-sweetheart-chairs-floral-triangle.jpg",
+            alt: "Ceremonia de jardín con sillas de novios y arcos florales triangulares",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-vintage-trolley-night.jpg",
+            alt: "Novios besándose dentro de un tranvía vintage por la noche",
+          },
+          {
+            src: "/images/gallery/red-hacienda-tent-floral-chandelier-dj.jpg",
+            alt: "Carpa de recepción en hacienda roja con candelabro floral y cabina de DJ",
+          },
+          {
+            src: "/images/gallery/bride-groom-gold-sparkler-fountains-steps.jpg",
+            alt: "Novios bailando entre fuentes de chispas doradas en una escalinata",
+          },
+          {
+            src: "/images/gallery/moody-red-hacienda-table-roses-candles.jpg",
+            alt: "Mesa de recepción con ambiente íntimo, rosas y velas frente a hacienda roja",
+          },
+          {
+            src: "/images/gallery/long-table-dinner-hacienda-bell-tower.jpg",
+            alt: "Mesa larga de cena con la torre de la hacienda iluminada de fondo",
+          },
+          {
+            src: "/images/gallery/red-arches-table-hanging-paper-lanterns.jpg",
+            alt: "Mesa de recepción bajo arcos rojos con faroles de papel colgantes",
+          },
+          {
+            src: "/images/gallery/round-table-dark-moody-palm-fan.jpg",
+            alt: "Mesa redonda de ambiente íntimo con abanico de palma como centro",
+          },
+          {
+            src: "/images/gallery/wide-night-dinner-red-hacienda-lights.jpg",
+            alt: "Vista amplia de la cena nocturna frente a la hacienda roja iluminada",
+          },
+          {
+            src: "/images/gallery/indoor-round-table-green-palm-candles.jpg",
+            alt: "Mesa redonda interior con abanico de palma verde y velas",
+          },
+          {
+            src: "/images/gallery/bride-groom-floral-arch-candle-votives.jpg",
+            alt: "Novios bajo un arco floral con velas votivas colgantes y escalinata de fondo",
+          },
+          {
+            src: "/images/gallery/white-tent-reception-twinkle-lights-wide.jpg",
+            alt: "Vista amplia de la carpa de recepción con luces parpadeantes",
+          },
+          {
+            src: "/images/gallery/tent-reception-table-red-napkins-gold.jpg",
+            alt: "Mesa de recepción bajo carpa con servilletas rojas y platos dorados",
+          },
+          {
+            src: "/images/gallery/tent-table-mirror-red-napkins-tufted-chairs.jpg",
+            alt: "Mesa con tablero de espejo, servilletas rojas y sillas capitoneadas",
+          },
+          {
+            src: "/images/gallery/dessert-cake-table-red-roses-lantern.jpg",
+            alt: "Mesa de postres con pastel, rosas rojas y farol colgante",
+          },
+          {
+            src: "/images/gallery/bride-groom-walking-dessert-table-roses.jpg",
+            alt: "Novios caminando junto a la mesa de postres decorada con rosas rojas",
+          },
+          {
+            src: "/images/gallery/tree-dessert-table-lanterns-red-ribbon.jpg",
+            alt: "Mesa de postres bajo un árbol con faroles y listones rojos",
+          },
+          {
+            src: "/images/gallery/bride-groom-seated-colonial-steps-portrait.jpg",
+            alt: "Novios sentados en los escalones de una casa colonial",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-stone-path-garden.jpg",
+            alt: "Novios besándose en un sendero de piedra entre los árboles del jardín",
+          },
+          {
+            src: "/images/gallery/draped-tent-chandeliers-floral-garland.jpg",
+            alt: "Carpa de recepción con telas drapeadas, candelabros y guirnalda floral",
+          },
+          {
+            src: "/images/gallery/tent-peak-live-band-chandelier-garland.jpg",
+            alt: "Carpa de recepción con banda en vivo y candelabro con guirnalda floral",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-yellow-hacienda-flower-girls.jpg",
+            alt: "Novios besándose frente a los arcos amarillos de la hacienda junto a las niñas de las flores",
+          },
+          {
+            src: "/images/gallery/bride-groom-golden-retriever-sign-portrait.jpg",
+            alt: "Novios posando con su perro golden retriever y un letrero romántico",
+          },
+          {
+            src: "/images/gallery/teal-lit-dessert-table-tree-candelabra.jpg",
+            alt: "Mesa de postres iluminada en tono turquesa bajo un árbol",
+          },
+          {
+            src: "/images/gallery/bride-groom-portrait-orange-courtyard-crystals.jpg",
+            alt: "Retrato de los novios en un patio color naranja con cristales colgantes",
+          },
+          {
+            src: "/images/gallery/large-wedding-party-teal-bridesmaids-lawn.jpg",
+            alt: "Gran cortejo nupcial con damas en vestidos turquesa sobre el jardín",
+          },
+          {
+            src: "/images/gallery/teal-lit-dessert-table-night-sign.jpg",
+            alt: "Mesa de postres nocturna iluminada en turquesa con letrero decorativo",
+          },
+          {
+            src: "/images/gallery/outdoor-tent-reception-live-band-stage.jpg",
+            alt: "Recepción bajo carpa con escenario para banda en vivo y centro floral",
+          },
+          {
+            src: "/images/gallery/white-buttercream-cake-pastel-roses.jpg",
+            alt: "Pastel de boda de buttercream blanco decorado con rosas pastel",
+          },
+          {
+            src: "/images/gallery/bridesmaids-pink-gowns-bouquet-toss.jpg",
+            alt: "Novia lanzando el ramo junto a sus damas en vestidos rosas",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-green-hedge-backdrop.jpg",
+            alt: "Novios besándose frente a un muro verde de follaje",
+          },
+          {
+            src: "/images/gallery/dessert-table-red-doors-monogram-florals.jpg",
+            alt: "Mesa de postres frente a puertas rojas con monograma y arreglos florales",
+          },
+          {
+            src: "/images/gallery/textured-cake-multicolor-roses-red-door.jpg",
+            alt: "Pastel de boda texturizado decorado con rosas multicolor frente a puerta roja",
+          },
+          {
+            src: "/images/gallery/dessert-table-red-doors-gold-vases.jpg",
+            alt: "Mesa de postres con jarrones dorados frente a puertas rojas",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-ring-exchange-neon-sign.jpg",
+            alt: "Pareja del mismo sexo intercambiando anillos bajo un letrero de neón",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-marble-plates-stone-ruins.jpg",
+            alt: "Cena al aire libre con vajilla de mármol entre ruinas de piedra",
+          },
+          {
+            src: "/images/gallery/stone-ruins-dance-floor-neon-sign.jpg",
+            alt: "Pista de baile entre ruinas de piedra con letrero de neón",
+          },
+          {
+            src: "/images/gallery/round-table-marble-plates-stone-ruins.jpg",
+            alt: "Mesa redonda con vajilla de mármol entre arcos de piedra",
+          },
+          {
+            src: "/images/gallery/round-table-pampas-centerpiece-stone-ruins.jpg",
+            alt: "Mesa redonda con centro de plumas de pampa entre ruinas de piedra",
+          },
+          {
+            src: "/images/gallery/bride-groom-flower-girls-church-exit-bubbles.jpg",
+            alt: "Novios saliendo de la iglesia junto a las niñas de las flores entre burbujas",
+          },
         ],
       },
       contact: {
@@ -1117,6 +1457,346 @@ export const translations = {
           {
             src: "/images/gallery/rustic-long-table-centerpiece-bokeh.jpg",
             alt: "Long rustic wedding table with floral centerpieces",
+          },
+          {
+            src: "/images/gallery/grooms-colored-smoke-flares-celebration.jpg",
+            alt: "Grooms celebrating at night with colorful smoke flares",
+          },
+          {
+            src: "/images/gallery/first-dance-rattan-lanterns-tree.jpg",
+            alt: "First dance under rattan lanterns hanging from a tree",
+          },
+          {
+            src: "/images/gallery/rustic-terracotta-table-setting-candle.jpg",
+            alt: "Rustic table setting with terracotta dishware and a lit candle",
+          },
+          {
+            src: "/images/gallery/beach-reception-palms-string-lights-sunset.jpg",
+            alt: "Beach wedding reception among palm trees and string lights at sunset",
+          },
+          {
+            src: "/images/gallery/boho-beach-dinner-table-pillows.jpg",
+            alt: "Boho beach dinner table with cushions and amber glassware",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-pampas-grass-ceremony.jpg",
+            alt: "Same-sex couple holding hands among pampas grass during the ceremony",
+          },
+          {
+            src: "/images/gallery/beach-ceremony-dried-palm-arch-chairs.jpg",
+            alt: "Beach ceremony with a dried palm arch facing the ocean",
+          },
+          {
+            src: "/images/gallery/beach-table-floral-runner-coconut-candle.jpg",
+            alt: "Beach table with a dried floral runner, coconut, and candle",
+          },
+          {
+            src: "/images/gallery/boho-beach-low-tables-pillow-seating-wide.jpg",
+            alt: "Boho low tables with cushion seating for the beach dinner",
+          },
+          {
+            src: "/images/gallery/first-dance-silhouette-string-lights-night.jpg",
+            alt: "Silhouette of the couple dancing at night under string lights and palms",
+          },
+          {
+            src: "/images/gallery/rustic-snack-table-dried-palm-arch.jpg",
+            alt: "Rustic snack table with a dried palm arch and baskets",
+          },
+          {
+            src: "/images/gallery/garden-long-table-gold-chiavari-chairs.jpg",
+            alt: "Long garden table with gold Chiavari chairs and a floral runner",
+          },
+          {
+            src: "/images/gallery/white-tent-reception-red-hacienda-lights.jpg",
+            alt: "White reception tent in front of a warmly lit red hacienda",
+          },
+          {
+            src: "/images/gallery/bride-portrait-chandelier-hallway-veil.jpg",
+            alt: "Bride portrait under a chandelier in an elegant hallway",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-night-ceremony-officiant.jpg",
+            alt: "Same-sex couple during their nighttime ceremony with the officiant",
+          },
+          {
+            src: "/images/gallery/candlelit-dinner-illuminated-mansion-night.jpg",
+            alt: "Candlelit dinner in front of an illuminated mansion at night",
+          },
+          {
+            src: "/images/gallery/bride-veil-roses-wooden-staircase.jpg",
+            alt: "Bride's lace veil with roses on a wooden staircase",
+          },
+          {
+            src: "/images/gallery/bride-bridesmaids-veil-garden-shrine-walk.jpg",
+            alt: "Bride and bridesmaids walking toward a garden shrine holding her veil",
+          },
+          {
+            src: "/images/gallery/indoor-table-pink-roses-mirror-setting.jpg",
+            alt: "Indoor reception table with pink roses and a mirrored tabletop",
+          },
+          {
+            src: "/images/gallery/sparkler-dance-floor-couple-celebration.jpg",
+            alt: "Couple celebrating on the dance floor surrounded by sparklers",
+          },
+          {
+            src: "/images/gallery/rustic-flatlay-dried-flowers-citrus.jpg",
+            alt: "Rustic table detail with dried flowers, citrus, and candles",
+          },
+          {
+            src: "/images/gallery/bride-groom-church-altar-bouquet.jpg",
+            alt: "Bride and groom facing the church altar with the bouquet on a chair",
+          },
+          {
+            src: "/images/gallery/table-number-card-pink-floral.jpg",
+            alt: "Table number card with a pink floral design",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-staircase-peacock-mural.jpg",
+            alt: "Bride and groom kissing on a staircase with a peacock mural and monogram",
+          },
+          {
+            src: "/images/gallery/led-wings-light-painting-performance.jpg",
+            alt: "Light-painting performance with illuminated LED wings at the celebration",
+          },
+          {
+            src: "/images/gallery/bride-groom-embrace-sandy-beach-path.jpg",
+            alt: "Bride and groom embracing on a sandy beach path",
+          },
+          {
+            src: "/images/gallery/night-dinner-marigold-candle-centerpiece.jpg",
+            alt: "Nighttime dinner with marigold and candle centerpieces",
+          },
+          {
+            src: "/images/gallery/bride-groom-hug-white-shutter-doors.jpg",
+            alt: "Bride and groom hugging in front of white shuttered doors",
+          },
+          {
+            src: "/images/gallery/church-mass-altar-white-florals.jpg",
+            alt: "Wedding mass with white floral arrangements at the church altar",
+          },
+          {
+            src: "/images/gallery/indoor-boho-fringed-hammock-lounge.jpg",
+            alt: "Indoor boho lounge area with fringed hammocks",
+          },
+          {
+            src: "/images/gallery/beach-picnic-dinner-group-low-tables.jpg",
+            alt: "Beach picnic dinner with guests seated at low tables",
+          },
+          {
+            src: "/images/gallery/indoor-cocktail-lounge-checkered-floor.jpg",
+            alt: "Indoor cocktail lounge with checkered flooring and a chandelier",
+          },
+          {
+            src: "/images/gallery/bride-groom-rooftop-skyline-sunset.jpg",
+            alt: "Bride and groom on a rooftop with the city skyline at sunset",
+          },
+          {
+            src: "/images/gallery/bride-groom-courtyard-cherub-mural-lift.jpg",
+            alt: "Groom lifting the bride in a colonial courtyard with a cherub mural",
+          },
+          {
+            src: "/images/gallery/first-dance-floral-chandelier-garland-reception.jpg",
+            alt: "First dance under a hanging floral garland at the reception",
+          },
+          {
+            src: "/images/gallery/neon-amor-de-mis-amores-closeup.jpg",
+            alt: "Close-up of the 'Amor de mis amores' neon sign with dried florals",
+          },
+          {
+            src: "/images/gallery/bride-groom-beach-mat-intimate-moment.jpg",
+            alt: "Bride and groom sharing an intimate moment on a beach mat",
+          },
+          {
+            src: "/images/gallery/bride-groom-garden-stone-path-veil.jpg",
+            alt: "Bride and groom walking a garden stone path with the veil flowing",
+          },
+          {
+            src: "/images/gallery/bride-bouquet-orchids-ocean-backdrop.jpg",
+            alt: "Bride's bouquet of orchids with the ocean in the background",
+          },
+          {
+            src: "/images/gallery/overhead-flatlay-rustic-figs-citrus.jpg",
+            alt: "Overhead view of a rustic table with figs, citrus, and candles",
+          },
+          {
+            src: "/images/gallery/illuminated-stone-arch-gold-letters.jpg",
+            alt: "Illuminated stone arch with gold letters and dried florals",
+          },
+          {
+            src: "/images/gallery/garden-ceremony-white-chairs-floral-arch.jpg",
+            alt: "Garden ceremony with white chairs and a floral arch facing the sea",
+          },
+          {
+            src: "/images/gallery/red-paper-lanterns-walkway-entrance.jpg",
+            alt: "Red paper lanterns lighting the entrance to the night reception",
+          },
+          {
+            src: "/images/gallery/dessert-table-dried-palm-fans-gold.jpg",
+            alt: "Gold dessert table with dried palm fan decor",
+          },
+          {
+            src: "/images/gallery/hacienda-courtyard-red-lanterns-live-band.jpg",
+            alt: "Hacienda courtyard with red lanterns and a live band",
+          },
+          {
+            src: "/images/gallery/garden-ceremony-sweetheart-chairs-floral-triangle.jpg",
+            alt: "Garden ceremony with sweetheart chairs and triangular floral arches",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-vintage-trolley-night.jpg",
+            alt: "Bride and groom kissing inside a vintage trolley at night",
+          },
+          {
+            src: "/images/gallery/red-hacienda-tent-floral-chandelier-dj.jpg",
+            alt: "Reception tent at a red hacienda with a floral chandelier and DJ booth",
+          },
+          {
+            src: "/images/gallery/bride-groom-gold-sparkler-fountains-steps.jpg",
+            alt: "Bride and groom dancing among gold spark fountains on a staircase",
+          },
+          {
+            src: "/images/gallery/moody-red-hacienda-table-roses-candles.jpg",
+            alt: "Moodily lit reception table with roses and candles at a red hacienda",
+          },
+          {
+            src: "/images/gallery/long-table-dinner-hacienda-bell-tower.jpg",
+            alt: "Long dinner table with the hacienda's illuminated bell tower behind it",
+          },
+          {
+            src: "/images/gallery/red-arches-table-hanging-paper-lanterns.jpg",
+            alt: "Reception table under red arches with hanging paper lanterns",
+          },
+          {
+            src: "/images/gallery/round-table-dark-moody-palm-fan.jpg",
+            alt: "Moodily lit round table with a palm fan centerpiece",
+          },
+          {
+            src: "/images/gallery/wide-night-dinner-red-hacienda-lights.jpg",
+            alt: "Wide view of the night dinner in front of the lit red hacienda",
+          },
+          {
+            src: "/images/gallery/indoor-round-table-green-palm-candles.jpg",
+            alt: "Indoor round table with a green palm fan centerpiece and candles",
+          },
+          {
+            src: "/images/gallery/bride-groom-floral-arch-candle-votives.jpg",
+            alt: "Bride and groom under a floral arch with hanging candle votives and a staircase behind them",
+          },
+          {
+            src: "/images/gallery/white-tent-reception-twinkle-lights-wide.jpg",
+            alt: "Wide view of the white reception tent strung with twinkle lights",
+          },
+          {
+            src: "/images/gallery/tent-reception-table-red-napkins-gold.jpg",
+            alt: "Tented reception table with red napkins and gold-rimmed plates",
+          },
+          {
+            src: "/images/gallery/tent-table-mirror-red-napkins-tufted-chairs.jpg",
+            alt: "Mirrored tabletop with red napkins and tufted chairs under the tent",
+          },
+          {
+            src: "/images/gallery/dessert-cake-table-red-roses-lantern.jpg",
+            alt: "Dessert table with cake, red roses, and a hanging lantern",
+          },
+          {
+            src: "/images/gallery/bride-groom-walking-dessert-table-roses.jpg",
+            alt: "Bride and groom walking past a dessert table decorated with red roses",
+          },
+          {
+            src: "/images/gallery/tree-dessert-table-lanterns-red-ribbon.jpg",
+            alt: "Dessert table under a tree with lanterns and red ribbon accents",
+          },
+          {
+            src: "/images/gallery/bride-groom-seated-colonial-steps-portrait.jpg",
+            alt: "Bride and groom seated on the steps of a colonial building",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-stone-path-garden.jpg",
+            alt: "Bride and groom kissing on a stone path among garden trees",
+          },
+          {
+            src: "/images/gallery/draped-tent-chandeliers-floral-garland.jpg",
+            alt: "Reception tent with draped fabric, chandeliers, and a floral garland",
+          },
+          {
+            src: "/images/gallery/tent-peak-live-band-chandelier-garland.jpg",
+            alt: "Reception tent with a live band and a floral chandelier garland",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-yellow-hacienda-flower-girls.jpg",
+            alt: "Bride and groom kissing in front of the hacienda's yellow arches with flower girls",
+          },
+          {
+            src: "/images/gallery/bride-groom-golden-retriever-sign-portrait.jpg",
+            alt: "Bride and groom posing with their golden retriever and a romantic sign",
+          },
+          {
+            src: "/images/gallery/teal-lit-dessert-table-tree-candelabra.jpg",
+            alt: "Teal-lit dessert table under a tree with candelabras",
+          },
+          {
+            src: "/images/gallery/bride-groom-portrait-orange-courtyard-crystals.jpg",
+            alt: "Bride and groom portrait in an orange courtyard with hanging crystals",
+          },
+          {
+            src: "/images/gallery/large-wedding-party-teal-bridesmaids-lawn.jpg",
+            alt: "Large wedding party with teal bridesmaid dresses on the lawn",
+          },
+          {
+            src: "/images/gallery/teal-lit-dessert-table-night-sign.jpg",
+            alt: "Teal-lit nighttime dessert table with a decorative sign",
+          },
+          {
+            src: "/images/gallery/outdoor-tent-reception-live-band-stage.jpg",
+            alt: "Outdoor tented reception with a live band stage and floral centerpiece",
+          },
+          {
+            src: "/images/gallery/white-buttercream-cake-pastel-roses.jpg",
+            alt: "White buttercream wedding cake decorated with pastel roses",
+          },
+          {
+            src: "/images/gallery/bridesmaids-pink-gowns-bouquet-toss.jpg",
+            alt: "Bride tossing the bouquet with bridesmaids in pink gowns",
+          },
+          {
+            src: "/images/gallery/bride-groom-kiss-green-hedge-backdrop.jpg",
+            alt: "Bride and groom kissing in front of a green hedge wall",
+          },
+          {
+            src: "/images/gallery/dessert-table-red-doors-monogram-florals.jpg",
+            alt: "Dessert table in front of red doors with a monogram and floral arrangements",
+          },
+          {
+            src: "/images/gallery/textured-cake-multicolor-roses-red-door.jpg",
+            alt: "Textured wedding cake decorated with multicolor roses against a red door",
+          },
+          {
+            src: "/images/gallery/dessert-table-red-doors-gold-vases.jpg",
+            alt: "Dessert table with gold vases in front of red doors",
+          },
+          {
+            src: "/images/gallery/same-sex-couple-ring-exchange-neon-sign.jpg",
+            alt: "Same-sex couple exchanging rings under a neon sign",
+          },
+          {
+            src: "/images/gallery/outdoor-dinner-marble-plates-stone-ruins.jpg",
+            alt: "Outdoor dinner with marbled plates among stone ruins",
+          },
+          {
+            src: "/images/gallery/stone-ruins-dance-floor-neon-sign.jpg",
+            alt: "Dance floor among stone ruins with a neon sign",
+          },
+          {
+            src: "/images/gallery/round-table-marble-plates-stone-ruins.jpg",
+            alt: "Round table with marbled plates beneath stone arches",
+          },
+          {
+            src: "/images/gallery/round-table-pampas-centerpiece-stone-ruins.jpg",
+            alt: "Round table with a pampas grass centerpiece among stone ruins",
+          },
+          {
+            src: "/images/gallery/bride-groom-flower-girls-church-exit-bubbles.jpg",
+            alt: "Bride and groom exiting the church with flower girls amid bubbles",
           },
         ],
       },
