@@ -120,19 +120,24 @@ const tf = t.footer;
     </div>
   </div>
 
-  <div class="border-t border-gray-700 py-4 text-center text-xs text-gray-500">
-    © {year}
-    {tf.copyrightSuffix}
-  </div>
-  <div class="border-t border-gray-700 py-4 text-center text-xs text-gray-500">
-    Made with ❤️ by{" "}
-    <a
-      class="hover:text-gold transition-colors"
-      href="https://www.linkedin.com/in/efrain-villanueva"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Efraín Villanueva
-    </a>
+  <div
+    class="border-t border-gray-700 py-4 text-center text-xs text-gray-500 sm:flex sm:items-center sm:justify-center sm:gap-2"
+  >
+    <p>
+      © {year}
+      {tf.copyrightSuffix}
+    </p>
+    <span class="hidden md:block">|</span>
+    <p>
+      {tf.madeWith}{" "}
+      <a
+        class="hover:text-gold transition-colors"
+        href="https://www.linkedin.com/in/efrain-villanueva"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Efraín Villanueva
+      </a>
+    </p>
   </div>
 </footer>
