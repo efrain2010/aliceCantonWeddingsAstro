@@ -8,7 +8,6 @@ import {
   type PageKey,
 } from "../i18n/index";
 
-const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const lang: Lang = getLang(Astro.url.pathname);
 const pageKey: PageKey = getPageKey(Astro.url.pathname);
 const t = translations[lang];

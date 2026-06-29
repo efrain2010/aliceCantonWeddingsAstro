@@ -9,6 +9,7 @@ export default [
     rules: {
       "astro/sort-attributes": "warn",
       "astro/semi": "warn",
+      "no-unused-vars": "error",
     },
   },
 ];
