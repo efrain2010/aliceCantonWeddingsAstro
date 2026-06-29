@@ -2,7 +2,7 @@
 import { getImage, Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
-import { getLang, routes, useTranslations } from "../../i18n/index";
+import { getLang, useTranslations } from "../../i18n/index";
 import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 import parallaxBg from "../../assets/shared/wedding-planner-bride-consultation-table-setting.jpg";
@@ -13,7 +13,6 @@ import nakedCake from "../../assets/about/naked-wedding-cake-candles-floral-dess
 const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.about;
-const r = routes[lang];
 
 // Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
 const parallaxOptimized = await getImage({
