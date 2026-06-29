@@ -4,22 +4,22 @@ import Layout from "../../layouts/Layout.astro";
 import HeroImage from "../HeroImage.astro";
 import SectionCTA from "../SectionCTA.astro";
 import { getLang, routes, useTranslations } from "../../i18n/index";
-import heroVeil from "../../assets/gallery/bride-veil-staircase-detail.jpg";
+import heroAltar from "../../assets/venues/beach-wedding-ceremony-arch-rose-petals.jpg";
 
 const lang = getLang(Astro.url.pathname);
 const r = routes[lang];
 const content = useTranslations(lang).notFound;
 
 // Full-bleed CSS backgrounds can't use <Image>, so pre-optimize via getImage()
-const heroVeilOptimized = await getImage({
-  src: heroVeil,
+const heroAltarOptimized = await getImage({
+  src: heroAltar,
   width: 1920,
   format: "webp",
 });
 ---
 
 <Layout description={content.meta.description} title={content.meta.title}>
-  <HeroImage heroImage={heroVeilOptimized.src} title={content.heroTitle} />
+  <HeroImage heroImage={heroAltarOptimized.src} title={content.heroTitle} />
 
   <!-- ② "WRONG PAGE" MESSAGE -->
   <section class="bg-white py-20 text-center">
