@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
@@ -21,4 +21,10 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "compile",
   }),
+
+  env: {
+    schema: {
+      CONTACT_EMAIL: envField.string({ context: "server", access: "public" }),
+    },
+  },
 });

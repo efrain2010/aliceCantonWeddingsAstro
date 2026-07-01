@@ -4,7 +4,6 @@ import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../ContactForm.astro";
 import SectionCTA from "../SectionCTA.astro";
 import { getLang, useTranslations } from "../../i18n/index";
-import { phoneHref } from "../../config/site";
 import HeroImage from "../HeroImage.astro";
 import heroTableSetting from "../../assets/contact/brindis-aereo-mesa-boda-pastel-flores.jpg";
 
@@ -12,6 +11,10 @@ const lang = getLang(Astro.url.pathname);
 const t = useTranslations(lang);
 const p = t.pages.contact;
 const l = p.labels;
+const f = t.form;
+
+const submitted = Astro.url.searchParams.get("sent") === "1";
+const submitError = Astro.url.searchParams.get("error") === "1";
 
 const mapSrc =
   "https://maps.google.com/maps?q=Alice%20Cant%C3%B3n%20Weddings%20Events%20Calle%2059D%20Yucalpet%C3%A9n%20M%C3%A9rida&t=&z=14&ie=UTF8&iwloc=&output=embed";
@@ -40,6 +43,20 @@ const heroTableSettingOptimized = await getImage({
             {l.scheduleTitle}
           </h2>
           <p class="mb-6 text-sm text-gray-500">{l.formNote}</p>
+          {
+            submitted && (
+              <p class="mb-6 border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
+                {f.successMessage}
+              </p>
+            )
+          }
+          {
+            submitError && (
+              <p class="mb-6 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                {f.errorMessage}
+              </p>
+            )
+          }
           <ContactForm
             bare={true}
             showDate={false}
@@ -65,7 +82,9 @@ const heroTableSettingOptimized = await getImage({
               <span class="text-charcoal font-semibold">{l.phoneLabel}:</span>{
                 " "
               }
-              <a class="text-gold hover:underline" href={phoneHref}>{l.phone}</a
+              <a
+                class="text-gold hover:underline"
+                href={`tel:${l.phone.replace(/\s/g, "")}`}>{l.phone}</a
               >
             </p>
             <p>

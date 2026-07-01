@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "pnpm run build && wrangler dev",
+    "pages:dev": "pnpm run build && wrangler pages dev ./dist",
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -19,11 +20,21 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
-      "sharp"
+      "sharp",
+      "workerd"
     ]
+  },
+  "dependencies": {
+    "mimetext": "^3.0.27",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/cloudflare": "12",
+    "@fontsource/great-vibes": "^5.2.8",
+    "@fontsource/lato": "^5.2.7",
+    "@fontsource/playfair-display": "^5.2.8"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.9",
+    "@cloudflare/workers-types": "^4.20251008.0",
     "@tailwindcss/vite": "^4.1.6",
     "@typescript-eslint/parser": "^8.62.0",
     "astro": "^5.7.10",
@@ -36,12 +47,5 @@
     "tailwindcss": "^4.1.6",
     "vitest": "^4.1.6",
     "wrangler": "^4.105.0"
-  },
-  "dependencies": {
-    "@astrojs/cloudflare": "12",
-    "@astrojs/sitemap": "^3.7.3",
-    "@fontsource/great-vibes": "^5.2.8",
-    "@fontsource/lato": "^5.2.7",
-    "@fontsource/playfair-display": "^5.2.8"
   }
 }

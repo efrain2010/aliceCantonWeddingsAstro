@@ -9,8 +9,8 @@ export const CONTACT = {
   email: "planner@alicecantonweddings.com",
 } as const;
 
-/** `tel:` href derived from the phone, with Mexico's +52 country code so it dials correctly from abroad */
-export const phoneHref = `tel:+52${CONTACT.phone.replace(/\D/g, "")}`;
+/** `tel:` href derived from the phone (digits/`+` only) */
+export const phoneHref = `tel:+52${CONTACT.phone.replace(/[^\d+]/g, "")}`;
 
 /** `mailto:` href derived from the email */
 export const emailHref = `mailto:${CONTACT.email}`;
@@ -34,7 +34,8 @@ export const SOCIAL = {
 } as const;
 
 /**
- * Endpoint every contact form submits to (Formspree).
- * Single source of truth so all forms use the same technology + email.
+ * Endpoint every contact form submits to: a Cloudflare Pages Function
+ * (see functions/api/contact.ts) that sends the email via Cloudflare
+ * Email Routing. Single source of truth so all forms use the same target.
  */
-export const formEndpoint = `https://formspree.io/f/${CONTACT.email}`;
+export const formEndpoint = "/api/contact";

@@ -30,13 +30,13 @@ const f = translations[lang].form;
     <div>
       <label
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        for="nombre">{f.nameLabel}</label
+        for="name">{f.nameLabel}</label
       >
       <input
         autocomplete="name"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
-        id="nombre"
-        name="nombre"
+        id="name"
+        name="name"
         placeholder={f.namePlaceholder}
         required
         type="text"
@@ -45,13 +45,14 @@ const f = translations[lang].form;
     <div>
       <label
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        for="correo">{f.emailLabel}</label
+        for="email">{f.emailLabel}</label
       >
       <input
         autocomplete="email"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
-        id="correo"
-        name="correo"
+        id="email"
+        name="email"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         placeholder={f.emailPlaceholder}
         required
         type="email"
@@ -60,13 +61,14 @@ const f = translations[lang].form;
     <div>
       <label
         class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-        for="telefono">{f.phoneLabel}</label
+        for="phone">{f.phoneLabel}</label
       >
       <input
         autocomplete="tel"
         class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
-        id="telefono"
-        name="telefono"
+        id="phone"
+        name="phone"
+        pattern="^\+?[0-9]+$"
         placeholder={f.phonePlaceholder}
         type="tel"
       />
@@ -76,14 +78,14 @@ const f = translations[lang].form;
         <div>
           <label
             class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-            for="fecha"
+            for="date"
           >
             {f.dateLabel}
           </label>
           <input
             class="focus:border-gold text-charcoal w-full border-b-2 border-gray-200 bg-transparent py-2 transition-colors outline-none"
-            id="fecha"
-            name="fecha"
+            id="date"
+            name="date"
             type="date"
           />
         </div>
@@ -94,12 +96,12 @@ const f = translations[lang].form;
   <div class="mb-8">
     <label
       class="text-charcoal mb-2 block text-xs font-medium tracking-widest uppercase"
-      for="mensaje">{f.messageLabel}</label
+      for="message">{f.messageLabel}</label
     >
     <textarea
       class="focus:border-gold text-charcoal w-full resize-none border-b-2 border-gray-200 bg-transparent py-2 placeholder-gray-300 transition-colors outline-none"
-      id="mensaje"
-      name="mensaje"
+      id="message"
+      name="message"
       placeholder={f.messagePlaceholder}
       required
       rows="5"></textarea>
@@ -112,3 +114,25 @@ const f = translations[lang].form;
     {submitLabel ?? f.submitLabel}
   </button>
 </form>
+
+<script
+  define:vars={{ emailError: f.emailError, phoneError: f.phoneError }}
+  is:inline
+>
+  document.querySelectorAll('input[type="email"]').forEach((input) => {
+    input.addEventListener("invalid", () => {
+      input.setCustomValidity(emailError);
+    });
+    input.addEventListener("input", () => {
+      input.setCustomValidity("");
+    });
+  });
+  document.querySelectorAll('input[type="tel"]').forEach((input) => {
+    input.addEventListener("invalid", () => {
+      input.setCustomValidity(phoneError);
+    });
+    input.addEventListener("input", () => {
+      input.setCustomValidity("");
+    });
+  });
+</script>

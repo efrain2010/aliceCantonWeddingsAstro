@@ -264,12 +264,18 @@ const img13 = (await getImage({ src: nakedCake, width: 800, format: "webp" }))
     >
       {
         p.contactBar.items.map((item, i) => {
-          const href =
-            i === 0
-              ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${item.value}, Yucatán, México`)}`
-              : i === 1
-                ? phoneHref
-                : `mailto:${item.value}`;
+          const href = (() => {
+            if (i === 0) {
+              return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${item.value}, Yucatán, México`)}`;
+            }
+
+            if (i === 1) {
+              return phoneHref;
+            }
+
+            return `mailto:${item.value}`;
+          })();
+
           const external = i === 0;
           return (
             <a

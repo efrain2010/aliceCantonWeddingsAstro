@@ -1,6 +1,8 @@
 # Build output
 dist/
 .astro/
+.wrangler/
+
 
 # Dependencies
 node_modules/

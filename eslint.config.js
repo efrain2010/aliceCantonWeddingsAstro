@@ -1,5 +1,4 @@
 import eslintPluginAstro from "eslint-plugin-astro";
-import tsParser from "@typescript-eslint/parser";
 
 export default [
   // add more generic rule sets here, such as:
@@ -10,6 +9,7 @@ export default [
       "astro/sort-attributes": "warn",
       "astro/semi": "warn",
       "no-unused-vars": "error",
+      "no-nested-ternary": "error",
     },
   },
 ];
