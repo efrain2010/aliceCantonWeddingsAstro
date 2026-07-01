@@ -7,12 +7,14 @@ interface Props {
   showDate?: boolean;
   bare?: boolean;
   submitLabel?: string;
+  className?: string;
 }
 const {
   singleColumn = false,
   showDate = true,
   bare = false,
   submitLabel,
+  className =""
 } = Astro.props;
 
 const lang: Lang = getLang(Astro.url.pathname);
@@ -21,7 +23,7 @@ const f = translations[lang].form;
 
 <form
   action={formEndpoint}
-  class={bare ? "w-full" : "bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto"}
+  class={bare ? "w-full" : `bg-white p-8 md:p-10 shadow-sm max-w-2xl mx-auto ${className}`}
   method="POST"
 >
   <div
